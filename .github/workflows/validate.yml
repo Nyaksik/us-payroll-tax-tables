@@ -1,0 +1,21 @@
+# The mirror writes here without a human in the loop, so the check that the data
+# still holds together has to run here rather than only upstream.
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # No install step: the validator has no dependencies, which is the point
+      # of it. Anyone who cloned the data can run the same command.
+      - run: node validate.mjs

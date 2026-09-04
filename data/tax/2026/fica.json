@@ -1,0 +1,17 @@
+{
+  "year": 2026,
+  "source": "SSA 2026 contribution and benefit base; IRS Topic 751 (Social Security and Medicare withholding rates)",
+  "sourceUrl": "https://www.ssa.gov/oact/cola/cbb.html",
+  "verified": true,
+  "verifiedOn": "2026-08-20",
+  "note": "additionalThreshold is the point at which the employer withholds additional Medicare. It is a single value and does not depend on filing status: Topic 751 says 'wages paid in excess of $200,000 in a calendar year, without regard to filing status'. The 250,000 / 125,000 thresholds belong to the final liability on the return, not to withholding.",
+  "socialSecurity": {
+    "rate": 0.062,
+    "wageBase": 184500
+  },
+  "medicare": {
+    "rate": 0.0145,
+    "additionalRate": 0.009,
+    "additionalThreshold": 200000
+  }
+}

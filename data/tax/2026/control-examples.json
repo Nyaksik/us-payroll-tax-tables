@@ -1,0 +1,994 @@
+[
+  {
+    "state": "OK",
+    "wages": 43800,
+    "status": "married_jointly",
+    "allowances": 2,
+    "expected": 880,
+    "source": "Packet OW-2 sample computation"
+  },
+  {
+    "state": "RI",
+    "wages": 114140,
+    "status": "single",
+    "allowances": 1,
+    "expected": 4553.66,
+    "source": "2026 RI booklet worked example"
+  },
+  {
+    "state": "ME",
+    "wages": 52000,
+    "status": "single",
+    "allowances": 2,
+    "expected": 1694,
+    "tolerance": 0.5,
+    "source": "Maine withholding tables, Example 2"
+  },
+  {
+    "state": "MN",
+    "wages": 905,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "expected": 46,
+    "tolerance": 0.5,
+    "source": "Minnesota weekly single table, wages of $900 to $910 with no allowances",
+    "note": "Minnesota publishes no worked example either: the one place its booklet says \"example\" is about when a deposit is due. These two are cells of its own weekly table, taken from one printed row so that the pair differs only in the allowance count, and the wage is the middle of that row. The zero allowance cell is the one that crosses into the 6.8 per cent band, which the two allowance cell does not reach."
+  },
+  {
+    "state": "MN",
+    "wages": 905,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 2,
+    "expected": 33,
+    "tolerance": 0.5,
+    "source": "Minnesota weekly single table, the same wages with two allowances"
+  },
+  {
+    "state": "MO",
+    "wages": 35000,
+    "status": "single",
+    "allowances": 0,
+    "expected": 707.81,
+    "source": "2026 Missouri withholding formula example, through the single column"
+  },
+  {
+    "state": "MO",
+    "wages": 35000,
+    "status": "married_jointly",
+    "spouseHasEarnedIncome": true,
+    "allowances": 0,
+    "expected": 707.81,
+    "source": "2026 Missouri withholding formula example",
+    "note": "The same example as the state states it: its employee is married with a working spouse, which Missouri deducts $16,100 for and not the $32,200 a sole earner gets. The row above reaches the same figure down the single column, so only this one can fail on the column being chosen wrongly."
+  },
+  {
+    "state": "VT",
+    "wages": 60000,
+    "status": "single",
+    "allowances": 2,
+    "expected": 1516.71,
+    "source": "GB-1210 annual table"
+  },
+  {
+    "state": "WV",
+    "wages": 50000,
+    "status": "single",
+    "allowances": 2,
+    "expected": 1359.7,
+    "source": "IT-100.2A Table 5, one earner"
+  },
+  {
+    "state": "WV",
+    "wages": 50000,
+    "status": "married_jointly",
+    "spouseHasEarnedIncome": true,
+    "allowances": 2,
+    "expected": 1508.68,
+    "source": "IT-100.2A Table 5, two earner",
+    "note": "The same wages read off the other set of tables in the same document, the one West Virginia prints first and leaves unmarked: 50 000 less two $2 000 exemptions is $46 000, over the $45 000 rung, so $1 462.88 plus 4.58% of the $1 000 above it."
+  },
+  {
+    "state": "WI",
+    "wages": 26000,
+    "status": "single",
+    "allowances": 3,
+    "expected": 745.78,
+    "source": "Publication W-166, Example 2"
+  },
+  {
+    "state": "SC",
+    "wages": 39000,
+    "status": "single",
+    "allowances": 3,
+    "expected": 549.9,
+    "source": "WH-1603F standard deduction example"
+  },
+  {
+    "state": "KS",
+    "wages": 48000,
+    "status": "married_jointly",
+    "allowances": 3,
+    "expected": 994.24,
+    "source": "KW-100 Esmeralda Espinoza example"
+  },
+  {
+    "state": "MT",
+    "wages": 60000,
+    "status": "single",
+    "allowances": 0,
+    "expected": 2063.3,
+    "source": "Montana annual formula W = A + B(G - C)"
+  },
+  {
+    "state": "NE",
+    "wages": 60000,
+    "status": "single",
+    "allowances": 2,
+    "expected": 2015.1,
+    "source": "Circular EN Table 7(a)"
+  },
+  {
+    "state": "NM",
+    "wages": 60000,
+    "status": "single",
+    "allowances": 0,
+    "expected": 2032.65,
+    "source": "FYI-104 Table 7(a)"
+  },
+  {
+    "state": "ND",
+    "wages": 60000,
+    "status": "single",
+    "allowances": 0,
+    "expected": 46.31,
+    "source": "ND 2026 Section 2 annual table"
+  },
+  {
+    "state": "AR",
+    "wages": 25524,
+    "status": "single",
+    "allowances": 2,
+    "expected": 438,
+    "tolerance": 0.5,
+    "source": "Arkansas computer formula example"
+  },
+  {
+    "state": "HI",
+    "wages": 26000,
+    "status": "single",
+    "allowances": 3,
+    "expected": 497.99,
+    "source": "Booklet A Appendix Part 1 example"
+  },
+  {
+    "state": "CA",
+    "wages": 57000,
+    "status": "married_jointly",
+    "allowances": 4,
+    "expected": 86,
+    "source": "Method B Example F"
+  },
+  {
+    "state": "NY",
+    "wages": 600000,
+    "status": "single",
+    "allowances": 3,
+    "expected": 42919.7,
+    "source": "NYS-50-T-NYS Example 3, annualised"
+  },
+  {
+    "state": "OH",
+    "wages": 500.96,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "expected": 8.02,
+    "source": "Ohio percentage method from 1 August 2026, Table 1: the base of the second step",
+    "note": "Ohio prints five per-period tables and no annual one, so the entry is the weekly table times 52 and there is no printed annual figure to check it against. What is printed is the base of each step, and a base is a stated sum: at exactly $500.96 a week the table withholds the $8.02 that opens the 2.99 per cent step, and at $1,923.08 it withholds the $50.54 that opens the 3.4 per cent one. Both sit on a threshold, which is where an annualised table is most likely to be off by a rounding."
+  },
+  {
+    "state": "OH",
+    "wages": 1923.08,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "expected": 50.54,
+    "source": "Ohio percentage method from 1 August 2026, Table 1: the base of the third step"
+  },
+  {
+    "state": "VA",
+    "wages": 63576,
+    "status": "single",
+    "allowances": 5,
+    "expected": 2628,
+    "tolerance": 0.5,
+    "source": "Virginia employer guide worked example"
+  },
+  {
+    "state": "DC",
+    "wages": 60000,
+    "status": "single",
+    "allowances": 1,
+    "expected": 3220.5,
+    "source": "OTR Tax Notice 2022-08 method: 2026 rate schedule less the federal $4,300 allowance of Pub 15-T"
+  },
+  {
+    "state": "CT",
+    "wages": 4000,
+    "frequency": "monthly",
+    "status": "single",
+    "allowances": 0,
+    "exemptionCode": "D",
+    "expected": 159.17,
+    "notFromGuide": true,
+    "source": "the state's own CT-W4 calculator for 2026: $48,000 a year on code D, which has neither exemption nor credit",
+    "note": "Connecticut, from the state's own 2026 Connecticut Withholding Calculator – Form CT-W4, inside myconneCT. It takes the annualised salary and the pay period and answers with the amount for one period, which is exactly the shape of the engine's own calculation, so nothing has to be converted on the way in or out.\n\nSeven rows because the state groups its six codes five different ways: the rows between them read every one of the five tables, all three rate schedules and all four pay periods the form offers."
+  },
+  {
+    "state": "CT",
+    "wages": 350,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "exemptionCode": "A",
+    "expected": 1.43,
+    "notFromGuide": true,
+    "source": "the state's own CT-W4 calculator for 2026: $18,200 a year on code A, where Table A leaves $6,200 and Table E takes off two fifths"
+  },
+  {
+    "state": "CT",
+    "wages": 2019.25,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "exemptionCode": "A",
+    "expected": 102.4,
+    "tolerance": 0.01,
+    "notFromGuide": true,
+    "source": "the state's own CT-W4 calculator for 2026: $105,001 a year on code A, a dollar past the edge of Table D"
+  },
+  {
+    "state": "CT",
+    "wages": 20000,
+    "frequency": "monthly",
+    "status": "single",
+    "allowances": 0,
+    "exemptionCode": "B",
+    "expected": 1096.67,
+    "notFromGuide": true,
+    "source": "the state's own CT-W4 calculator for 2026: $240,000 a year on code B, mid-ladder in Table D"
+  },
+  {
+    "state": "CT",
+    "wages": 50000,
+    "frequency": "monthly",
+    "status": "single",
+    "allowances": 0,
+    "exemptionCode": "C",
+    "expected": 3291.67,
+    "notFromGuide": true,
+    "source": "the state's own CT-W4 calculator for 2026: $600,000 a year on code C, at 6.99% with both the add-back and the recapture at their ceilings"
+  },
+  {
+    "state": "CT",
+    "wages": 5000,
+    "frequency": "semimonthly",
+    "status": "single",
+    "allowances": 0,
+    "exemptionCode": "C",
+    "expected": 220.83,
+    "notFromGuide": true,
+    "source": "the state's own CT-W4 calculator for 2026: $120,000 a year on code C, twice a month"
+  },
+  {
+    "state": "CT",
+    "wages": 2000,
+    "frequency": "biweekly",
+    "status": "single",
+    "allowances": 0,
+    "exemptionCode": "F",
+    "expected": 73.04,
+    "notFromGuide": true,
+    "source": "the state's own CT-W4 calculator for 2026: $52,000 a year on code F, with a tenth off from Table E"
+  },
+  {
+    "state": "DE",
+    "wages": 25000,
+    "status": "single",
+    "allowances": 1,
+    "expected": 722,
+    "source": "Delaware employer guide, single taxpayer 1 allowance"
+  },
+  {
+    "state": "CO",
+    "wages": 60000,
+    "status": "single",
+    "allowances": 0,
+    "expected": 2398,
+    "source": "DR 1098 formula, the only figure to be had: (60,000 − 5,500) × 4.4%",
+    "note": "Colorado is the one entry in the file with nothing to check it against, and PAY-197 says why after looking: DR 1098 is the formula itself with no worked example, no wage bracket table, and an \"electronic version\" that turns out to be the same worksheet in a spreadsheet. So this expectation is computed from the formula, it guards the wiring of the data rather than the source, and the entry carries verified: false to say so on the document."
+  },
+  {
+    "state": "ID",
+    "wages": 60000,
+    "status": "single",
+    "allowances": 0,
+    "expected": 2326.7,
+    "source": "EPB00744: 5.3% of the amount over 16,100"
+  },
+  {
+    "state": "IL",
+    "wages": 399,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 2,
+    "expected": 14.18,
+    "source": "IL-700-T weekly table, wages of $398 to $400 with two Line 1 allowances",
+    "note": "Illinois and Mississippi publish no worked example the model can follow, and both are checked against their printed tables instead. Illinois does print two examples, and neither is usable: both claim allowances on Line 2 of the IL-W-4, worth $1,000 each, which this model deliberately does not carry.\n\nA table row covers a range of wages and states one figure for it, so the wage here is the middle of the printed bracket. Reading the bottom edge instead would disagree with the department by a couple of cents and send the next reader hunting for an error that is not there."
+  },
+  {
+    "state": "IL",
+    "wages": 351,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 4,
+    "expected": 6.24,
+    "source": "IL-700-T weekly table, wages of $350 to $352 with four Line 1 allowances"
+  },
+  {
+    "state": "MS",
+    "wages": 1510,
+    "frequency": "semimonthly",
+    "status": "single",
+    "allowances": 0,
+    "expected": 30,
+    "tolerance": 0.5,
+    "source": "Pub 89-700 Table A single, semi-monthly wages of $1,500 to $1,520 at the $6,000 exemption"
+  },
+  {
+    "state": "MS",
+    "wages": 1510,
+    "frequency": "semimonthly",
+    "status": "married_jointly",
+    "allowances": 0,
+    "expected": 16,
+    "tolerance": 0.5,
+    "source": "Pub 89-700 Table C married with a spouse not employed, the same wages at the $12,000 exemption"
+  },
+  {
+    "state": "NC",
+    "wages": 23400,
+    "status": "single",
+    "allowances": 2,
+    "expected": 231.09,
+    "source": "NC-30 annualised wages example: $450 weekly with two allowances"
+  },
+  {
+    "state": "KY",
+    "wages": 3270,
+    "frequency": "monthly",
+    "status": "single",
+    "allowances": 0,
+    "expected": 104.65,
+    "source": "2026 Kentucky formula, first example: $3,270 monthly",
+    "note": "Kentucky prints two examples under its formula, and only the first is used. The second carries two slips of the department's own pen: its step 3 reads \"$35,730 × 3.5% = $1,247.40\" where step 2 had just produced $35,640, and $1,247.40 is 3.5% of $35,640 and not of $35,730; then its step 4 divides $1,247.40 by 26 and prints $47, which is $47.98. Neither slip touches the standard deduction or the rate, so neither moves anything here, but an example that disagrees with its own arithmetic cannot be a control."
+  },
+  {
+    "state": "LA",
+    "wages": 700,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "expected": 13.98,
+    "source": "R-1306 (1/26) Example 1: $700 weekly claiming 1 in block A of the L-4",
+    "note": "Both Louisiana examples run through the pay period, which is the part its own formula turns on: the annual standard deduction is divided by the number of periods before the rate is applied, and an annual figure would never exercise that division."
+  },
+  {
+    "state": "LA",
+    "wages": 4600,
+    "frequency": "biweekly",
+    "status": "married_jointly",
+    "allowances": 0,
+    "expected": 111.54,
+    "source": "R-1306 (1/26) Example 2: $4,600 every two weeks claiming 2 in block A of the L-4"
+  },
+  {
+    "state": "MI",
+    "wages": 60000,
+    "status": "single",
+    "allowances": 1,
+    "expected": 2299.25,
+    "notFromGuide": true,
+    "source": "Michigan Treasury's own calculator for 2026: $60,000 annual with one exemption",
+    "note": "Michigan publishes no example at all, and its guide sends the reader to the calculator Treasury runs instead, which is why both of these are marked as not from the guide. The weekly probe is the one worth having: it says the annual exemption is divided by the number of periods unrounded, and only the result is taken to the cent. The guide itself is only reachable through the web archive and the calculator only through a real browser, both because michigan.gov answers curl with an Akamai \"Access Denied\" (PAY-206)."
+  },
+  {
+    "state": "MI",
+    "wages": 1000,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 2,
+    "expected": 32.86,
+    "notFromGuide": true,
+    "source": "Michigan Treasury's own calculator for 2026: $1,000 weekly with two exemptions"
+  },
+  {
+    "state": "MA",
+    "wages": 8060,
+    "status": "single",
+    "allowances": 1,
+    "expected": 152.17,
+    "source": "Circular M weekly table: wages of $150 to $160 with one exemption withhold $2.93"
+  },
+  {
+    "state": "MA",
+    "wages": 60000,
+    "status": "head_of_household",
+    "allowances": 2,
+    "expected": 2510,
+    "source": "Circular M percentage method: 60,000 less 2,000 FICA less 5,400 exemptions at 5%, less the $120 head of household value"
+  },
+  {
+    "state": "GA",
+    "wages": 35299.92,
+    "status": "married_jointly",
+    "allowances": 1,
+    "payDate": "2026-03-15",
+    "expected": 378.87,
+    "source": "Georgia guide Rev. December 2025, Table E example: $1,470.83 semi-monthly with one dependent withholds $15.79"
+  },
+  {
+    "state": "OH",
+    "wages": 52000,
+    "status": "single",
+    "allowances": 1,
+    "payDate": "2026-03-15",
+    "expected": 1218.88,
+    "tolerance": 0.5,
+    "source": "Ohio percentage method effective 1 October 2025, Table I: $1,000 weekly with one exemption withholds $23.44"
+  },
+  {
+    "state": "UT",
+    "wages": 43250,
+    "status": "single",
+    "allowances": 0,
+    "payDate": "2026-03-15",
+    "expected": 1940,
+    "tolerance": 2,
+    "source": "Publication 14 Rev. 4/25, Table 5 quarterly single: wages of $10,600 to $11,025 withhold $485"
+  },
+  {
+    "state": "UT",
+    "wages": 43250,
+    "status": "married_jointly",
+    "allowances": 0,
+    "payDate": "2026-03-15",
+    "expected": 1372,
+    "tolerance": 2,
+    "source": "Publication 14 Rev. 4/25, Table 5 quarterly married: the same wages withhold $343"
+  },
+  {
+    "state": "GA",
+    "wages": 2000,
+    "frequency": "semimonthly",
+    "status": "married_jointly",
+    "allowances": 1,
+    "expected": 27.03,
+    "source": "Georgia guide updated June 2026, Table E example: $2,000 semi-monthly married with one child",
+    "note": "The June 2026 edition of the Georgia guide prints an example under each of its two percentage-method tables, and the pair is worth keeping together: the first exercises the dependent allowance, the second exercises what happens when the deductions swallow the wage. The department prints $0.00 for the second and says so in words, so a negative leaking through here would be caught rather than clamped quietly."
+  },
+  {
+    "state": "GA",
+    "wages": 935,
+    "frequency": "biweekly",
+    "status": "head_of_household",
+    "allowances": 2,
+    "expected": 0,
+    "source": "Georgia guide updated June 2026, Table F example: $935 every two weeks head of household with two children"
+  },
+  {
+    "state": "UT",
+    "wages": 43250,
+    "status": "single",
+    "allowances": 0,
+    "expected": 1880,
+    "tolerance": 2,
+    "source": "Publication 14 Rev. 4/26, Table 5 quarterly single: wages of $10,600 to $11,025 withhold $470"
+  },
+  {
+    "state": "UT",
+    "wages": 43250,
+    "status": "married_jointly",
+    "allowances": 0,
+    "expected": 1272,
+    "tolerance": 2,
+    "source": "Publication 14 Rev. 4/26, Table 5 quarterly married: the same wages withhold $318"
+  },
+  {
+    "state": "IA",
+    "wages": 2100,
+    "frequency": "biweekly",
+    "status": "single",
+    "allowances": 0,
+    "allowanceAmount": 40,
+    "expected": 59.26,
+    "source": "Iowa withholding formula 2026, Example 1: biweekly, Other, $40 allowance"
+  },
+  {
+    "state": "IA",
+    "wages": 2100,
+    "frequency": "biweekly",
+    "status": "married_jointly",
+    "allowances": 0,
+    "allowanceAmount": 80,
+    "expected": 38.72,
+    "source": "Iowa withholding formula 2026, Example 2: biweekly, spouse with no earned income"
+  },
+  {
+    "state": "IA",
+    "wages": 2100,
+    "frequency": "biweekly",
+    "status": "head_of_household",
+    "allowances": 0,
+    "allowanceAmount": 160,
+    "expected": 45.15,
+    "source": "Iowa withholding formula 2026, Example 3: biweekly, head of household"
+  },
+  {
+    "state": "IA",
+    "wages": 5000,
+    "frequency": "monthly",
+    "status": "single",
+    "allowances": 0,
+    "allowanceAmount": 40,
+    "expected": 145.5,
+    "source": "Iowa withholding formula 2026, Example 4: monthly, Other, $40 allowance"
+  },
+  {
+    "state": "IA",
+    "wages": 5000,
+    "frequency": "monthly",
+    "status": "married_jointly",
+    "allowances": 0,
+    "allowanceAmount": 80,
+    "expected": 101,
+    "source": "Iowa withholding formula 2026, Example 5: monthly, spouse with no earned income"
+  },
+  {
+    "state": "IA",
+    "wages": 5000,
+    "frequency": "monthly",
+    "status": "head_of_household",
+    "allowances": 0,
+    "allowanceAmount": 160,
+    "expected": 114.92,
+    "source": "Iowa withholding formula 2026, Example 6: monthly, head of household"
+  },
+  {
+    "state": "IA",
+    "wages": 2100,
+    "frequency": "biweekly",
+    "status": "single",
+    "allowances": 1,
+    "expected": 59.26,
+    "source": "Iowa withholding formula 2026, Example 7: biweekly, single on a 2023 or earlier IA W-4"
+  },
+  {
+    "state": "IA",
+    "wages": 2100,
+    "frequency": "biweekly",
+    "status": "married_jointly",
+    "allowances": 2,
+    "expected": 38.72,
+    "source": "Iowa withholding formula 2026, Example 8: biweekly, married on a 2023 or earlier IA W-4"
+  },
+  {
+    "state": "IA",
+    "wages": 5000,
+    "frequency": "monthly",
+    "status": "single",
+    "allowances": 1,
+    "expected": 145.5,
+    "source": "Iowa withholding formula 2026, Example 9: monthly, single on a 2023 or earlier IA W-4"
+  },
+  {
+    "state": "IA",
+    "wages": 5000,
+    "frequency": "monthly",
+    "status": "married_jointly",
+    "allowances": 2,
+    "expected": 101,
+    "source": "Iowa withholding formula 2026, Example 10: monthly, married on a 2023 or earlier IA W-4"
+  },
+  {
+    "state": "AL",
+    "wages": 850,
+    "frequency": "weekly",
+    "status": "married_jointly",
+    "exemptionCode": "M",
+    "allowances": 2,
+    "federalWithholding": 35.19,
+    "expected": 29.59,
+    "source": "Alabama withholding booklet Rev. 01/26, worked example: M-2, weekly wages of $850"
+  },
+  {
+    "state": "OR",
+    "wages": 25000,
+    "status": "single",
+    "allowances": 0,
+    "federalWithholding": 1000,
+    "expected": 1789,
+    "tolerance": 0.5,
+    "source": "Oregon withholding tax formulas 150-206-436, Example 1, line by line rather than the prose above it"
+  },
+  {
+    "state": "OR",
+    "wages": 2083.3333333333335,
+    "frequency": "monthly",
+    "status": "single",
+    "allowances": 0,
+    "federalWithholding": 83.33333333333333,
+    "expected": 149,
+    "tolerance": 0.5,
+    "source": "Oregon formulas 150-206-436, Example 2, monthly"
+  },
+  {
+    "state": "OR",
+    "wages": 961.5384615384615,
+    "frequency": "biweekly",
+    "status": "single",
+    "allowances": 0,
+    "federalWithholding": 38.46153846153846,
+    "expected": 69,
+    "tolerance": 0.5,
+    "source": "Oregon formulas 150-206-436, Example 2, every two weeks"
+  },
+  {
+    "state": "OR",
+    "wages": 480.7692307692308,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "federalWithholding": 19.23076923076923,
+    "expected": 34,
+    "tolerance": 0.5,
+    "source": "Oregon formulas 150-206-436, Example 2, weekly"
+  },
+  {
+    "state": "NJ",
+    "wages": 300,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 1,
+    "exemptionCode": "A",
+    "expected": 4.21,
+    "source": "NJ-WT September 2025 page 25, Rate Table \"A\" example 1: $300 weekly, one allowance",
+    "note": "Three of the six examples New Jersey prints, and the only three its own current tables still reproduce to the cent. The other three are pinned further down as the disagreement they are, rather than smuggled in here under a tolerance: a tolerance in a control example is a hole a real error later fits through."
+  },
+  {
+    "state": "NJ",
+    "wages": 700,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 1,
+    "exemptionCode": "A",
+    "expected": 11.84,
+    "source": "NJ-WT September 2025 page 25, Rate Table \"A\" example 2: $700 weekly, one allowance"
+  },
+  {
+    "state": "NJ",
+    "wages": 375,
+    "frequency": "weekly",
+    "status": "married_jointly",
+    "allowances": 3,
+    "exemptionCode": "B",
+    "expected": 4.76,
+    "source": "NJ-WT September 2025 page 25, Rate Table \"B\" example 1: $375 weekly, three allowances"
+  },
+  {
+    "state": "IN",
+    "wages": 800,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "exemptionCounts": {
+      "personal": 5,
+      "dependent": 3,
+      "firstTimeDependent": 1,
+      "adoptedChild": 2
+    },
+    "county": "31",
+    "expected": 13.96,
+    "expectedCounty": 4.73,
+    "source": "Departmental Notice #1 R46/01-26 page 3: $800 weekly, five personal exemptions, three dependents, one first-time dependent, two adopted children, county rate 0.01",
+    "note": "The one example Indiana prints, and it is worth more than its two amounts. It pins the rounding (13.9559 goes to 13.96, half up to the cent), it shows the county charging the very same base as the state, and it settles that the four lines of the WH-4 round to the cent one at a time before they are added: a dependent and a first-time dependent come to 86.54 + 28.85 = 115.39 a week, where the same 6,000 a year taken as one line would come to 115.38.\n\nThe guide states a county rate of 0.01 and names no county. Harrison is one of the four that charge exactly that."
+  },
+  {
+    "state": "MD",
+    "wages": 1000,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "county": "01",
+    "expected": 73.29,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $1,000 a week, no exemptions, Allegany at 3.20%"
+  },
+  {
+    "state": "MD",
+    "wages": 1000,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 3,
+    "county": "01",
+    "expected": 58.62,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $1,000 a week, three exemptions, Allegany"
+  },
+  {
+    "state": "MD",
+    "wages": 120,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "county": "01",
+    "expected": 3.33,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $120 a week, the row the state extends below $3,001 of taxable income"
+  },
+  {
+    "state": "MD",
+    "wages": 96,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "county": "01",
+    "expected": 1.42,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $96 a week, the first gross the weekly table withholds on"
+  },
+  {
+    "state": "MD",
+    "wages": 95,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "county": "01",
+    "expected": 0,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $95 a week, a cent under the weekly floor"
+  },
+  {
+    "state": "MD",
+    "wages": 500,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 10,
+    "county": "01",
+    "expected": 0,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $500 a week with ten exemptions, more than the wages"
+  },
+  {
+    "state": "MD",
+    "wages": 2000,
+    "frequency": "biweekly",
+    "status": "single",
+    "allowances": 0,
+    "county": "01",
+    "expected": 146.58,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $2,000 a fortnight, no exemptions, Allegany"
+  },
+  {
+    "state": "MD",
+    "wages": 1200,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "county": "24",
+    "expected": 78.41,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $1,200 a week, Worcester at 2.25%, the lowest rate in the state"
+  },
+  {
+    "state": "MD",
+    "wages": 3000,
+    "frequency": "semimonthly",
+    "status": "head_of_household",
+    "allowances": 2,
+    "county": "22",
+    "expected": 186.3,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $3,000 twice a month, two exemptions, Washington at 2.95% — a rate none of the printed tables carries"
+  },
+  {
+    "state": "MD",
+    "wages": 5000,
+    "frequency": "monthly",
+    "status": "married_jointly",
+    "allowances": 1,
+    "county": "13",
+    "expected": 320.72,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $5,000 a month, one exemption, Harford at 3.06% — another rate with no printed table"
+  },
+  {
+    "state": "MD",
+    "wages": 8000,
+    "frequency": "semimonthly",
+    "status": "single",
+    "allowances": 0,
+    "county": "15",
+    "expected": 650.28,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $8,000 twice a month, Kent at 3.30%, into the 5.50% state bracket"
+  },
+  {
+    "state": "MD",
+    "wages": 20000,
+    "frequency": "monthly",
+    "status": "married_jointly",
+    "allowances": 4,
+    "county": "16",
+    "expected": 1479.55,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $20,000 a month, four exemptions, Montgomery, into the 5.25% joint bracket"
+  },
+  {
+    "state": "MD",
+    "wages": 6000,
+    "frequency": "monthly",
+    "status": "single",
+    "allowances": 0,
+    "county": "02",
+    "expected": 425.24,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $6,000 a month, Anne Arundel, taxable income past its first bracket edge"
+  },
+  {
+    "state": "MD",
+    "wages": 6000,
+    "frequency": "monthly",
+    "status": "married_jointly",
+    "allowances": 0,
+    "county": "02",
+    "expected": 400.1,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $6,000 a month, Anne Arundel, a joint filer still inside its first bracket"
+  },
+  {
+    "state": "MD",
+    "wages": 8000,
+    "frequency": "monthly",
+    "status": "head_of_household",
+    "allowances": 0,
+    "county": "02",
+    "expected": 551.93,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $8,000 a month, Anne Arundel, head of household past the joint bracket edge"
+  },
+  {
+    "state": "MD",
+    "wages": 3000,
+    "frequency": "monthly",
+    "status": "single",
+    "allowances": 0,
+    "county": "11",
+    "expected": 199.38,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $3,000 a month, Frederick at 2.75% — a cliff, charged on the whole of the income"
+  },
+  {
+    "state": "MD",
+    "wages": 6000,
+    "frequency": "monthly",
+    "status": "single",
+    "allowances": 0,
+    "county": "11",
+    "expected": 436.38,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $6,000 a month, Frederick one cliff higher, at 2.96%"
+  },
+  {
+    "state": "MD",
+    "wages": 40000,
+    "frequency": "monthly",
+    "status": "single",
+    "allowances": 0,
+    "county": "02",
+    "expected": 3323.39,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $40,000 a month, Anne Arundel, taxable income past its top bracket edge at 400,000"
+  },
+  {
+    "state": "MD",
+    "wages": 45000,
+    "frequency": "monthly",
+    "status": "married_jointly",
+    "allowances": 0,
+    "county": "02",
+    "expected": 3675.95,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $45,000 a month, Anne Arundel, a joint filer past the 480,000 edge"
+  },
+  {
+    "state": "MD",
+    "wages": 15000,
+    "frequency": "monthly",
+    "status": "single",
+    "allowances": 0,
+    "county": "11",
+    "expected": 1197.85,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $15,000 a month, Frederick on its top cliff at 3.20%"
+  },
+  {
+    "state": "MD",
+    "wages": 25000,
+    "frequency": "monthly",
+    "status": "married_jointly",
+    "allowances": 0,
+    "county": "11",
+    "expected": 2006.38,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $25,000 a month, Frederick, a joint filer on that same cliff from 250,001"
+  },
+  {
+    "state": "MD",
+    "wages": 52000,
+    "status": "single",
+    "allowances": 0,
+    "nonresident": true,
+    "expected": 3349.5,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $52,000 a year, no exemptions, Non-Resident",
+    "note": "The employee who lives outside Maryland. The state charges no county rate on one and an additional state tax at 2.25% instead, so the four rows below walk the schedule the surcharge rides on rather than one point of it: the first bracket, the second, the fourth and the sixth.\n\nThe fifth row is the whole reason the surcharge is modelled as a local rate and not as a second schedule. Maryland's own calculator answers 64.41 for a nonresident and 64.41 for a resident of Worcester, and prints County Rate: 0.0225 in both: the two are the same arithmetic, and only the question differs."
+  },
+  {
+    "state": "MD",
+    "wages": 150000,
+    "status": "single",
+    "allowances": 0,
+    "nonresident": true,
+    "expected": 10380,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $150,000 a year, Non-Resident, past the 100,000 edge where the combined rate becomes 7.25%"
+  },
+  {
+    "state": "MD",
+    "wages": 600000,
+    "status": "single",
+    "allowances": 0,
+    "nonresident": true,
+    "expected": 46596,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $600,000 a year, Non-Resident, in the 8.50% band"
+  },
+  {
+    "state": "MD",
+    "wages": 250000,
+    "status": "married_jointly",
+    "allowances": 2,
+    "nonresident": true,
+    "expected": 16920.62,
+    "tolerance": 0.01,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $250,000 a year, two exemptions, a joint filer, Non-Resident",
+    "note": "Half a cent exactly: the state answers 16,920.62 and the arithmetic gives 16,920.625, so the two round the same figure in opposite directions. The same convention as the Connecticut row at 105,001, and the tolerance says so rather than the rounding being bent to match."
+  },
+  {
+    "state": "MD",
+    "wages": 1000,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "nonresident": true,
+    "county": "01",
+    "expected": 64.41,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026: $1,000 a week, Non-Resident — the same 64.41 it answers for a resident of Worcester, and the county in the draft is not read"
+  }
+]

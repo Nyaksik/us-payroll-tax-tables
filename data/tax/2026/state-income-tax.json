@@ -1,0 +1,3012 @@
+{
+  "year": 2026,
+  "note": "Every entry links to the withholding guide of the state revenue department. verified=false means the figure has been entered but not confirmed against the primary source for 2026; empty brackets mean the state's formula does not fit this model. A state holds a list of entries: each one applies from its own date until the next one begins.",
+  "states": {
+    "AL": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/whbooklet_0126.pdf",
+        "note": "State tax only. Some Alabama cities charge an occupational license fee on wages earned in the city, which the employer deducts on top of this.",
+        "noteSourceUrl": "https://www.auburnal.gov/revenue/faqs/",
+        "unmodelledLocalTax": true,
+        "sourceNote": "Withholding Tax Tables and Instructions, Rev. January 2026. Alabama subtracts the employee's annualized federal withholding and steps its standard deduction down by gross income, and both that deduction and the personal exemption follow the letter code on Form A-4. The printed wage-bracket tables are deliberately not reproduced: they take only the wage and the code, so they carry an assumption about federal withholding that the guide never states.",
+        "deductsFederalWithholding": true,
+        "exemptionCodes": [
+          {
+            "code": "0",
+            "label": "0 - no personal exemption claimed",
+            "schedule": "single",
+            "personalExemption": 0,
+            "deduction": {
+              "base": 3000,
+              "from": 25999,
+              "increment": 500,
+              "step": 25,
+              "until": 35500,
+              "floor": 2500
+            }
+          },
+          {
+            "code": "S",
+            "label": "S - single",
+            "schedule": "single",
+            "personalExemption": 1500,
+            "defaultFor": ["single"],
+            "deduction": {
+              "base": 3000,
+              "from": 25999,
+              "increment": 500,
+              "step": 25,
+              "until": 35500,
+              "floor": 2500
+            }
+          },
+          {
+            "code": "MS",
+            "label": "MS - married filing separately",
+            "schedule": "single",
+            "personalExemption": 1500,
+            "deduction": {
+              "base": 4250,
+              "from": 12999,
+              "increment": 250,
+              "step": 88,
+              "until": 17750,
+              "floor": 2500
+            }
+          },
+          {
+            "code": "M",
+            "label": "M - married filing jointly",
+            "schedule": "married_jointly",
+            "personalExemption": 3000,
+            "defaultFor": ["married_jointly"],
+            "deduction": {
+              "base": 8500,
+              "from": 25999,
+              "increment": 500,
+              "step": 175,
+              "until": 35500,
+              "floor": 5000
+            }
+          },
+          {
+            "code": "H",
+            "label": "H - head of family",
+            "schedule": "head_of_household",
+            "personalExemption": 3000,
+            "defaultFor": ["head_of_household"],
+            "deduction": {
+              "base": 5200,
+              "from": 25999,
+              "increment": 500,
+              "step": 135,
+              "until": 35500,
+              "floor": 2500
+            }
+          }
+        ],
+        "dependentAllowance": [
+          { "upTo": 50000, "amount": 1000 },
+          { "upTo": 100000, "amount": 500 },
+          { "amount": 300 }
+        ],
+        "brackets": {
+          "single": [
+            [0, 0, 0.02],
+            [500, 10, 0.04],
+            [3000, 110, 0.05]
+          ],
+          "married_jointly": [
+            [0, 0, 0.02],
+            [1000, 20, 0.04],
+            [6000, 220, 0.05]
+          ],
+          "head_of_household": [
+            [0, 0, 0.02],
+            [500, 10, 0.04],
+            [3000, 110, 0.05]
+          ]
+        }
+      }
+    ],
+    "AK": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "none",
+        "verified": true,
+        "note": "No state income tax is withheld from wages in Alaska.",
+        "sourceUrl": "https://tax.alaska.gov/programs/programs/index.aspx?10001",
+        "sourceNote": "The Tax Division keeps a page for the personal income tax in order to say that there is none, and it says it in the form a payroll tool needs rather than the general one: the state does not have an individual income tax, therefore no employee withholding for state income tax is required."
+      }
+    ],
+    "AZ": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "elected_rate",
+        "verified": true,
+        "sourceUrl": "https://azdor.gov/sites/default/files/document/FORMS_WITHHOLDING_2026_A-4_f.pdf",
+        "sourceNote": "Arizona Form A-4 for 2026, ADOR 10121 (25). The state publishes no withholding formula and no withholding tables: the employee elects one of the percentages in box 1 of the A-4, and it is applied to gross taxable wages with no deduction, no allowance and no dependence on the pay frequency. Box 2 is a separate election to have nothing withheld, open to an employee who expects no Arizona tax. An employee who has filed no A-4 is withheld at 2.0%, which the form states in those words. The A-4 also takes an extra flat amount per pay period, and that amount is added on top of the elected percentage.",
+        "rates": [0.005, 0.01, 0.015, 0.02, 0.025, 0.03, 0.035],
+        "defaultRate": 0.02,
+        "allowsZeroElection": true,
+        "periodAdjustments": {
+          "extra": {
+            "label": "Extra state withholding",
+            "hint": "Flat amount the same state form asks for on top, per pay period."
+          }
+        }
+      }
+    ],
+    "AR": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.dfa.arkansas.gov/wp-content/uploads/Withholding-Tax-Formula.pdf",
+        "sourceNote": "The recapture the department prints above $94,700 is carried row for row, thirty rows of it: the adjustment starts at $369.90 over $94,701 to $94,800, falls by $10 for every $100 of income to $89.90 over $97,501 to $97,600, and stays at $79.90 from $97,601 upwards. Every row is one bracket, its base being the row floor at 3.7% less the printed adjustment, because the schedule has no other way to say the same thing. The lookup in step 2 is deliberately not modelled: below $100,001 the department reads the income at the $50 midrange of the surrounding $100 rather than at the figure itself, which is worth up to $50 of income at 3.7%, or $1.85 a year, and step 3 rounds the tax itself to the dollar afterwards. Near a recapture boundary the midrange can move the row instead of the cents, an income of $94,700 being read at $94,750 and so taking the adjustment of the row above, and that is worth the $10 by which two neighbouring rows differ. The document is also of two minds about where the rounding stops, step 2 saying $100,001 and its own worked example $97,701.",
+        "annualStandardDeduction": {
+          "single": 2470,
+          "married_jointly": 2470,
+          "head_of_household": 2470
+        },
+        "creditPerAllowance": 29,
+        "brackets": {
+          "single": [
+            [0, 0, 0.0],
+            [5600, 0.02, 0.02],
+            [11200, 112.03, 0.03],
+            [16000, 256.03, 0.034],
+            [26400, 609.64, 0.037],
+            [94701, 3134.037, 0.037],
+            [94801, 3147.737, 0.037],
+            [94901, 3161.437, 0.037],
+            [95001, 3175.137, 0.037],
+            [95101, 3188.837, 0.037],
+            [95201, 3202.537, 0.037],
+            [95301, 3216.237, 0.037],
+            [95401, 3229.937, 0.037],
+            [95501, 3243.637, 0.037],
+            [95601, 3257.337, 0.037],
+            [95701, 3271.037, 0.037],
+            [95801, 3284.737, 0.037],
+            [95901, 3298.437, 0.037],
+            [96001, 3312.137, 0.037],
+            [96101, 3325.837, 0.037],
+            [96201, 3339.537, 0.037],
+            [96301, 3353.237, 0.037],
+            [96401, 3366.937, 0.037],
+            [96501, 3380.637, 0.037],
+            [96601, 3394.337, 0.037],
+            [96701, 3408.037, 0.037],
+            [96801, 3421.737, 0.037],
+            [96901, 3435.437, 0.037],
+            [97001, 3449.137, 0.037],
+            [97101, 3462.837, 0.037],
+            [97201, 3476.537, 0.037],
+            [97301, 3490.237, 0.037],
+            [97401, 3503.937, 0.037],
+            [97501, 3517.637, 0.037],
+            [97601, 3531.337, 0.037]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0],
+            [5600, 0.02, 0.02],
+            [11200, 112.03, 0.03],
+            [16000, 256.03, 0.034],
+            [26400, 609.64, 0.037],
+            [94701, 3134.037, 0.037],
+            [94801, 3147.737, 0.037],
+            [94901, 3161.437, 0.037],
+            [95001, 3175.137, 0.037],
+            [95101, 3188.837, 0.037],
+            [95201, 3202.537, 0.037],
+            [95301, 3216.237, 0.037],
+            [95401, 3229.937, 0.037],
+            [95501, 3243.637, 0.037],
+            [95601, 3257.337, 0.037],
+            [95701, 3271.037, 0.037],
+            [95801, 3284.737, 0.037],
+            [95901, 3298.437, 0.037],
+            [96001, 3312.137, 0.037],
+            [96101, 3325.837, 0.037],
+            [96201, 3339.537, 0.037],
+            [96301, 3353.237, 0.037],
+            [96401, 3366.937, 0.037],
+            [96501, 3380.637, 0.037],
+            [96601, 3394.337, 0.037],
+            [96701, 3408.037, 0.037],
+            [96801, 3421.737, 0.037],
+            [96901, 3435.437, 0.037],
+            [97001, 3449.137, 0.037],
+            [97101, 3462.837, 0.037],
+            [97201, 3476.537, 0.037],
+            [97301, 3490.237, 0.037],
+            [97401, 3503.937, 0.037],
+            [97501, 3517.637, 0.037],
+            [97601, 3531.337, 0.037]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0],
+            [5600, 0.02, 0.02],
+            [11200, 112.03, 0.03],
+            [16000, 256.03, 0.034],
+            [26400, 609.64, 0.037],
+            [94701, 3134.037, 0.037],
+            [94801, 3147.737, 0.037],
+            [94901, 3161.437, 0.037],
+            [95001, 3175.137, 0.037],
+            [95101, 3188.837, 0.037],
+            [95201, 3202.537, 0.037],
+            [95301, 3216.237, 0.037],
+            [95401, 3229.937, 0.037],
+            [95501, 3243.637, 0.037],
+            [95601, 3257.337, 0.037],
+            [95701, 3271.037, 0.037],
+            [95801, 3284.737, 0.037],
+            [95901, 3298.437, 0.037],
+            [96001, 3312.137, 0.037],
+            [96101, 3325.837, 0.037],
+            [96201, 3339.537, 0.037],
+            [96301, 3353.237, 0.037],
+            [96401, 3366.937, 0.037],
+            [96501, 3380.637, 0.037],
+            [96601, 3394.337, 0.037],
+            [96701, 3408.037, 0.037],
+            [96801, 3421.737, 0.037],
+            [96901, 3435.437, 0.037],
+            [97001, 3449.137, 0.037],
+            [97101, 3462.837, 0.037],
+            [97201, 3476.537, 0.037],
+            [97301, 3490.237, 0.037],
+            [97401, 3503.937, 0.037],
+            [97501, 3517.637, 0.037],
+            [97601, 3531.337, 0.037]
+          ]
+        }
+      }
+    ],
+    "CA": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://edd.ca.gov/siteassets/files/pdf_pub_ctr/26methb.pdf",
+        "sourceNote": "Method B heads its first column \"Single Persons, Dual Income Married or Married with Multiple Employers\" and prints the married row of Tables 1 and 3 twice, once for nought or one allowance and once for two or more. Both halves are loaded: two allowances earn the doubled standard deduction and low income exemption, and either a spouse with earnings or an employee drawing wages from more than one employer moves the employee onto the single column outright, rate schedule included. Estimated-deduction allowances are not modelled.",
+        "dualIncomeColumn": "single",
+        "marriedDoubleFromAllowances": 2,
+        "annualStandardDeduction": {
+          "single": 5706,
+          "married_jointly": 11412,
+          "head_of_household": 11412
+        },
+        "creditPerAllowance": 168.3,
+        "lowIncomeExemption": {
+          "single": 18896,
+          "married_jointly": 37791,
+          "head_of_household": 37791
+        },
+        "brackets": {
+          "single": [
+            [0, 0, 0.011],
+            [11079, 121.87, 0.022],
+            [26264, 455.94, 0.044],
+            [41452, 1124.21, 0.066],
+            [57542, 2186.15, 0.088],
+            [72724, 3522.17, 0.1023],
+            [371479, 34084.81, 0.1133],
+            [445771, 42502.09, 0.1243],
+            [742953, 79441.81, 0.1353],
+            [1000000, 114220.27, 0.1463]
+          ],
+          "married_jointly": [
+            [0, 0, 0.011],
+            [22158, 243.74, 0.022],
+            [52528, 911.88, 0.044],
+            [82904, 2248.42, 0.066],
+            [115084, 4372.3, 0.088],
+            [145448, 7044.33, 0.1023],
+            [742958, 68169.6, 0.1133],
+            [891542, 85004.17, 0.1243],
+            [1000000, 98485.5, 0.1353],
+            [1485906, 164228.58, 0.1463]
+          ],
+          "head_of_household": [
+            [0, 0, 0.011],
+            [22173, 243.9, 0.022],
+            [52530, 911.75, 0.044],
+            [67716, 1579.93, 0.066],
+            [83805, 2641.8, 0.088],
+            [98990, 3978.08, 0.1023],
+            [505208, 45534.18, 0.1133],
+            [606251, 56982.35, 0.1243],
+            [1000000, 105925.35, 0.1353],
+            [1010417, 107334.77, 0.1463]
+          ]
+        }
+      }
+    ],
+    "CO": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": false,
+        "sourceNote": "DR 1098 (10/21/25) states the four steps and nothing else: the department publishes no worked example, no wage bracket table, and the electronic version it calls the DR 1098 Withholding Calculator is that same worksheet in a spreadsheet, with the allowance typed in by hand rather than computed. With nothing of Colorado's own to check a computation against, the entry stays unverified.",
+        "sourceUrl": "https://tax.colorado.gov/sites/tax/files/documents/DR_1098_Colorado_Withholding_Worksheet_for_Employees.pdf",
+        "note": "State tax only. Denver and a few other Colorado cities charge a flat monthly occupational privilege tax, withheld from the pay on top of this.",
+        "noteSourceUrl": "https://www.denvergov.org/files/assets/public/v/2/finance/documents/treasury/tax-guides/taxguidetopic61_occupationalprivilegetaxes.pdf",
+        "unmodelledLocalTax": true,
+        "annualStandardDeduction": {
+          "single": 5500,
+          "married_jointly": 11000,
+          "head_of_household": 5500
+        },
+        "brackets": {
+          "single": [[0, 0, 0.044]],
+          "married_jointly": [[0, 0, 0.044]],
+          "head_of_household": [[0, 0, 0.044]]
+        }
+      }
+    ],
+    "CT": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://portal.ct.gov/-/media/drs/publications/pubsip/2026/ip-2026-1.pdf",
+        "sourceNote": "IP 2026(1), Connecticut Employer's Tax Guide (Circular CT), which carries TPG-211, 2026 Withholding Calculation Rules (Rev. 12/25). Connecticut publishes no percentage method at all: an employer either follows those rules or reads the bracket tables, which stop at $1,932 a week, so the rules are what is modelled here. The five tables are transcribed from IP 2026(7), which prints the same 2026 figures with a text layer, and every band is cross-checked against Form CT-1040 TCS (Rev. 12/25). The withholding code names all five, and an employer holding no Form CT-W4 withholds 6.99% of the whole wage without allowance for exemption, which is what an unnamed code does here. The figures are checked against the state's own 2026 Connecticut Withholding Calculator for Form CT-W4, in myconneCT, which the state publishes no worked example for.",
+        "rateWithoutForm": 0.0699,
+        "exemptionCodes": [
+          {
+            "code": "A",
+            "label": "A - married filing jointly, spouse employed, combined income $100,500 or less; or married filing separately",
+            "schedule": "single",
+            "exemptionByWages": [
+              { "over": 0, "upTo": 24000, "amount": 12000 },
+              { "over": 24000, "upTo": 25000, "amount": 11000 },
+              { "over": 25000, "upTo": 26000, "amount": 10000 },
+              { "over": 26000, "upTo": 27000, "amount": 9000 },
+              { "over": 27000, "upTo": 28000, "amount": 8000 },
+              { "over": 28000, "upTo": 29000, "amount": 7000 },
+              { "over": 29000, "upTo": 30000, "amount": 6000 },
+              { "over": 30000, "upTo": 31000, "amount": 5000 },
+              { "over": 31000, "upTo": 32000, "amount": 4000 },
+              { "over": 32000, "upTo": 33000, "amount": 3000 },
+              { "over": 33000, "upTo": 34000, "amount": 2000 },
+              { "over": 34000, "upTo": 35000, "amount": 1000 },
+              { "over": 35000, "amount": 0 }
+            ],
+            "phaseOutAddBack": [
+              { "over": 0, "upTo": 50250, "amount": 0 },
+              { "over": 50250, "upTo": 52750, "amount": 25 },
+              { "over": 52750, "upTo": 55250, "amount": 50 },
+              { "over": 55250, "upTo": 57750, "amount": 75 },
+              { "over": 57750, "upTo": 60250, "amount": 100 },
+              { "over": 60250, "upTo": 62750, "amount": 125 },
+              { "over": 62750, "upTo": 65250, "amount": 150 },
+              { "over": 65250, "upTo": 67750, "amount": 175 },
+              { "over": 67750, "upTo": 70250, "amount": 200 },
+              { "over": 70250, "upTo": 72750, "amount": 225 },
+              { "over": 72750, "amount": 250 }
+            ],
+            "taxRecapture": [
+              { "over": 0, "upTo": 105000, "amount": 0 },
+              { "over": 105000, "upTo": 110000, "amount": 25 },
+              { "over": 110000, "upTo": 115000, "amount": 50 },
+              { "over": 115000, "upTo": 120000, "amount": 75 },
+              { "over": 120000, "upTo": 125000, "amount": 100 },
+              { "over": 125000, "upTo": 130000, "amount": 125 },
+              { "over": 130000, "upTo": 135000, "amount": 150 },
+              { "over": 135000, "upTo": 140000, "amount": 175 },
+              { "over": 140000, "upTo": 145000, "amount": 200 },
+              { "over": 145000, "upTo": 150000, "amount": 225 },
+              { "over": 150000, "upTo": 200000, "amount": 250 },
+              { "over": 200000, "upTo": 205000, "amount": 340 },
+              { "over": 205000, "upTo": 210000, "amount": 430 },
+              { "over": 210000, "upTo": 215000, "amount": 520 },
+              { "over": 215000, "upTo": 220000, "amount": 610 },
+              { "over": 220000, "upTo": 225000, "amount": 700 },
+              { "over": 225000, "upTo": 230000, "amount": 790 },
+              { "over": 230000, "upTo": 235000, "amount": 880 },
+              { "over": 235000, "upTo": 240000, "amount": 970 },
+              { "over": 240000, "upTo": 245000, "amount": 1060 },
+              { "over": 245000, "upTo": 250000, "amount": 1150 },
+              { "over": 250000, "upTo": 255000, "amount": 1240 },
+              { "over": 255000, "upTo": 260000, "amount": 1330 },
+              { "over": 260000, "upTo": 265000, "amount": 1420 },
+              { "over": 265000, "upTo": 270000, "amount": 1510 },
+              { "over": 270000, "upTo": 275000, "amount": 1600 },
+              { "over": 275000, "upTo": 280000, "amount": 1690 },
+              { "over": 280000, "upTo": 285000, "amount": 1780 },
+              { "over": 285000, "upTo": 290000, "amount": 1870 },
+              { "over": 290000, "upTo": 295000, "amount": 1960 },
+              { "over": 295000, "upTo": 300000, "amount": 2050 },
+              { "over": 300000, "upTo": 305000, "amount": 2140 },
+              { "over": 305000, "upTo": 310000, "amount": 2230 },
+              { "over": 310000, "upTo": 315000, "amount": 2320 },
+              { "over": 315000, "upTo": 320000, "amount": 2410 },
+              { "over": 320000, "upTo": 325000, "amount": 2500 },
+              { "over": 325000, "upTo": 330000, "amount": 2590 },
+              { "over": 330000, "upTo": 335000, "amount": 2680 },
+              { "over": 335000, "upTo": 340000, "amount": 2770 },
+              { "over": 340000, "upTo": 345000, "amount": 2860 },
+              { "over": 345000, "upTo": 500000, "amount": 2950 },
+              { "over": 500000, "upTo": 505000, "amount": 3000 },
+              { "over": 505000, "upTo": 510000, "amount": 3050 },
+              { "over": 510000, "upTo": 515000, "amount": 3100 },
+              { "over": 515000, "upTo": 520000, "amount": 3150 },
+              { "over": 520000, "upTo": 525000, "amount": 3200 },
+              { "over": 525000, "upTo": 530000, "amount": 3250 },
+              { "over": 530000, "upTo": 535000, "amount": 3300 },
+              { "over": 535000, "upTo": 540000, "amount": 3350 },
+              { "over": 540000, "amount": 3400 }
+            ],
+            "creditShare": [
+              { "over": 12000, "upTo": 15000, "amount": 0.75 },
+              { "over": 15000, "upTo": 15500, "amount": 0.7 },
+              { "over": 15500, "upTo": 16000, "amount": 0.65 },
+              { "over": 16000, "upTo": 16500, "amount": 0.6 },
+              { "over": 16500, "upTo": 17000, "amount": 0.55 },
+              { "over": 17000, "upTo": 17500, "amount": 0.5 },
+              { "over": 17500, "upTo": 18000, "amount": 0.45 },
+              { "over": 18000, "upTo": 18500, "amount": 0.4 },
+              { "over": 18500, "upTo": 20000, "amount": 0.35 },
+              { "over": 20000, "upTo": 20500, "amount": 0.3 },
+              { "over": 20500, "upTo": 21000, "amount": 0.25 },
+              { "over": 21000, "upTo": 21500, "amount": 0.2 },
+              { "over": 21500, "upTo": 25000, "amount": 0.15 },
+              { "over": 25000, "upTo": 25500, "amount": 0.14 },
+              { "over": 25500, "upTo": 26000, "amount": 0.13 },
+              { "over": 26000, "upTo": 26500, "amount": 0.12 },
+              { "over": 26500, "upTo": 27000, "amount": 0.11 },
+              { "over": 27000, "upTo": 48000, "amount": 0.1 },
+              { "over": 48000, "upTo": 48500, "amount": 0.09 },
+              { "over": 48500, "upTo": 49000, "amount": 0.08 },
+              { "over": 49000, "upTo": 49500, "amount": 0.07 },
+              { "over": 49500, "upTo": 50000, "amount": 0.06 },
+              { "over": 50000, "upTo": 50500, "amount": 0.05 },
+              { "over": 50500, "upTo": 51000, "amount": 0.04 },
+              { "over": 51000, "upTo": 51500, "amount": 0.03 },
+              { "over": 51500, "upTo": 52000, "amount": 0.02 },
+              { "over": 52000, "upTo": 52500, "amount": 0.01 },
+              { "over": 52500, "amount": 0 }
+            ]
+          },
+          {
+            "code": "B",
+            "label": "B - head of household",
+            "schedule": "head_of_household",
+            "exemptionByWages": [
+              { "over": 0, "upTo": 38000, "amount": 19000 },
+              { "over": 38000, "upTo": 39000, "amount": 18000 },
+              { "over": 39000, "upTo": 40000, "amount": 17000 },
+              { "over": 40000, "upTo": 41000, "amount": 16000 },
+              { "over": 41000, "upTo": 42000, "amount": 15000 },
+              { "over": 42000, "upTo": 43000, "amount": 14000 },
+              { "over": 43000, "upTo": 44000, "amount": 13000 },
+              { "over": 44000, "upTo": 45000, "amount": 12000 },
+              { "over": 45000, "upTo": 46000, "amount": 11000 },
+              { "over": 46000, "upTo": 47000, "amount": 10000 },
+              { "over": 47000, "upTo": 48000, "amount": 9000 },
+              { "over": 48000, "upTo": 49000, "amount": 8000 },
+              { "over": 49000, "upTo": 50000, "amount": 7000 },
+              { "over": 50000, "upTo": 51000, "amount": 6000 },
+              { "over": 51000, "upTo": 52000, "amount": 5000 },
+              { "over": 52000, "upTo": 53000, "amount": 4000 },
+              { "over": 53000, "upTo": 54000, "amount": 3000 },
+              { "over": 54000, "upTo": 55000, "amount": 2000 },
+              { "over": 55000, "upTo": 56000, "amount": 1000 },
+              { "over": 56000, "amount": 0 }
+            ],
+            "phaseOutAddBack": [
+              { "over": 0, "upTo": 78500, "amount": 0 },
+              { "over": 78500, "upTo": 82500, "amount": 40 },
+              { "over": 82500, "upTo": 86500, "amount": 80 },
+              { "over": 86500, "upTo": 90500, "amount": 120 },
+              { "over": 90500, "upTo": 94500, "amount": 160 },
+              { "over": 94500, "upTo": 98500, "amount": 200 },
+              { "over": 98500, "upTo": 102500, "amount": 240 },
+              { "over": 102500, "upTo": 106500, "amount": 280 },
+              { "over": 106500, "upTo": 110500, "amount": 320 },
+              { "over": 110500, "upTo": 114500, "amount": 360 },
+              { "over": 114500, "amount": 400 }
+            ],
+            "taxRecapture": [
+              { "over": 0, "upTo": 168000, "amount": 0 },
+              { "over": 168000, "upTo": 176000, "amount": 40 },
+              { "over": 176000, "upTo": 184000, "amount": 80 },
+              { "over": 184000, "upTo": 192000, "amount": 120 },
+              { "over": 192000, "upTo": 200000, "amount": 160 },
+              { "over": 200000, "upTo": 208000, "amount": 200 },
+              { "over": 208000, "upTo": 216000, "amount": 240 },
+              { "over": 216000, "upTo": 224000, "amount": 280 },
+              { "over": 224000, "upTo": 232000, "amount": 320 },
+              { "over": 232000, "upTo": 240000, "amount": 360 },
+              { "over": 240000, "upTo": 320000, "amount": 400 },
+              { "over": 320000, "upTo": 328000, "amount": 540 },
+              { "over": 328000, "upTo": 336000, "amount": 680 },
+              { "over": 336000, "upTo": 344000, "amount": 820 },
+              { "over": 344000, "upTo": 352000, "amount": 960 },
+              { "over": 352000, "upTo": 360000, "amount": 1100 },
+              { "over": 360000, "upTo": 368000, "amount": 1240 },
+              { "over": 368000, "upTo": 376000, "amount": 1380 },
+              { "over": 376000, "upTo": 384000, "amount": 1520 },
+              { "over": 384000, "upTo": 392000, "amount": 1660 },
+              { "over": 392000, "upTo": 400000, "amount": 1800 },
+              { "over": 400000, "upTo": 408000, "amount": 1940 },
+              { "over": 408000, "upTo": 416000, "amount": 2080 },
+              { "over": 416000, "upTo": 424000, "amount": 2220 },
+              { "over": 424000, "upTo": 432000, "amount": 2360 },
+              { "over": 432000, "upTo": 440000, "amount": 2500 },
+              { "over": 440000, "upTo": 448000, "amount": 2640 },
+              { "over": 448000, "upTo": 456000, "amount": 2780 },
+              { "over": 456000, "upTo": 464000, "amount": 2920 },
+              { "over": 464000, "upTo": 472000, "amount": 3060 },
+              { "over": 472000, "upTo": 480000, "amount": 3200 },
+              { "over": 480000, "upTo": 488000, "amount": 3340 },
+              { "over": 488000, "upTo": 496000, "amount": 3480 },
+              { "over": 496000, "upTo": 504000, "amount": 3620 },
+              { "over": 504000, "upTo": 512000, "amount": 3760 },
+              { "over": 512000, "upTo": 520000, "amount": 3900 },
+              { "over": 520000, "upTo": 528000, "amount": 4040 },
+              { "over": 528000, "upTo": 536000, "amount": 4180 },
+              { "over": 536000, "upTo": 544000, "amount": 4320 },
+              { "over": 544000, "upTo": 552000, "amount": 4460 },
+              { "over": 552000, "upTo": 800000, "amount": 4600 },
+              { "over": 800000, "upTo": 808000, "amount": 4680 },
+              { "over": 808000, "upTo": 816000, "amount": 4760 },
+              { "over": 816000, "upTo": 824000, "amount": 4840 },
+              { "over": 824000, "upTo": 832000, "amount": 4920 },
+              { "over": 832000, "upTo": 840000, "amount": 5000 },
+              { "over": 840000, "upTo": 848000, "amount": 5080 },
+              { "over": 848000, "upTo": 856000, "amount": 5160 },
+              { "over": 856000, "upTo": 864000, "amount": 5240 },
+              { "over": 864000, "amount": 5320 }
+            ],
+            "creditShare": [
+              { "over": 19000, "upTo": 24000, "amount": 0.75 },
+              { "over": 24000, "upTo": 24500, "amount": 0.7 },
+              { "over": 24500, "upTo": 25000, "amount": 0.65 },
+              { "over": 25000, "upTo": 25500, "amount": 0.6 },
+              { "over": 25500, "upTo": 26000, "amount": 0.55 },
+              { "over": 26000, "upTo": 26500, "amount": 0.5 },
+              { "over": 26500, "upTo": 27000, "amount": 0.45 },
+              { "over": 27000, "upTo": 27500, "amount": 0.4 },
+              { "over": 27500, "upTo": 34000, "amount": 0.35 },
+              { "over": 34000, "upTo": 34500, "amount": 0.3 },
+              { "over": 34500, "upTo": 35000, "amount": 0.25 },
+              { "over": 35000, "upTo": 35500, "amount": 0.2 },
+              { "over": 35500, "upTo": 44000, "amount": 0.15 },
+              { "over": 44000, "upTo": 44500, "amount": 0.14 },
+              { "over": 44500, "upTo": 45000, "amount": 0.13 },
+              { "over": 45000, "upTo": 45500, "amount": 0.12 },
+              { "over": 45500, "upTo": 46000, "amount": 0.11 },
+              { "over": 46000, "upTo": 74000, "amount": 0.1 },
+              { "over": 74000, "upTo": 74500, "amount": 0.09 },
+              { "over": 74500, "upTo": 75000, "amount": 0.08 },
+              { "over": 75000, "upTo": 75500, "amount": 0.07 },
+              { "over": 75500, "upTo": 76000, "amount": 0.06 },
+              { "over": 76000, "upTo": 76500, "amount": 0.05 },
+              { "over": 76500, "upTo": 77000, "amount": 0.04 },
+              { "over": 77000, "upTo": 77500, "amount": 0.03 },
+              { "over": 77500, "upTo": 78000, "amount": 0.02 },
+              { "over": 78000, "upTo": 78500, "amount": 0.01 },
+              { "over": 78500, "amount": 0 }
+            ]
+          },
+          {
+            "code": "C",
+            "label": "C - married filing jointly with one spouse employed, or qualifying surviving spouse",
+            "schedule": "married_jointly",
+            "exemptionByWages": [
+              { "over": 0, "upTo": 48000, "amount": 24000 },
+              { "over": 48000, "upTo": 49000, "amount": 23000 },
+              { "over": 49000, "upTo": 50000, "amount": 22000 },
+              { "over": 50000, "upTo": 51000, "amount": 21000 },
+              { "over": 51000, "upTo": 52000, "amount": 20000 },
+              { "over": 52000, "upTo": 53000, "amount": 19000 },
+              { "over": 53000, "upTo": 54000, "amount": 18000 },
+              { "over": 54000, "upTo": 55000, "amount": 17000 },
+              { "over": 55000, "upTo": 56000, "amount": 16000 },
+              { "over": 56000, "upTo": 57000, "amount": 15000 },
+              { "over": 57000, "upTo": 58000, "amount": 14000 },
+              { "over": 58000, "upTo": 59000, "amount": 13000 },
+              { "over": 59000, "upTo": 60000, "amount": 12000 },
+              { "over": 60000, "upTo": 61000, "amount": 11000 },
+              { "over": 61000, "upTo": 62000, "amount": 10000 },
+              { "over": 62000, "upTo": 63000, "amount": 9000 },
+              { "over": 63000, "upTo": 64000, "amount": 8000 },
+              { "over": 64000, "upTo": 65000, "amount": 7000 },
+              { "over": 65000, "upTo": 66000, "amount": 6000 },
+              { "over": 66000, "upTo": 67000, "amount": 5000 },
+              { "over": 67000, "upTo": 68000, "amount": 4000 },
+              { "over": 68000, "upTo": 69000, "amount": 3000 },
+              { "over": 69000, "upTo": 70000, "amount": 2000 },
+              { "over": 70000, "upTo": 71000, "amount": 1000 },
+              { "over": 71000, "amount": 0 }
+            ],
+            "phaseOutAddBack": [
+              { "over": 0, "upTo": 100500, "amount": 0 },
+              { "over": 100500, "upTo": 105500, "amount": 50 },
+              { "over": 105500, "upTo": 110500, "amount": 100 },
+              { "over": 110500, "upTo": 115500, "amount": 150 },
+              { "over": 115500, "upTo": 120500, "amount": 200 },
+              { "over": 120500, "upTo": 125500, "amount": 250 },
+              { "over": 125500, "upTo": 130500, "amount": 300 },
+              { "over": 130500, "upTo": 135500, "amount": 350 },
+              { "over": 135500, "upTo": 140500, "amount": 400 },
+              { "over": 140500, "upTo": 145500, "amount": 450 },
+              { "over": 145500, "amount": 500 }
+            ],
+            "taxRecapture": [
+              { "over": 0, "upTo": 210000, "amount": 0 },
+              { "over": 210000, "upTo": 220000, "amount": 50 },
+              { "over": 220000, "upTo": 230000, "amount": 100 },
+              { "over": 230000, "upTo": 240000, "amount": 150 },
+              { "over": 240000, "upTo": 250000, "amount": 200 },
+              { "over": 250000, "upTo": 260000, "amount": 250 },
+              { "over": 260000, "upTo": 270000, "amount": 300 },
+              { "over": 270000, "upTo": 280000, "amount": 350 },
+              { "over": 280000, "upTo": 290000, "amount": 400 },
+              { "over": 290000, "upTo": 300000, "amount": 450 },
+              { "over": 300000, "upTo": 400000, "amount": 500 },
+              { "over": 400000, "upTo": 410000, "amount": 680 },
+              { "over": 410000, "upTo": 420000, "amount": 860 },
+              { "over": 420000, "upTo": 430000, "amount": 1040 },
+              { "over": 430000, "upTo": 440000, "amount": 1220 },
+              { "over": 440000, "upTo": 450000, "amount": 1400 },
+              { "over": 450000, "upTo": 460000, "amount": 1580 },
+              { "over": 460000, "upTo": 470000, "amount": 1760 },
+              { "over": 470000, "upTo": 480000, "amount": 1940 },
+              { "over": 480000, "upTo": 490000, "amount": 2120 },
+              { "over": 490000, "upTo": 500000, "amount": 2300 },
+              { "over": 500000, "upTo": 510000, "amount": 2480 },
+              { "over": 510000, "upTo": 520000, "amount": 2660 },
+              { "over": 520000, "upTo": 530000, "amount": 2840 },
+              { "over": 530000, "upTo": 540000, "amount": 3020 },
+              { "over": 540000, "upTo": 550000, "amount": 3200 },
+              { "over": 550000, "upTo": 560000, "amount": 3380 },
+              { "over": 560000, "upTo": 570000, "amount": 3560 },
+              { "over": 570000, "upTo": 580000, "amount": 3740 },
+              { "over": 580000, "upTo": 590000, "amount": 3920 },
+              { "over": 590000, "upTo": 600000, "amount": 4100 },
+              { "over": 600000, "upTo": 610000, "amount": 4280 },
+              { "over": 610000, "upTo": 620000, "amount": 4460 },
+              { "over": 620000, "upTo": 630000, "amount": 4640 },
+              { "over": 630000, "upTo": 640000, "amount": 4820 },
+              { "over": 640000, "upTo": 650000, "amount": 5000 },
+              { "over": 650000, "upTo": 660000, "amount": 5180 },
+              { "over": 660000, "upTo": 670000, "amount": 5360 },
+              { "over": 670000, "upTo": 680000, "amount": 5540 },
+              { "over": 680000, "upTo": 690000, "amount": 5720 },
+              { "over": 690000, "upTo": 1000000, "amount": 5900 },
+              { "over": 1000000, "upTo": 1010000, "amount": 6000 },
+              { "over": 1010000, "upTo": 1020000, "amount": 6100 },
+              { "over": 1020000, "upTo": 1030000, "amount": 6200 },
+              { "over": 1030000, "upTo": 1040000, "amount": 6300 },
+              { "over": 1040000, "upTo": 1050000, "amount": 6400 },
+              { "over": 1050000, "upTo": 1060000, "amount": 6500 },
+              { "over": 1060000, "upTo": 1070000, "amount": 6600 },
+              { "over": 1070000, "upTo": 1080000, "amount": 6700 },
+              { "over": 1080000, "amount": 6800 }
+            ],
+            "creditShare": [
+              { "over": 24000, "upTo": 30000, "amount": 0.75 },
+              { "over": 30000, "upTo": 30500, "amount": 0.7 },
+              { "over": 30500, "upTo": 31000, "amount": 0.65 },
+              { "over": 31000, "upTo": 31500, "amount": 0.6 },
+              { "over": 31500, "upTo": 32000, "amount": 0.55 },
+              { "over": 32000, "upTo": 32500, "amount": 0.5 },
+              { "over": 32500, "upTo": 33000, "amount": 0.45 },
+              { "over": 33000, "upTo": 33500, "amount": 0.4 },
+              { "over": 33500, "upTo": 40000, "amount": 0.35 },
+              { "over": 40000, "upTo": 40500, "amount": 0.3 },
+              { "over": 40500, "upTo": 41000, "amount": 0.25 },
+              { "over": 41000, "upTo": 41500, "amount": 0.2 },
+              { "over": 41500, "upTo": 50000, "amount": 0.15 },
+              { "over": 50000, "upTo": 50500, "amount": 0.14 },
+              { "over": 50500, "upTo": 51000, "amount": 0.13 },
+              { "over": 51000, "upTo": 51500, "amount": 0.12 },
+              { "over": 51500, "upTo": 52000, "amount": 0.11 },
+              { "over": 52000, "upTo": 96000, "amount": 0.1 },
+              { "over": 96000, "upTo": 96500, "amount": 0.09 },
+              { "over": 96500, "upTo": 97000, "amount": 0.08 },
+              { "over": 97000, "upTo": 97500, "amount": 0.07 },
+              { "over": 97500, "upTo": 98000, "amount": 0.06 },
+              { "over": 98000, "upTo": 98500, "amount": 0.05 },
+              { "over": 98500, "upTo": 99000, "amount": 0.04 },
+              { "over": 99000, "upTo": 99500, "amount": 0.03 },
+              { "over": 99500, "upTo": 100000, "amount": 0.02 },
+              { "over": 100000, "upTo": 100500, "amount": 0.01 },
+              { "over": 100500, "amount": 0 }
+            ]
+          },
+          {
+            "code": "D",
+            "label": "D - combined income over $100,500, significant nonwage income, or a nonresident with other income",
+            "schedule": "single",
+            "phaseOutAddBack": [
+              { "over": 0, "upTo": 50250, "amount": 0 },
+              { "over": 50250, "upTo": 52750, "amount": 25 },
+              { "over": 52750, "upTo": 55250, "amount": 50 },
+              { "over": 55250, "upTo": 57750, "amount": 75 },
+              { "over": 57750, "upTo": 60250, "amount": 100 },
+              { "over": 60250, "upTo": 62750, "amount": 125 },
+              { "over": 62750, "upTo": 65250, "amount": 150 },
+              { "over": 65250, "upTo": 67750, "amount": 175 },
+              { "over": 67750, "upTo": 70250, "amount": 200 },
+              { "over": 70250, "upTo": 72750, "amount": 225 },
+              { "over": 72750, "amount": 250 }
+            ],
+            "taxRecapture": [
+              { "over": 0, "upTo": 105000, "amount": 0 },
+              { "over": 105000, "upTo": 110000, "amount": 25 },
+              { "over": 110000, "upTo": 115000, "amount": 50 },
+              { "over": 115000, "upTo": 120000, "amount": 75 },
+              { "over": 120000, "upTo": 125000, "amount": 100 },
+              { "over": 125000, "upTo": 130000, "amount": 125 },
+              { "over": 130000, "upTo": 135000, "amount": 150 },
+              { "over": 135000, "upTo": 140000, "amount": 175 },
+              { "over": 140000, "upTo": 145000, "amount": 200 },
+              { "over": 145000, "upTo": 150000, "amount": 225 },
+              { "over": 150000, "upTo": 200000, "amount": 250 },
+              { "over": 200000, "upTo": 205000, "amount": 340 },
+              { "over": 205000, "upTo": 210000, "amount": 430 },
+              { "over": 210000, "upTo": 215000, "amount": 520 },
+              { "over": 215000, "upTo": 220000, "amount": 610 },
+              { "over": 220000, "upTo": 225000, "amount": 700 },
+              { "over": 225000, "upTo": 230000, "amount": 790 },
+              { "over": 230000, "upTo": 235000, "amount": 880 },
+              { "over": 235000, "upTo": 240000, "amount": 970 },
+              { "over": 240000, "upTo": 245000, "amount": 1060 },
+              { "over": 245000, "upTo": 250000, "amount": 1150 },
+              { "over": 250000, "upTo": 255000, "amount": 1240 },
+              { "over": 255000, "upTo": 260000, "amount": 1330 },
+              { "over": 260000, "upTo": 265000, "amount": 1420 },
+              { "over": 265000, "upTo": 270000, "amount": 1510 },
+              { "over": 270000, "upTo": 275000, "amount": 1600 },
+              { "over": 275000, "upTo": 280000, "amount": 1690 },
+              { "over": 280000, "upTo": 285000, "amount": 1780 },
+              { "over": 285000, "upTo": 290000, "amount": 1870 },
+              { "over": 290000, "upTo": 295000, "amount": 1960 },
+              { "over": 295000, "upTo": 300000, "amount": 2050 },
+              { "over": 300000, "upTo": 305000, "amount": 2140 },
+              { "over": 305000, "upTo": 310000, "amount": 2230 },
+              { "over": 310000, "upTo": 315000, "amount": 2320 },
+              { "over": 315000, "upTo": 320000, "amount": 2410 },
+              { "over": 320000, "upTo": 325000, "amount": 2500 },
+              { "over": 325000, "upTo": 330000, "amount": 2590 },
+              { "over": 330000, "upTo": 335000, "amount": 2680 },
+              { "over": 335000, "upTo": 340000, "amount": 2770 },
+              { "over": 340000, "upTo": 345000, "amount": 2860 },
+              { "over": 345000, "upTo": 500000, "amount": 2950 },
+              { "over": 500000, "upTo": 505000, "amount": 3000 },
+              { "over": 505000, "upTo": 510000, "amount": 3050 },
+              { "over": 510000, "upTo": 515000, "amount": 3100 },
+              { "over": 515000, "upTo": 520000, "amount": 3150 },
+              { "over": 520000, "upTo": 525000, "amount": 3200 },
+              { "over": 525000, "upTo": 530000, "amount": 3250 },
+              { "over": 530000, "upTo": 535000, "amount": 3300 },
+              { "over": 535000, "upTo": 540000, "amount": 3350 },
+              { "over": 540000, "amount": 3400 }
+            ]
+          },
+          {
+            "code": "E",
+            "label": "E - no withholding necessary, or claiming the MSRRA exemption",
+            "noWithholding": true
+          },
+          {
+            "code": "F",
+            "label": "F - single",
+            "schedule": "single",
+            "exemptionByWages": [
+              { "over": 0, "upTo": 30000, "amount": 15000 },
+              { "over": 30000, "upTo": 31000, "amount": 14000 },
+              { "over": 31000, "upTo": 32000, "amount": 13000 },
+              { "over": 32000, "upTo": 33000, "amount": 12000 },
+              { "over": 33000, "upTo": 34000, "amount": 11000 },
+              { "over": 34000, "upTo": 35000, "amount": 10000 },
+              { "over": 35000, "upTo": 36000, "amount": 9000 },
+              { "over": 36000, "upTo": 37000, "amount": 8000 },
+              { "over": 37000, "upTo": 38000, "amount": 7000 },
+              { "over": 38000, "upTo": 39000, "amount": 6000 },
+              { "over": 39000, "upTo": 40000, "amount": 5000 },
+              { "over": 40000, "upTo": 41000, "amount": 4000 },
+              { "over": 41000, "upTo": 42000, "amount": 3000 },
+              { "over": 42000, "upTo": 43000, "amount": 2000 },
+              { "over": 43000, "upTo": 44000, "amount": 1000 },
+              { "over": 44000, "amount": 0 }
+            ],
+            "phaseOutAddBack": [
+              { "over": 0, "upTo": 56500, "amount": 0 },
+              { "over": 56500, "upTo": 61500, "amount": 25 },
+              { "over": 61500, "upTo": 66500, "amount": 50 },
+              { "over": 66500, "upTo": 71500, "amount": 75 },
+              { "over": 71500, "upTo": 76500, "amount": 100 },
+              { "over": 76500, "upTo": 81500, "amount": 125 },
+              { "over": 81500, "upTo": 86500, "amount": 150 },
+              { "over": 86500, "upTo": 91500, "amount": 175 },
+              { "over": 91500, "upTo": 96500, "amount": 200 },
+              { "over": 96500, "upTo": 101500, "amount": 225 },
+              { "over": 101500, "amount": 250 }
+            ],
+            "taxRecapture": [
+              { "over": 0, "upTo": 105000, "amount": 0 },
+              { "over": 105000, "upTo": 110000, "amount": 25 },
+              { "over": 110000, "upTo": 115000, "amount": 50 },
+              { "over": 115000, "upTo": 120000, "amount": 75 },
+              { "over": 120000, "upTo": 125000, "amount": 100 },
+              { "over": 125000, "upTo": 130000, "amount": 125 },
+              { "over": 130000, "upTo": 135000, "amount": 150 },
+              { "over": 135000, "upTo": 140000, "amount": 175 },
+              { "over": 140000, "upTo": 145000, "amount": 200 },
+              { "over": 145000, "upTo": 150000, "amount": 225 },
+              { "over": 150000, "upTo": 200000, "amount": 250 },
+              { "over": 200000, "upTo": 205000, "amount": 340 },
+              { "over": 205000, "upTo": 210000, "amount": 430 },
+              { "over": 210000, "upTo": 215000, "amount": 520 },
+              { "over": 215000, "upTo": 220000, "amount": 610 },
+              { "over": 220000, "upTo": 225000, "amount": 700 },
+              { "over": 225000, "upTo": 230000, "amount": 790 },
+              { "over": 230000, "upTo": 235000, "amount": 880 },
+              { "over": 235000, "upTo": 240000, "amount": 970 },
+              { "over": 240000, "upTo": 245000, "amount": 1060 },
+              { "over": 245000, "upTo": 250000, "amount": 1150 },
+              { "over": 250000, "upTo": 255000, "amount": 1240 },
+              { "over": 255000, "upTo": 260000, "amount": 1330 },
+              { "over": 260000, "upTo": 265000, "amount": 1420 },
+              { "over": 265000, "upTo": 270000, "amount": 1510 },
+              { "over": 270000, "upTo": 275000, "amount": 1600 },
+              { "over": 275000, "upTo": 280000, "amount": 1690 },
+              { "over": 280000, "upTo": 285000, "amount": 1780 },
+              { "over": 285000, "upTo": 290000, "amount": 1870 },
+              { "over": 290000, "upTo": 295000, "amount": 1960 },
+              { "over": 295000, "upTo": 300000, "amount": 2050 },
+              { "over": 300000, "upTo": 305000, "amount": 2140 },
+              { "over": 305000, "upTo": 310000, "amount": 2230 },
+              { "over": 310000, "upTo": 315000, "amount": 2320 },
+              { "over": 315000, "upTo": 320000, "amount": 2410 },
+              { "over": 320000, "upTo": 325000, "amount": 2500 },
+              { "over": 325000, "upTo": 330000, "amount": 2590 },
+              { "over": 330000, "upTo": 335000, "amount": 2680 },
+              { "over": 335000, "upTo": 340000, "amount": 2770 },
+              { "over": 340000, "upTo": 345000, "amount": 2860 },
+              { "over": 345000, "upTo": 500000, "amount": 2950 },
+              { "over": 500000, "upTo": 505000, "amount": 3000 },
+              { "over": 505000, "upTo": 510000, "amount": 3050 },
+              { "over": 510000, "upTo": 515000, "amount": 3100 },
+              { "over": 515000, "upTo": 520000, "amount": 3150 },
+              { "over": 520000, "upTo": 525000, "amount": 3200 },
+              { "over": 525000, "upTo": 530000, "amount": 3250 },
+              { "over": 530000, "upTo": 535000, "amount": 3300 },
+              { "over": 535000, "upTo": 540000, "amount": 3350 },
+              { "over": 540000, "amount": 3400 }
+            ],
+            "creditShare": [
+              { "over": 15000, "upTo": 18800, "amount": 0.75 },
+              { "over": 18800, "upTo": 19300, "amount": 0.7 },
+              { "over": 19300, "upTo": 19800, "amount": 0.65 },
+              { "over": 19800, "upTo": 20300, "amount": 0.6 },
+              { "over": 20300, "upTo": 20800, "amount": 0.55 },
+              { "over": 20800, "upTo": 21300, "amount": 0.5 },
+              { "over": 21300, "upTo": 21800, "amount": 0.45 },
+              { "over": 21800, "upTo": 22300, "amount": 0.4 },
+              { "over": 22300, "upTo": 25000, "amount": 0.35 },
+              { "over": 25000, "upTo": 25500, "amount": 0.3 },
+              { "over": 25500, "upTo": 26000, "amount": 0.25 },
+              { "over": 26000, "upTo": 26500, "amount": 0.2 },
+              { "over": 26500, "upTo": 31300, "amount": 0.15 },
+              { "over": 31300, "upTo": 31800, "amount": 0.14 },
+              { "over": 31800, "upTo": 32300, "amount": 0.13 },
+              { "over": 32300, "upTo": 32800, "amount": 0.12 },
+              { "over": 32800, "upTo": 33300, "amount": 0.11 },
+              { "over": 33300, "upTo": 60000, "amount": 0.1 },
+              { "over": 60000, "upTo": 60500, "amount": 0.09 },
+              { "over": 60500, "upTo": 61000, "amount": 0.08 },
+              { "over": 61000, "upTo": 61500, "amount": 0.07 },
+              { "over": 61500, "upTo": 62000, "amount": 0.06 },
+              { "over": 62000, "upTo": 62500, "amount": 0.05 },
+              { "over": 62500, "upTo": 63000, "amount": 0.04 },
+              { "over": 63000, "upTo": 63500, "amount": 0.03 },
+              { "over": 63500, "upTo": 64000, "amount": 0.02 },
+              { "over": 64000, "upTo": 64500, "amount": 0.01 },
+              { "over": 64500, "amount": 0 }
+            ]
+          }
+        ],
+        "periodAdjustments": {
+          "extra": {
+            "label": "Additional withholding amount",
+            "hint": "Line 2 of Form CT-W4: a flat amount to withhold on top, per pay period."
+          },
+          "reduced": {
+            "label": "Reduced withholding amount",
+            "hint": "Line 3 of Form CT-W4: a flat amount to withhold less of, per pay period. The line stops at zero rather than going negative."
+          }
+        },
+        "nonresidency": {
+          "label": "Employee lives outside Connecticut",
+          "hint": "A nonresident is taxed only on the work performed in Connecticut. IP 2026(1), Determining How Much to Withhold From Nonresident Employees.",
+          "apportionment": {
+            "label": "Portion of services performed in Connecticut",
+            "hint": "Percentage from the employee's Form CT-W4NA, or the share your own records show. Without either, Connecticut withholds on the whole wage."
+          }
+        },
+        "brackets": {
+          "single": [
+            [0, 0, 0.02],
+            [10000, 200, 0.045],
+            [50000, 2000, 0.055],
+            [100000, 4750, 0.06],
+            [200000, 10750, 0.065],
+            [250000, 14000, 0.069],
+            [500000, 31250, 0.0699]
+          ],
+          "married_jointly": [
+            [0, 0, 0.02],
+            [20000, 400, 0.045],
+            [100000, 4000, 0.055],
+            [200000, 9500, 0.06],
+            [400000, 21500, 0.065],
+            [500000, 28000, 0.069],
+            [1000000, 62500, 0.0699]
+          ],
+          "head_of_household": [
+            [0, 0, 0.02],
+            [16000, 320, 0.045],
+            [80000, 3200, 0.055],
+            [160000, 7600, 0.06],
+            [320000, 17200, 0.065],
+            [400000, 22400, 0.069],
+            [800000, 50000, 0.0699]
+          ]
+        }
+      }
+    ],
+    "DE": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://revenue.delaware.gov/employers-guide-withholding-regulations-employers-duties/",
+        "note": "State tax only. Wilmington charges a wage tax of its own on residents and on anyone working in the city, withheld by the employer on top of this.",
+        "noteSourceUrl": "https://www.wilmingtonde.gov/residents/earned-income-tax-and-net-profits-tax",
+        "unmodelledLocalTax": true,
+        "sourceNote": "Delaware's newest rate table is the one effective 1 January 2025, still in force for 2026.",
+        "annualStandardDeduction": {
+          "single": 3250,
+          "married_jointly": 6500,
+          "head_of_household": 3250
+        },
+        "creditPerAllowance": 110,
+        "brackets": {
+          "single": [
+            [0, 0, 0.0],
+            [2000, 0, 0.022],
+            [5000, 66, 0.039],
+            [10000, 261, 0.048],
+            [20000, 741, 0.052],
+            [25000, 1001, 0.0555],
+            [60000, 2943.5, 0.066]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0],
+            [2000, 0, 0.022],
+            [5000, 66, 0.039],
+            [10000, 261, 0.048],
+            [20000, 741, 0.052],
+            [25000, 1001, 0.0555],
+            [60000, 2943.5, 0.066]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0],
+            [2000, 0, 0.022],
+            [5000, 66, 0.039],
+            [10000, 261, 0.048],
+            [20000, 741, 0.052],
+            [25000, 1001, 0.0555],
+            [60000, 2943.5, 0.066]
+          ]
+        }
+      }
+    ],
+    "DC": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": false,
+        "sourceUrl": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2026_D40ES_Book_wLinks04012026.pdf",
+        "sourceNote": "Brackets are the current 2026 ones from the D-40ES booklet. The District has published no withholding booklet since FR-230 Rev. 11/17: OTR Tax Notice 2022-08 says the TCJA impaired the District's ability to produce withholding tables and directs employers to the current rate schedule and the federal allowance amount, which IRS Publication 15-T (2026) sets at $4,300 per allowance. That is the allowance used here. With no worked example, table or calculator of the District's own to check a computation against, the entry stays unverified.",
+        "exemptionPerAllowance": 4300,
+        "brackets": {
+          "single": [
+            [0, 0, 0.04],
+            [10000, 400, 0.06],
+            [40000, 2200, 0.065],
+            [60000, 3500, 0.085],
+            [250000, 19650, 0.0925],
+            [500000, 42775, 0.0975],
+            [1000000, 91525, 0.1075]
+          ],
+          "married_jointly": [
+            [0, 0, 0.04],
+            [10000, 400, 0.06],
+            [40000, 2200, 0.065],
+            [60000, 3500, 0.085],
+            [250000, 19650, 0.0925],
+            [500000, 42775, 0.0975],
+            [1000000, 91525, 0.1075]
+          ],
+          "head_of_household": [
+            [0, 0, 0.04],
+            [10000, 400, 0.06],
+            [40000, 2200, 0.065],
+            [60000, 3500, 0.085],
+            [250000, 19650, 0.0925],
+            [500000, 42775, 0.0975],
+            [1000000, 91525, 0.1075]
+          ]
+        }
+      }
+    ],
+    "FL": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "none",
+        "verified": true,
+        "note": "No state income tax is withheld from wages in Florida.",
+        "sourceUrl": "https://www.flsenate.gov/Laws/Constitution#A7S05",
+        "sourceNote": "The prohibition is constitutional here rather than administrative, so there is no department page to cite and no rate a legislature could set on its own. Article VII, section 5(a) bars the state, or anyone under its authority, from levying a tax upon the income of natural persons who are residents or citizens of the state in excess of the aggregate of amounts that may be credited upon or deducted from a similar tax levied by the United States or any state. Florida levies none, so nothing comes out of wages."
+      }
+    ],
+    "GA": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://web.archive.org/web/20260116155245/https://dor.georgia.gov/document/document/2026-employers-tax-guide/download",
+        "sourceNote": "Wages paid before 11 May 2026 are withheld at 5.19% under the December 2025 edition of the guide, which the current edition replaced in place.",
+        "annualStandardDeduction": {
+          "single": 12000,
+          "married_jointly": 24000,
+          "head_of_household": 12000
+        },
+        "exemptionPerAllowance": 4000,
+        "brackets": {
+          "single": [[0, 0, 0.0519]],
+          "married_jointly": [[0, 0, 0.0519]],
+          "head_of_household": [[0, 0, 0.0519]]
+        }
+      },
+      {
+        "effectiveFrom": "2026-05-11",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://dor.georgia.gov/document/document/2026-employers-tax-guide-updated-june-2026/download",
+        "sourceNote": "HB 463 cut the rate to 4.99% for wages paid on or after 11 May 2026.",
+        "annualStandardDeduction": {
+          "single": 15000,
+          "married_jointly": 30000,
+          "head_of_household": 15000
+        },
+        "exemptionPerAllowance": 5000,
+        "brackets": {
+          "single": [[0, 0, 0.0499]],
+          "married_jointly": [[0, 0, 0.0499]],
+          "head_of_household": [[0, 0, 0.0499]]
+        }
+      }
+    ],
+    "HI": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://files.hawaii.gov/tax/news/pubs/25BkltA.pdf",
+        "sourceNote": "The $4,350 figure is Hawaii's lump sum withholding allowance, deducted for every employee.",
+        "annualStandardDeduction": {
+          "single": 4350,
+          "married_jointly": 4350,
+          "head_of_household": 4350
+        },
+        "exemptionPerAllowance": 1144,
+        "brackets": {
+          "single": [
+            [0, 0, 0.014],
+            [9600, 134, 0.032],
+            [14400, 288, 0.055],
+            [19200, 552, 0.064],
+            [24000, 859, 0.068],
+            [36000, 1675, 0.072],
+            [48000, 2539, 0.076],
+            [125000, 8391, 0.079]
+          ],
+          "married_jointly": [
+            [0, 0, 0.014],
+            [19200, 269, 0.032],
+            [28800, 576, 0.055],
+            [38400, 1104, 0.064],
+            [48000, 1718, 0.068],
+            [72000, 3350, 0.072],
+            [96000, 5078, 0.076],
+            [250000, 16782, 0.079]
+          ],
+          "head_of_household": [
+            [0, 0, 0.014],
+            [9600, 134, 0.032],
+            [14400, 288, 0.055],
+            [19200, 552, 0.064],
+            [24000, 859, 0.068],
+            [36000, 1675, 0.072],
+            [48000, 2539, 0.076],
+            [125000, 8391, 0.079]
+          ]
+        }
+      }
+    ],
+    "ID": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://tax.idaho.gov/document-mngr/pubs_epb00744/",
+        "sourceNote": "HB 40 cut the rate to 5.3%. The guide's withholding tables are headed 'Single Persons Including Head of Household', so head of household is withheld on the single column by the state's own rule. Checked against EPB00744 revision 07-23-2026 itself on 2026-09-01: $16,100, $32,200 and 5.3% all read off it. The guide still takes its tables on 'wages after subtracting child tax credit allowances' and sends the reader to an allowance table, which is why no allowance is modelled here: the credit sunsetted under Idaho Code 63-3029L and the department puts the allowance at zero on the same page that carries the table.",
+        "annualStandardDeduction": {
+          "single": 16100,
+          "married_jointly": 32200,
+          "head_of_household": 16100
+        },
+        "brackets": {
+          "single": [[0, 0, 0.053]],
+          "married_jointly": [[0, 0, 0.053]],
+          "head_of_household": [[0, 0, 0.053]]
+        }
+      }
+    ],
+    "IL": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/withholding/documents/currentyear/il-700-t.pdf",
+        "note": "Form IL-W-4's Line 2 allowance of $1,000 is not applied here, so an employee entitled to it has less Illinois tax withheld than this line shows.",
+        "sourceNote": "Only the $2,925 Line 1 allowance is modelled; the separate $1,000 Line 2 allowance is not.",
+        "exemptionPerAllowance": 2925,
+        "brackets": {
+          "single": [[0, 0, 0.0495]],
+          "married_jointly": [[0, 0, 0.0495]],
+          "head_of_household": [[0, 0, 0.0495]]
+        }
+      }
+    ],
+    "IN": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.in.gov/dor/files/dn01.pdf",
+        "sourceNote": "Departmental Notice #1, R46 / 01-26. Gross pay for the period less the deduction constants of the WH-4, then the 2.95% state rate and the county rate on that same base. The county is the employee's county of residence on 1 January, or their principal place of work if they lived outside Indiana that day. Read off the live notice on 2026-09-01, R46 / 01-26 itself: the 2.95%, the four exemption constants, its worked example of $800 a week, and all 92 county rates diffed name by name against the printed table with nothing out. Indiana reissues the notice each 1 January and 1 October, so the county rates fall due again after 2026-10-01.",
+        "periodExemptions": [
+          {
+            "key": "personal",
+            "label": "Personal exemptions (WH-4 line 5)",
+            "hint": "Includes the further exemptions the WH-4 gives for age 65 or over and for blindness.",
+            "annual": 1000
+          },
+          { "key": "dependent", "label": "Dependent exemptions (WH-4 line 6)", "annual": 1500 },
+          {
+            "key": "firstTimeDependent",
+            "label": "First-time dependent exemptions (WH-4 line 7)",
+            "hint": "Claimed on top of line 6, in the first year a dependent is claimed.",
+            "annual": 1500
+          },
+          {
+            "key": "adoptedChild",
+            "label": "Adopted child exemptions (WH-4 line 8)",
+            "annual": 3000
+          }
+        ],
+        "countyTax": {
+          "label": "County Income Tax",
+          "hint": "County of residence on 1 January of the tax year. If the employee lived outside Indiana that day, choose the county of their principal place of work instead.",
+          "rates": [
+            { "code": "01", "name": "Adams", "rate": 0.016 },
+            { "code": "02", "name": "Allen", "rate": 0.0159 },
+            { "code": "03", "name": "Bartholomew", "rate": 0.0175 },
+            { "code": "04", "name": "Benton", "rate": 0.0179 },
+            { "code": "05", "name": "Blackford", "rate": 0.025 },
+            { "code": "06", "name": "Boone", "rate": 0.017 },
+            { "code": "07", "name": "Brown", "rate": 0.025234 },
+            { "code": "08", "name": "Carroll", "rate": 0.024733 },
+            { "code": "09", "name": "Cass", "rate": 0.0295 },
+            { "code": "10", "name": "Clark", "rate": 0.02 },
+            { "code": "11", "name": "Clay", "rate": 0.0235 },
+            { "code": "12", "name": "Clinton", "rate": 0.0265 },
+            { "code": "13", "name": "Crawford", "rate": 0.0165 },
+            { "code": "14", "name": "Daviess", "rate": 0.015 },
+            { "code": "15", "name": "Dearborn", "rate": 0.014 },
+            { "code": "16", "name": "Decatur", "rate": 0.0245 },
+            { "code": "17", "name": "DeKalb", "rate": 0.0213 },
+            { "code": "18", "name": "Delaware", "rate": 0.015 },
+            { "code": "19", "name": "Dubois", "rate": 0.012 },
+            { "code": "20", "name": "Elkhart", "rate": 0.02 },
+            { "code": "21", "name": "Fayette", "rate": 0.0282 },
+            { "code": "22", "name": "Floyd", "rate": 0.0189 },
+            { "code": "23", "name": "Fountain", "rate": 0.021 },
+            { "code": "24", "name": "Franklin", "rate": 0.017 },
+            { "code": "25", "name": "Fulton", "rate": 0.0288 },
+            { "code": "26", "name": "Gibson", "rate": 0.013 },
+            { "code": "27", "name": "Grant", "rate": 0.0275 },
+            { "code": "28", "name": "Greene", "rate": 0.0235 },
+            { "code": "29", "name": "Hamilton", "rate": 0.011 },
+            { "code": "30", "name": "Hancock", "rate": 0.0194 },
+            { "code": "31", "name": "Harrison", "rate": 0.01 },
+            { "code": "32", "name": "Hendricks", "rate": 0.017 },
+            { "code": "33", "name": "Henry", "rate": 0.0202 },
+            { "code": "34", "name": "Howard", "rate": 0.0235 },
+            { "code": "35", "name": "Huntington", "rate": 0.0195 },
+            { "code": "36", "name": "Jackson", "rate": 0.021 },
+            { "code": "37", "name": "Jasper", "rate": 0.02864 },
+            { "code": "38", "name": "Jay", "rate": 0.025 },
+            { "code": "39", "name": "Jefferson", "rate": 0.0103 },
+            { "code": "40", "name": "Jennings", "rate": 0.025 },
+            { "code": "41", "name": "Johnson", "rate": 0.014 },
+            { "code": "42", "name": "Knox", "rate": 0.017 },
+            { "code": "43", "name": "Kosciusko", "rate": 0.01 },
+            { "code": "44", "name": "LaGrange", "rate": 0.0165 },
+            { "code": "45", "name": "Lake", "rate": 0.015 },
+            { "code": "46", "name": "LaPorte", "rate": 0.0145 },
+            { "code": "47", "name": "Lawrence", "rate": 0.0175 },
+            { "code": "48", "name": "Madison", "rate": 0.0225 },
+            { "code": "49", "name": "Marion", "rate": 0.0202 },
+            { "code": "50", "name": "Marshall", "rate": 0.0125 },
+            { "code": "51", "name": "Martin", "rate": 0.025 },
+            { "code": "52", "name": "Miami", "rate": 0.0254 },
+            { "code": "53", "name": "Monroe", "rate": 0.0214 },
+            { "code": "54", "name": "Montgomery", "rate": 0.0265 },
+            { "code": "55", "name": "Morgan", "rate": 0.0272 },
+            { "code": "56", "name": "Newton", "rate": 0.01 },
+            { "code": "57", "name": "Noble", "rate": 0.0175 },
+            { "code": "58", "name": "Ohio", "rate": 0.02 },
+            { "code": "59", "name": "Orange", "rate": 0.0175 },
+            { "code": "60", "name": "Owen", "rate": 0.025 },
+            { "code": "61", "name": "Parke", "rate": 0.0265 },
+            { "code": "62", "name": "Perry", "rate": 0.014 },
+            { "code": "63", "name": "Pike", "rate": 0.012 },
+            { "code": "64", "name": "Porter", "rate": 0.005 },
+            { "code": "65", "name": "Posey", "rate": 0.0145 },
+            { "code": "66", "name": "Pulaski", "rate": 0.0285 },
+            { "code": "67", "name": "Putnam", "rate": 0.023 },
+            { "code": "68", "name": "Randolph", "rate": 0.03 },
+            { "code": "69", "name": "Ripley", "rate": 0.0238 },
+            { "code": "70", "name": "Rush", "rate": 0.0215 },
+            { "code": "71", "name": "St. Joseph", "rate": 0.0175 },
+            { "code": "72", "name": "Scott", "rate": 0.0216 },
+            { "code": "73", "name": "Shelby", "rate": 0.017 },
+            { "code": "74", "name": "Spencer", "rate": 0.008 },
+            { "code": "75", "name": "Starke", "rate": 0.0171 },
+            { "code": "76", "name": "Steuben", "rate": 0.0199 },
+            { "code": "77", "name": "Sullivan", "rate": 0.017 },
+            { "code": "78", "name": "Switzerland", "rate": 0.0145 },
+            { "code": "79", "name": "Tippecanoe", "rate": 0.0128 },
+            { "code": "80", "name": "Tipton", "rate": 0.026 },
+            { "code": "81", "name": "Union", "rate": 0.0275 },
+            { "code": "82", "name": "Vanderburgh", "rate": 0.0125 },
+            { "code": "83", "name": "Vermillion", "rate": 0.015 },
+            { "code": "84", "name": "Vigo", "rate": 0.02 },
+            { "code": "85", "name": "Wabash", "rate": 0.029 },
+            { "code": "86", "name": "Warren", "rate": 0.0212 },
+            { "code": "87", "name": "Warrick", "rate": 0.01 },
+            { "code": "88", "name": "Washington", "rate": 0.02 },
+            { "code": "89", "name": "Wayne", "rate": 0.0125 },
+            { "code": "90", "name": "Wells", "rate": 0.021 },
+            { "code": "91", "name": "White", "rate": 0.0232 },
+            { "code": "92", "name": "Whitley", "rate": 0.016829 }
+          ]
+        },
+        "brackets": {
+          "single": [[0, 0, 0.0295]],
+          "married_jointly": [[0, 0, 0.0295]],
+          "head_of_household": [[0, 0, 0.0295]]
+        }
+      }
+    ],
+    "IA": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://revenue.iowa.gov/media/53/download?inline=",
+        "sourceNote": "Iowa Withholding Formula effective January 1, 2026: a flat 3.8% on wages less a deduction keyed to the pay period and to the marital status on the IA W-4. The allowance is a dollar amount on that form, and a 2023 or earlier IA W-4 is converted at $40 an allowance. The daily payroll period is not modelled: the form has no daily frequency.",
+        "deductionPerPeriod": {
+          "weekly": {
+            "single": 250.0,
+            "married_jointly": 250.0,
+            "head_of_household": 375.0,
+            "married_jointly_sole_earner": 500.0
+          },
+          "biweekly": {
+            "single": 500.0,
+            "married_jointly": 500.0,
+            "head_of_household": 750.0,
+            "married_jointly_sole_earner": 1000.0
+          },
+          "semimonthly": {
+            "single": 541.67,
+            "married_jointly": 541.67,
+            "head_of_household": 812.5,
+            "married_jointly_sole_earner": 1083.33
+          },
+          "monthly": {
+            "single": 1083.33,
+            "married_jointly": 1083.33,
+            "head_of_household": 1625.0,
+            "married_jointly_sole_earner": 2166.67
+          },
+          "annually": {
+            "single": 13000.0,
+            "married_jointly": 13000.0,
+            "head_of_household": 19500.0,
+            "married_jointly_sole_earner": 26000.0
+          }
+        },
+        "creditPerAllowance": 40,
+        "creditFromAllowanceAmount": true,
+        "brackets": {
+          "single": [[0, 0, 0.038]],
+          "married_jointly": [[0, 0, 0.038]],
+          "head_of_household": [[0, 0, 0.038]]
+        }
+      }
+    ],
+    "KS": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.ksrevenue.gov/pdf/kw100.pdf",
+        "sourceNote": "KW-100 Rev. 10-24 is still the guide Kansas serves; the file has not changed since October 2024, and it is cited here from a web archive copy of that same revision.",
+        "exemptionPerAllowance": 2320,
+        "firstAllowanceAmount": 9160,
+        "firstAllowanceCount": {
+          "single": 1,
+          "married_jointly": 2,
+          "head_of_household": 1
+        },
+        "brackets": {
+          "single": [
+            [0, 0, 0.0],
+            [3605, 0, 0.052],
+            [26605, 1196.0, 0.0558]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0],
+            [8240, 0, 0.052],
+            [54240, 2392.0, 0.0558]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0],
+            [3605, 0, 0.052],
+            [26605, 1196.0, 0.0558]
+          ]
+        }
+      }
+    ],
+    "KY": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://revenue.ky.gov/Forms/2026%20Withholding%20Formula.pdf",
+        "note": "State tax only. Kentucky cities and counties charge occupational license fees on wages, withheld by the employer on top of this.",
+        "noteSourceUrl": "https://louisvilleky.gov/sites/default/files/2024-12/w-1_instructions_2025.pdf",
+        "unmodelledLocalTax": true,
+        "annualStandardDeduction": {
+          "single": 3360,
+          "married_jointly": 3360,
+          "head_of_household": 3360
+        },
+        "brackets": {
+          "single": [[0, 0, 0.035]],
+          "married_jointly": [[0, 0, 0.035]],
+          "head_of_household": [[0, 0, 0.035]]
+        }
+      }
+    ],
+    "LA": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://dam.ldr.la.gov/taxforms/1306-1-26.pdf",
+        "sourceNote": "Withholding Tables and Formulas, R-1306 (1/26), effective on or after 1 January 2026. The standard deductions and the rate come from the computer formula method printed there, which divides the annual deduction by the number of pay periods. The wage-bracket tables in the same document are not reproduced: they read the same formula off a grid, and the formula covers every wage they do.",
+        "note": "Louisiana withholds at 3.09% rather than the 3% tax rate, as a deliberate cushion.",
+        "noteSourceUrl": "https://revenue.louisiana.gov/tax-education-and-faqs/faqs/income-tax-reform/why-do-the-withholding-tables-use-3-09/",
+        "annualStandardDeduction": {
+          "single": 12875,
+          "married_jointly": 25750,
+          "head_of_household": 25750
+        },
+        "brackets": {
+          "single": [[0, 0, 0.0309]],
+          "married_jointly": [[0, 0, 0.0309]],
+          "head_of_household": [[0, 0, 0.0309]]
+        }
+      }
+    ],
+    "ME": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/26_wh_tab_instr.pdf",
+        "annualStandardDeduction": {
+          "single": 12450,
+          "married_jointly": 27750,
+          "head_of_household": 12450
+        },
+        "deductionPhaseOut": {
+          "single": {
+            "start": 102250,
+            "end": 177250
+          },
+          "married_jointly": {
+            "start": 204550,
+            "end": 354550
+          },
+          "head_of_household": {
+            "start": 102250,
+            "end": 177250
+          }
+        },
+        "exemptionPerAllowance": 5300,
+        "brackets": {
+          "single": [
+            [0, 0, 0.058],
+            [27400, 1589, 0.0675],
+            [64850, 4117, 0.0715]
+          ],
+          "married_jointly": [
+            [0, 0, 0.058],
+            [54850, 3181, 0.0675],
+            [129750, 8237, 0.0715]
+          ],
+          "head_of_household": [
+            [0, 0, 0.058],
+            [27400, 1589, 0.0675],
+            [64850, 4117, 0.0715]
+          ]
+        }
+      }
+    ],
+    "MD": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/legal-publications/facts/withholding-tax-facts-2026.pdf",
+        "sourceNote": "Withholding Tax Facts for 2026 (COM RAD 098, revised 12/25) for both rate schedules, the county rates and the $3,200 exemption. Maryland publishes two ways to withhold and they do not agree. The percentage tables in the 2026 employer guide are the manual one: Tax Facts offers them to employers who withhold without a computer and groups the county rates into nine brackets, each to be rounded up to, so Cecil, Washington, Carroll, Charles and Harford have no table of their own. Those tables charge 4.75% from the first dollar and give every filing status one $3,400 standard deduction, where the 2025 Act sets two, $3,350 and $6,700 for 2025 and indexed after. This entry follows the schedules Tax Facts prints, whose cumulative amounts it reproduces to the cent and which reach only $90 by $3,000, with the $3,400 and $6,850 deductions the comptroller's own calculator applies for 2026; the two readings differ by $52.50 a year at every income. State and county come to one line here because that is how the comptroller's own payroll memo says a Maryland stub prints them.",
+        "annualStandardDeduction": {
+          "single": 3400,
+          "married_jointly": 6850,
+          "head_of_household": 6850
+        },
+        "exemptionPerAllowance": 3200,
+        "lowIncomeExemptionPerPeriod": {
+          "weekly": 96,
+          "biweekly": 192,
+          "semimonthly": 208,
+          "monthly": 417,
+          "annually": 5000
+        },
+        "nonresidency": {
+          "label": "Employee lives outside Maryland",
+          "hint": "A nonresident pays no county rate; Maryland withholds an additional state tax at 2.25% instead, the lowest local rate in the state.",
+          "localRate": 0.0225
+        },
+        "countyTax": {
+          "label": "County Income Tax",
+          "hint": "County of residence from the employee's Form MW507. Maryland charges it on the same income as the state tax and prints the two as one line.",
+          "joinsStateLine": true,
+          "defaultRate": 0.033,
+          "rates": [
+            {
+              "code": "01",
+              "name": "Allegany",
+              "rate": 0.032
+            },
+            {
+              "code": "02",
+              "name": "Anne Arundel",
+              "rate": 0.032,
+              "bands": {
+                "single": [
+                  {
+                    "upTo": 50000,
+                    "rate": 0.027
+                  },
+                  {
+                    "upTo": 400000,
+                    "rate": 0.0294
+                  },
+                  {
+                    "rate": 0.032
+                  }
+                ],
+                "married_jointly": [
+                  {
+                    "upTo": 75000,
+                    "rate": 0.027
+                  },
+                  {
+                    "upTo": 480000,
+                    "rate": 0.0294
+                  },
+                  {
+                    "rate": 0.032
+                  }
+                ],
+                "head_of_household": [
+                  {
+                    "upTo": 75000,
+                    "rate": 0.027
+                  },
+                  {
+                    "upTo": 480000,
+                    "rate": 0.0294
+                  },
+                  {
+                    "rate": 0.032
+                  }
+                ]
+              },
+              "marginalBands": true
+            },
+            {
+              "code": "03",
+              "name": "Baltimore County",
+              "rate": 0.032
+            },
+            {
+              "code": "04",
+              "name": "Baltimore City",
+              "rate": 0.032
+            },
+            {
+              "code": "05",
+              "name": "Calvert",
+              "rate": 0.032
+            },
+            {
+              "code": "06",
+              "name": "Caroline",
+              "rate": 0.032
+            },
+            {
+              "code": "07",
+              "name": "Carroll",
+              "rate": 0.0303
+            },
+            {
+              "code": "08",
+              "name": "Cecil",
+              "rate": 0.0274
+            },
+            {
+              "code": "09",
+              "name": "Charles",
+              "rate": 0.0303
+            },
+            {
+              "code": "10",
+              "name": "Dorchester",
+              "rate": 0.033
+            },
+            {
+              "code": "11",
+              "name": "Frederick",
+              "rate": 0.032,
+              "bands": {
+                "single": [
+                  {
+                    "upTo": 25000,
+                    "rate": 0.0225
+                  },
+                  {
+                    "upTo": 50000,
+                    "rate": 0.0275
+                  },
+                  {
+                    "upTo": 150000,
+                    "rate": 0.0296
+                  },
+                  {
+                    "rate": 0.032
+                  }
+                ],
+                "married_jointly": [
+                  {
+                    "upTo": 25000,
+                    "rate": 0.0225
+                  },
+                  {
+                    "upTo": 100000,
+                    "rate": 0.0275
+                  },
+                  {
+                    "upTo": 250000,
+                    "rate": 0.0296
+                  },
+                  {
+                    "rate": 0.032
+                  }
+                ],
+                "head_of_household": [
+                  {
+                    "upTo": 25000,
+                    "rate": 0.0225
+                  },
+                  {
+                    "upTo": 100000,
+                    "rate": 0.0275
+                  },
+                  {
+                    "upTo": 250000,
+                    "rate": 0.0296
+                  },
+                  {
+                    "rate": 0.032
+                  }
+                ]
+              }
+            },
+            {
+              "code": "12",
+              "name": "Garrett",
+              "rate": 0.0265
+            },
+            {
+              "code": "13",
+              "name": "Harford",
+              "rate": 0.0306
+            },
+            {
+              "code": "14",
+              "name": "Howard",
+              "rate": 0.032
+            },
+            {
+              "code": "15",
+              "name": "Kent",
+              "rate": 0.033
+            },
+            {
+              "code": "16",
+              "name": "Montgomery",
+              "rate": 0.032
+            },
+            {
+              "code": "17",
+              "name": "Prince George's",
+              "rate": 0.032
+            },
+            {
+              "code": "18",
+              "name": "Queen Anne's",
+              "rate": 0.032
+            },
+            {
+              "code": "19",
+              "name": "St. Mary's",
+              "rate": 0.032
+            },
+            {
+              "code": "20",
+              "name": "Somerset",
+              "rate": 0.032
+            },
+            {
+              "code": "21",
+              "name": "Talbot",
+              "rate": 0.024
+            },
+            {
+              "code": "22",
+              "name": "Washington",
+              "rate": 0.0295
+            },
+            {
+              "code": "23",
+              "name": "Wicomico",
+              "rate": 0.032
+            },
+            {
+              "code": "24",
+              "name": "Worcester",
+              "rate": 0.0225
+            }
+          ]
+        },
+        "brackets": {
+          "single": [
+            [0, -52.5, 0.0475],
+            [100000, 4697.5, 0.05],
+            [125000, 5947.5, 0.0525],
+            [150000, 7260, 0.055],
+            [250000, 12760, 0.0575],
+            [500000, 27135, 0.0625],
+            [1000000, 58385, 0.065]
+          ],
+          "married_jointly": [
+            [0, -52.5, 0.0475],
+            [150000, 7072.5, 0.05],
+            [175000, 8322.5, 0.0525],
+            [225000, 10947.5, 0.055],
+            [300000, 15072.5, 0.0575],
+            [600000, 32322.5, 0.0625],
+            [1200000, 69822.5, 0.065]
+          ],
+          "head_of_household": [
+            [0, -52.5, 0.0475],
+            [150000, 7072.5, 0.05],
+            [175000, 8322.5, 0.0525],
+            [225000, 10947.5, 0.055],
+            [300000, 15072.5, 0.0575],
+            [600000, 32322.5, 0.0625],
+            [1200000, 69822.5, 0.065]
+          ]
+        }
+      }
+    ],
+    "MA": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://web.archive.org/web/20260312193631/https://www.mass.gov/doc/massachusetts-circular-m-income-tax-withholding-tables-at-50-effective-january-1-2026/download",
+        "note": "Massachusetts' blindness credit is not applied here, so a blind employee has less Massachusetts tax withheld than this line shows.",
+        "sourceNote": "Circular M Rev. 12/25. An exemption is worth $4,400 for the first and $1,000 for each further one, FICA and Medicare come off the base up to $2,000, and head of household gets $120 a year. The blindness credit is not modelled: the form has nowhere to claim it.",
+        "exemptionPerAllowance": 1000,
+        "firstAllowanceAmount": 4400,
+        "firstAllowanceCount": {
+          "single": 1,
+          "married_jointly": 1,
+          "head_of_household": 1
+        },
+        "deductPayrollTaxRate": 0.0765,
+        "deductPayrollTaxCap": 2000,
+        "lowIncomeExemption": {
+          "single": 8000,
+          "married_jointly": 8000,
+          "head_of_household": 8000
+        },
+        "lowIncomeExemptionRequiresAllowance": true,
+        "taperingCredit": {
+          "single": {
+            "amount": 0
+          },
+          "married_jointly": {
+            "amount": 0
+          },
+          "head_of_household": {
+            "amount": 120
+          }
+        },
+        "brackets": {
+          "single": [
+            [0, 0, 0.05],
+            [1107750, 55387.5, 0.09]
+          ],
+          "married_jointly": [
+            [0, 0, 0.05],
+            [1107750, 55387.5, 0.09]
+          ],
+          "head_of_household": [
+            [0, 0, 0.05],
+            [1107750, 55387.5, 0.09]
+          ]
+        }
+      }
+    ],
+    "MI": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/SUW/TY2026/446_Withholding-Guide_2026.pdf",
+        "sourceNote": "Michigan Income Tax Withholding Guide, 446 (Rev. 02-26), which withholds 4.25% of compensation after the personal exemption. The February 2026 edition replaced the October 2025 one at the same address, leaving both the rate and the exemption where they were.",
+        "noteSourceUrl": "https://www.michigan.gov/taxes/questions/iit/accordion/general/what-cities-impose-an-income-tax",
+        "unmodelledLocalTax": true,
+        "note": "State tax only. Around two dozen Michigan cities levy a separate local income tax that is withheld on top of this.",
+        "exemptionPerAllowance": 5900,
+        "brackets": {
+          "single": [[0, 0, 0.0425]],
+          "married_jointly": [[0, 0, 0.0425]],
+          "head_of_household": [[0, 0, 0.0425]]
+        }
+      }
+    ],
+    "MN": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.revenue.state.mn.us/sites/default/files/2025-12/wh-inst-26.pdf",
+        "exemptionPerAllowance": 5300,
+        "brackets": {
+          "single": [
+            [0, 0, 0.0],
+            [4700, 0, 0.0535],
+            [38010, 1782.09, 0.068],
+            [114130, 6958.25, 0.0785],
+            [207850, 14315.27, 0.0985]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0],
+            [14700, 0, 0.0535],
+            [63400, 2605.45, 0.068],
+            [208180, 12450.49, 0.0785],
+            [352630, 23789.82, 0.0985]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0],
+            [4700, 0, 0.0535],
+            [38010, 1782.09, 0.068],
+            [114130, 6958.25, 0.0785],
+            [207850, 14315.27, 0.0985]
+          ]
+        }
+      }
+    ],
+    "MS": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.dor.ms.gov/sites/default/files/tax-forms/business/89700251revised1.13.2026.pdf",
+        "annualStandardDeduction": {
+          "single": 8300,
+          "married_jointly": 16600,
+          "head_of_household": 12900
+        },
+        "brackets": {
+          "single": [
+            [0, 0, 0.0],
+            [10000, 0, 0.04]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0],
+            [10000, 0, 0.04]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0],
+            [10000, 0, 0.04]
+          ]
+        }
+      }
+    ],
+    "MO": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://dor.mo.gov/forms/Withholding%20Formula_2026.pdf",
+        "note": "State tax only. Kansas City and St. Louis charge an earnings tax on wages earned in the city, withheld by the employer on top of this.",
+        "noteSourceUrl": "https://www.kcmo.gov/city-hall/departments/finance/tax-home/tax-form-descriptions",
+        "unmodelledLocalTax": true,
+        "sourceNote": "The guide lists the standard deduction by a check box on Form MO W-4 Line 1 rather than by filing status, and both figures are loaded: $32,200 where the spouse does not work, $16,100 where the spouse does. An employee who has not answered is deducted the full amount, as if the box were checked, which is what the tables did before both figures were loaded.",
+        "annualStandardDeduction": {
+          "single": 16100,
+          "married_jointly": 16100,
+          "married_jointly_sole_earner": 32200,
+          "head_of_household": 24150
+        },
+        "brackets": {
+          "single": [
+            [0, 0, 0.0],
+            [1348, 0, 0.02],
+            [2696, 27, 0.025],
+            [4044, 61, 0.03],
+            [5392, 101, 0.035],
+            [6740, 148, 0.04],
+            [8088, 202, 0.045],
+            [9436, 263, 0.047]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0],
+            [1348, 0, 0.02],
+            [2696, 27, 0.025],
+            [4044, 61, 0.03],
+            [5392, 101, 0.035],
+            [6740, 148, 0.04],
+            [8088, 202, 0.045],
+            [9436, 263, 0.047]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0],
+            [1348, 0, 0.02],
+            [2696, 27, 0.025],
+            [4044, 61, 0.03],
+            [5392, 101, 0.035],
+            [6740, 148, 0.04],
+            [8088, 202, 0.045],
+            [9436, 263, 0.047]
+          ]
+        }
+      }
+    ],
+    "MT": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://revenuefiles.mt.gov/files/Forms/Montana_Employer_and_Information_Agent_Guide_with_Tax_Tables.pdf",
+        "brackets": {
+          "single": [
+            [0, 0, 0.0],
+            [16100, 0, 0.047],
+            [63600, 2233, 0.0565]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0],
+            [32200, 0, 0.047],
+            [127200, 4465, 0.0565]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0],
+            [24150, 0, 0.047],
+            [95400, 3349, 0.0565]
+          ]
+        }
+      }
+    ],
+    "NE": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://revenue.nebraska.gov/sites/default/files/doc/business/Cir_En_2025/2026cir_en_whole.pdf",
+        "exemptionPerAllowance": 2440,
+        "brackets": {
+          "single": [
+            [0, 0, 0.0],
+            [3430, 0, 0.0226],
+            [6710, 74.13, 0.0322],
+            [21810, 560.35, 0.0421],
+            [31610, 972.93, 0.0435],
+            [40130, 1343.55, 0.0448],
+            [75370, 2922.3, 0.046]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0],
+            [8190, 0, 0.0226],
+            [13010, 108.93, 0.0322],
+            [32400, 733.29, 0.0421],
+            [50400, 1491.09, 0.0435],
+            [62530, 2018.75, 0.0448],
+            [82920, 2932.22, 0.046]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0],
+            [3430, 0, 0.0226],
+            [6710, 74.13, 0.0322],
+            [21810, 560.35, 0.0421],
+            [31610, 972.93, 0.0435],
+            [40130, 1343.55, 0.0448],
+            [75370, 2922.3, 0.046]
+          ]
+        }
+      }
+    ],
+    "NV": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "none",
+        "verified": true,
+        "note": "No state income tax is withheld from wages in Nevada.",
+        "sourceUrl": "https://tax.nv.gov/about-nevada-department-of-taxation/income-tax-in-nevada/",
+        "sourceNote": "The department keeps a page named for the tax it does not levy: Nevada imposes no state income tax on individuals and takes no part in administering the federal one."
+      }
+    ],
+    "NH": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "none",
+        "verified": true,
+        "note": "No state income tax is withheld from wages in New Hampshire.",
+        "sourceUrl": "https://www.revenue.nh.gov/taxes-glance/interest-dividends-tax",
+        "sourceNote": "New Hampshire taxed interest and dividends and never wages, which is why the department states both halves on the one page: the state has no income tax on an individual's reported W-2 wages, and the Interest and Dividends tax is repealed for taxable periods beginning after 31 December 2024. Nothing was ever withheld from wages for that tax, so its repeal changes nothing on a pay stub and the page is cited for the first half. Read on the page itself on 2026-09-01, which also moved the citation to the path the site serves: the one stored before, with the 'and' in it, loads but lands the reader here."
+      }
+    ],
+    "NJ": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.nj.gov/treasury/taxation/pdf/NJWithholdingRateTablesPercentageMethod.pdf",
+        "sourceNote": "Tables for Percentage Method of Withholding, in force for wages paid on and after October 1, 2020 and still the current edition; the allowance values and the rule for choosing a table are from NJ-WT, September 2025. New Jersey withholds inside the pay period rather than the year: one allowance is worth a figure of the period, and every lettered table is printed once per period. The worked examples the state prints were computed against an older edition of these tables and disagree with the printed ones by a cent or two, so only three of them still come out to the cent. The quarterly, semiannual and daily tables are not modelled: the form has no such frequency.",
+        "periodAdjustments": {
+          "extra": {
+            "label": "Additional amount deducted from each pay",
+            "hint": "Line 5 of Form NJ-W4, an additional amount you want deducted from each pay.",
+            "sourceUrl": "https://www.nj.gov/treasury/taxation/pdf/current/njwt.pdf"
+          }
+        },
+        "exemptionPerAllowancePerPeriod": {
+          "weekly": 19.2,
+          "biweekly": 38.4,
+          "semimonthly": 41.6,
+          "monthly": 83.3,
+          "annually": 1000
+        },
+        "exemptionCodes": [
+          {
+            "code": "A",
+            "label": "A - single, or married/CU partner separate",
+            "defaultFor": ["single"],
+            "periodBrackets": {
+              "weekly": [
+                [0, 0, 0.015],
+                [385, 5.77, 0.02],
+                [673, 11.54, 0.039],
+                [769, 15.29, 0.061],
+                [1442, 56.35, 0.07],
+                [9615, 628.46, 0.099],
+                [19231, 1580.38, 0.118]
+              ],
+              "biweekly": [
+                [0, 0, 0.015],
+                [769, 12, 0.02],
+                [1346, 23, 0.039],
+                [1538, 31, 0.061],
+                [2885, 113, 0.07],
+                [19231, 1257, 0.099],
+                [38462, 3161, 0.118]
+              ],
+              "semimonthly": [
+                [0, 0, 0.015],
+                [833, 13, 0.02],
+                [1458, 25, 0.039],
+                [1667, 33, 0.061],
+                [3125, 122, 0.07],
+                [20833, 1362, 0.099],
+                [41667, 3424, 0.118]
+              ],
+              "monthly": [
+                [0, 0, 0.015],
+                [1667, 25, 0.02],
+                [2917, 50, 0.039],
+                [3333, 66, 0.061],
+                [6250, 244, 0.07],
+                [41667, 2723, 0.099],
+                [83333, 6848, 0.118]
+              ],
+              "annually": [
+                [0, 0, 0.015],
+                [20000, 300, 0.02],
+                [35000, 600, 0.039],
+                [40000, 795, 0.061],
+                [75000, 2930, 0.07],
+                [500000, 32680, 0.099],
+                [1000000, 82180, 0.118]
+              ]
+            }
+          },
+          {
+            "code": "B",
+            "label": "B - married/CU couple joint, head of household, or qualifying widow(er)",
+            "defaultFor": ["married_jointly", "head_of_household"],
+            "periodBrackets": {
+              "weekly": [
+                [0, 0, 0.015],
+                [385, 5.77, 0.02],
+                [962, 17.31, 0.027],
+                [1346, 27.69, 0.039],
+                [1538, 35.19, 0.061],
+                [2885, 117.31, 0.07],
+                [9615, 588.46, 0.099],
+                [19231, 1540.38, 0.118]
+              ],
+              "biweekly": [
+                [0, 0, 0.015],
+                [769, 12, 0.02],
+                [1923, 35, 0.027],
+                [2692, 55, 0.039],
+                [3077, 70, 0.061],
+                [5769, 235, 0.07],
+                [19231, 1177, 0.099],
+                [38462, 3081, 0.118]
+              ],
+              "semimonthly": [
+                [0, 0, 0.015],
+                [833, 12.5, 0.02],
+                [2083, 37.5, 0.027],
+                [2917, 59.99, 0.039],
+                [3333, 76.25, 0.061],
+                [6250, 254.19, 0.07],
+                [20833, 1275, 0.099],
+                [41667, 3338, 0.118]
+              ],
+              "monthly": [
+                [0, 0, 0.015],
+                [1667, 25, 0.02],
+                [4167, 75, 0.027],
+                [5833, 120, 0.039],
+                [6667, 153, 0.061],
+                [12500, 508, 0.07],
+                [41667, 2550, 0.099],
+                [83333, 6675, 0.118]
+              ],
+              "annually": [
+                [0, 0, 0.015],
+                [20000, 300, 0.02],
+                [50000, 900, 0.027],
+                [70000, 1440, 0.039],
+                [80000, 1830, 0.061],
+                [150000, 6100, 0.07],
+                [500000, 30600, 0.099],
+                [1000000, 80100, 0.118]
+              ]
+            }
+          },
+          {
+            "code": "C",
+            "label": "C - chosen from the NJ-W4 wage chart",
+            "periodBrackets": {
+              "weekly": [
+                [0, 0, 0.015],
+                [385, 5.77, 0.023],
+                [769, 14.62, 0.028],
+                [962, 20, 0.035],
+                [1154, 26.73, 0.056],
+                [2885, 123.65, 0.066],
+                [9615, 567.88, 0.099],
+                [19231, 1519.81, 0.118]
+              ],
+              "biweekly": [
+                [0, 0, 0.015],
+                [769, 11.54, 0.023],
+                [1538, 29.23, 0.028],
+                [1923, 40, 0.035],
+                [2308, 53.46, 0.056],
+                [5769, 247.31, 0.066],
+                [19231, 1135.77, 0.099],
+                [38462, 3039.62, 0.118]
+              ],
+              "semimonthly": [
+                [0, 0, 0.015],
+                [833, 12.5, 0.023],
+                [1667, 31.67, 0.028],
+                [2083, 43.33, 0.035],
+                [2500, 57.92, 0.056],
+                [6250, 267.92, 0.066],
+                [20833, 1230.42, 0.099],
+                [41667, 3292.92, 0.118]
+              ],
+              "monthly": [
+                [0, 0, 0.015],
+                [1667, 25, 0.023],
+                [3333, 63.33, 0.028],
+                [4167, 86.67, 0.035],
+                [5000, 115.83, 0.056],
+                [12500, 535.85, 0.066],
+                [41667, 2460.83, 0.099],
+                [83333, 6585.83, 0.118]
+              ],
+              "annually": [
+                [0, 0, 0.015],
+                [20000, 300, 0.023],
+                [40000, 760, 0.028],
+                [50000, 1040, 0.035],
+                [60000, 1390, 0.056],
+                [150000, 6430, 0.066],
+                [500000, 29530, 0.099],
+                [1000000, 79030, 0.118]
+              ]
+            }
+          },
+          {
+            "code": "D",
+            "label": "D - chosen from the NJ-W4 wage chart",
+            "periodBrackets": {
+              "weekly": [
+                [0, 0, 0.015],
+                [385, 5.77, 0.027],
+                [769, 16.15, 0.034],
+                [962, 22.69, 0.043],
+                [1154, 30.96, 0.056],
+                [2885, 127.88, 0.065],
+                [9615, 565.38, 0.099],
+                [19231, 1517.31, 0.118]
+              ],
+              "biweekly": [
+                [0, 0, 0.015],
+                [769, 11.54, 0.027],
+                [1538, 32.31, 0.034],
+                [1923, 45.38, 0.043],
+                [2308, 61.92, 0.056],
+                [5769, 255.77, 0.065],
+                [19231, 1130.77, 0.099],
+                [38462, 3034.62, 0.118]
+              ],
+              "semimonthly": [
+                [0, 0, 0.015],
+                [833, 12.5, 0.027],
+                [1667, 35, 0.034],
+                [2083, 49.17, 0.043],
+                [2500, 67.08, 0.056],
+                [6250, 277.08, 0.065],
+                [20833, 1225, 0.099],
+                [41667, 3287.5, 0.118]
+              ],
+              "monthly": [
+                [0, 0, 0.015],
+                [1667, 25, 0.027],
+                [3333, 70, 0.034],
+                [4167, 98.33, 0.043],
+                [5000, 134.17, 0.056],
+                [12500, 554.17, 0.065],
+                [41667, 2450, 0.099],
+                [83333, 6575, 0.118]
+              ],
+              "annually": [
+                [0, 0, 0.015],
+                [20000, 300, 0.027],
+                [40000, 840, 0.034],
+                [50000, 1180, 0.043],
+                [60000, 1610, 0.056],
+                [150000, 6650, 0.065],
+                [500000, 29400, 0.099],
+                [1000000, 78900, 0.118]
+              ]
+            }
+          },
+          {
+            "code": "E",
+            "label": "E - chosen from the NJ-W4 wage chart",
+            "periodBrackets": {
+              "weekly": [
+                [0, 0, 0.015],
+                [385, 5.77, 0.02],
+                [673, 11.54, 0.058],
+                [1923, 84.04, 0.065],
+                [9615, 584.04, 0.099],
+                [19231, 1535.96, 0.118]
+              ],
+              "biweekly": [
+                [0, 0, 0.015],
+                [769, 12, 0.02],
+                [1346, 23, 0.058],
+                [3846, 168, 0.065],
+                [19231, 1168, 0.099],
+                [38462, 3072, 0.118]
+              ],
+              "semimonthly": [
+                [0, 0, 0.015],
+                [833, 13, 0.02],
+                [1458, 25, 0.058],
+                [4167, 182, 0.065],
+                [20833, 1265, 0.099],
+                [41667, 3328, 0.118]
+              ],
+              "monthly": [
+                [0, 0, 0.015],
+                [1667, 25, 0.02],
+                [2917, 50, 0.058],
+                [8333, 364, 0.065],
+                [41667, 2531, 0.099],
+                [83333, 6656, 0.118]
+              ],
+              "annually": [
+                [0, 0, 0.015],
+                [20000, 300, 0.02],
+                [35000, 600, 0.058],
+                [100000, 4370, 0.065],
+                [500000, 30370, 0.099],
+                [1000000, 79870, 0.118]
+              ]
+            }
+          }
+        ],
+        "brackets": {
+          "single": [],
+          "married_jointly": [],
+          "head_of_household": []
+        }
+      }
+    ],
+    "NM": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://realfile.tax.newmexico.gov/FYI-104.pdf",
+        "brackets": {
+          "single": [
+            [0, 0, 0.0],
+            [8050, 0, 0.015],
+            [13550, 82.5, 0.032],
+            [20550, 306.5, 0.032],
+            [24550, 434.5, 0.043],
+            [33550, 821.5, 0.043],
+            [41550, 1165.5, 0.047],
+            [58550, 1964.5, 0.047],
+            [74550, 2716.5, 0.049],
+            [218050, 9748.0, 0.059]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0],
+            [16100, 0, 0.015],
+            [24100, 120.0, 0.032],
+            [32100, 376.0, 0.032],
+            [41100, 664.0, 0.043],
+            [57100, 1352.0, 0.043],
+            [66100, 1739.0, 0.047],
+            [102100, 3431.0, 0.047],
+            [116100, 4089.0, 0.049],
+            [331100, 14624.0, 0.059]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0],
+            [12075, 0, 0.015],
+            [20075, 120.0, 0.032],
+            [28075, 376.0, 0.032],
+            [37075, 664.0, 0.043],
+            [53075, 1352.0, 0.043],
+            [62075, 1739.0, 0.047],
+            [98075, 3431.0, 0.047],
+            [112075, 4089.0, 0.049],
+            [327075, 14624.0, 0.059]
+          ]
+        }
+      }
+    ],
+    "NY": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.tax.ny.gov/pdf/publications/withholding/nys50_t_nys.pdf",
+        "noteSourceUrl": "https://www.tax.ny.gov/pdf/publications/withholding/nys50_t_nyc.pdf",
+        "unmodelledLocalTax": true,
+        "note": "State only, excluding New York City and Yonkers.",
+        "sourceNote": "The marginal rates are deliberately non-monotonic: that is New York's benefit recapture, not an error. Method III, which the tables hand the highest earners to, is charged here at its first rate alone: New York steps it to 0.1110 above $5,000,000 of annualised wages and to 0.1170 above $25,000,000, and neither step is modelled, so a figure past $5,000,000 a year is below the state's own.",
+        "annualStandardDeduction": {
+          "single": 7400,
+          "married_jointly": 7950,
+          "head_of_household": 7400
+        },
+        "exemptionPerAllowance": 1000,
+        "flatRateAbove": {
+          "single": {
+            "threshold": 1077550,
+            "rate": 0.1045
+          },
+          "married_jointly": {
+            "threshold": 2155350,
+            "rate": 0.1045
+          },
+          "head_of_household": {
+            "threshold": 1077550,
+            "rate": 0.1045
+          }
+        },
+        "brackets": {
+          "single": [
+            [0, 0, 0.039],
+            [8500, 332.0, 0.044],
+            [11700, 472.0, 0.0515],
+            [13900, 586.0, 0.054],
+            [80650, 4190.0, 0.059],
+            [96800, 5143.0, 0.0703],
+            [107650, 5906.0, 0.0753],
+            [157650, 9673.0, 0.064],
+            [215400, 13369.0, 0.1144],
+            [265400, 19091.0, 0.0735]
+          ],
+          "married_jointly": [
+            [0, 0, 0.039],
+            [8500, 332.0, 0.044],
+            [11700, 472.0, 0.0515],
+            [13900, 586.0, 0.054],
+            [80650, 4190.0, 0.059],
+            [96800, 5143.0, 0.0657],
+            [107650, 5855.0, 0.0707],
+            [157650, 9388.0, 0.0801],
+            [211550, 13708.0, 0.064],
+            [323200, 20854.0, 0.1349],
+            [373200, 27600.0, 0.0735],
+            [1077550, 79369.0, 0.0765]
+          ],
+          "head_of_household": [
+            [0, 0, 0.039],
+            [8500, 332.0, 0.044],
+            [11700, 472.0, 0.0515],
+            [13900, 586.0, 0.054],
+            [80650, 4190.0, 0.059],
+            [96800, 5143.0, 0.0703],
+            [107650, 5906.0, 0.0753],
+            [157650, 9673.0, 0.064],
+            [215400, 13369.0, 0.1144],
+            [265400, 19091.0, 0.0735]
+          ]
+        }
+      }
+    ],
+    "NC": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.ncdor.gov/income-tax-withholding-tables-and-instructions-employers/open",
+        "note": "North Carolina withholds at 3.99% plus a 0.1% cushion.",
+        "sourceNote": "NC-30 (Web 11-25). Married filing jointly gets the same $12,750 deduction as single; only head of household differs.",
+        "annualStandardDeduction": {
+          "single": 12750,
+          "married_jointly": 12750,
+          "head_of_household": 19125
+        },
+        "exemptionPerAllowance": 2500,
+        "brackets": {
+          "single": [[0, 0, 0.0409]],
+          "married_jointly": [[0, 0, 0.0409]],
+          "head_of_household": [[0, 0, 0.0409]]
+        }
+      }
+    ],
+    "ND": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2026-iit/2026-income-tax-withholding-rates-booklet.pdf",
+        "brackets": {
+          "single": [
+            [0, 0, 0.0],
+            [57625, 0, 0.0195],
+            [258450, 3916.09, 0.025]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0],
+            [57500, 0, 0.0195],
+            [168525, 2164.99, 0.025]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0],
+            [78475, 0, 0.0195],
+            [289675, 4118.4, 0.025]
+          ]
+        }
+      }
+    ],
+    "OH": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://web.archive.org/web/20260227131034/https://dam.assets.ohio.gov/image/upload/tax.ohio.gov/employer_withholding/2025%20Withholding%20Tables/WHT_PercentageMethod_2025.pdf",
+        "note": "State tax only. Ohio municipalities and school districts charge income taxes of their own, withheld by the employer on top of this.",
+        "noteSourceUrl": "https://tax.ohio.gov/business/employer-withholding",
+        "unmodelledLocalTax": true,
+        "sourceNote": "Payroll periods ending before 1 August 2026 use the tables effective 1 October 2025. Annual thresholds are the weekly table times 52, the same convention as the current record.",
+        "exemptionPerAllowance": 650,
+        "brackets": {
+          "single": [
+            [0, 0, 0.01775],
+            [26050, 462.39, 0.0299],
+            [100000, 2673.49, 0.0364]
+          ],
+          "married_jointly": [
+            [0, 0, 0.01775],
+            [26050, 462.39, 0.0299],
+            [100000, 2673.49, 0.0364]
+          ],
+          "head_of_household": [
+            [0, 0, 0.01775],
+            [26050, 462.39, 0.0299],
+            [100000, 2673.49, 0.0364]
+          ]
+        }
+      },
+      {
+        "effectiveFrom": "2026-08-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://dam.assets.ohio.gov/image/upload/tax.ohio.gov/employer_withholding/2026%20Withholding%20Tables/WHT_PercentageMethod_2026.pdf",
+        "note": "State tax only. Ohio municipalities and school districts charge income taxes of their own, withheld by the employer on top of this.",
+        "noteSourceUrl": "https://tax.ohio.gov/business/employer-withholding",
+        "unmodelledLocalTax": true,
+        "sourceNote": "House Bill 96 cut Ohio's rates for payroll periods ending on or after 1 August 2026.",
+        "exemptionPerAllowance": 650,
+        "brackets": {
+          "single": [
+            [0, 0, 0.016],
+            [26050, 416.8, 0.0299],
+            [100000, 2627.91, 0.034]
+          ],
+          "married_jointly": [
+            [0, 0, 0.016],
+            [26050, 416.8, 0.0299],
+            [100000, 2627.91, 0.034]
+          ],
+          "head_of_household": [
+            [0, 0, 0.016],
+            [26050, 416.8, 0.0299],
+            [100000, 2627.91, 0.034]
+          ]
+        }
+      }
+    ],
+    "OK": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.oklahoma.gov/content/dam/ok/en/tax/documents/resources/publications/businesses/withholding-tables/WHTables-2026.pdf",
+        "exemptionPerAllowance": 1000,
+        "brackets": {
+          "single": [
+            [0, 0, 0.0],
+            [10100, 0, 0.025],
+            [11250, 28.75, 0.035],
+            [13550, 109.25, 0.045]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0],
+            [20200, 0, 0.025],
+            [22500, 57.5, 0.035],
+            [27100, 218.5, 0.045]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0],
+            [10100, 0, 0.025],
+            [11250, 28.75, 0.035],
+            [13550, 109.25, 0.045]
+          ]
+        }
+      }
+    ],
+    "OR": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.oregon.gov/dor/forms/FormsPubs/withholding-tax-formulas_206-436_2026.pdf",
+        "note": "State tax only. Employers in the Portland area also withhold the Metro and Multnomah County income taxes once earnings pass their thresholds.",
+        "noteSourceUrl": "https://www.portland.gov/revenue/withholding",
+        "unmodelledLocalTax": true,
+        "sourceNote": "Oregon Withholding Tax Formulas, 150-206-436 (Rev. 12-31-25). Every figure here is read off the formula tables, not off the prose around them: the 2026 edition still carries uncleaned 2025 text, so page 5 and FAQ 3 call the cap on the federal subtraction $8,500 while the tables and FAQ 11 call it $8,750, and Example 3 gives $5,100 where the printed phase-out says $5,250. The tables are the ones that hold together: each rung of the phase-out is 80, 60, 40 and 20 percent of $8,750 and not of $8,500, and the lowest base each of the two upper schedules starts from is $50,000 less $8,750 less the standard deduction. $8,750 is therefore the figure in force, and the $8,500 the prose still carries is the stale half of the edition. The constant of a bracket in the upper schedules is $263 below its twin in the lower ones, which is the state's own step down at $50,000 of wages and not a transcription slip. An employee who has filed no Form OR-W-4 may instead be withheld at a straight 8 percent (HB 2119, 2019); the flat rate is not modelled here.",
+        "deductsFederalWithholding": true,
+        "federalWithholdingCap": {
+          "single": [
+            { "fromWages": 0, "amount": 8750 },
+            { "fromWages": 125000, "amount": 7000 },
+            { "fromWages": 130000, "amount": 5250 },
+            { "fromWages": 135000, "amount": 3500 },
+            { "fromWages": 140000, "amount": 1750 },
+            { "fromWages": 145000, "amount": 0 }
+          ],
+          "married_jointly": [
+            { "fromWages": 0, "amount": 8750 },
+            { "fromWages": 250000, "amount": 7000 },
+            { "fromWages": 260000, "amount": 5250 },
+            { "fromWages": 270000, "amount": 3500 },
+            { "fromWages": 280000, "amount": 1750 },
+            { "fromWages": 290000, "amount": 0 }
+          ],
+          "head_of_household": [
+            { "fromWages": 0, "amount": 8750 },
+            { "fromWages": 125000, "amount": 7000 },
+            { "fromWages": 130000, "amount": 5250 },
+            { "fromWages": 135000, "amount": 3500 },
+            { "fromWages": 140000, "amount": 1750 },
+            { "fromWages": 145000, "amount": 0 }
+          ]
+        },
+        "annualStandardDeduction": {
+          "single": 2910,
+          "married_jointly": 5820,
+          "head_of_household": 2910
+        },
+        "allowanceColumn": { "atLeast": 3, "column": "married_jointly" },
+        "allowanceCliff": {
+          "single": 100000,
+          "married_jointly": 200000,
+          "head_of_household": 100000
+        },
+        "creditPerAllowance": 263,
+        "brackets": {
+          "single": [
+            [0, 263, 0.0475],
+            [4550, 479, 0.0675],
+            [11400, 941, 0.0875]
+          ],
+          "married_jointly": [
+            [0, 263, 0.0475],
+            [9100, 695, 0.0675],
+            [22800, 1620, 0.0875]
+          ],
+          "head_of_household": [
+            [0, 263, 0.0475],
+            [4550, 479, 0.0675],
+            [11400, 941, 0.0875]
+          ]
+        },
+        "bracketsAboveWages": {
+          "fromWages": 50000,
+          "brackets": {
+            "single": [
+              [11400, 678, 0.0875],
+              [125000, 10618, 0.099]
+            ],
+            "married_jointly": [
+              [22800, 1357, 0.0875],
+              [250000, 21237, 0.099]
+            ],
+            "head_of_household": [
+              [11400, 678, 0.0875],
+              [125000, 10618, 0.099]
+            ]
+          }
+        }
+      }
+    ],
+    "PA": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "flat",
+        "rate": 0.0307,
+        "verified": true,
+        "sourceUrl": "https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/employer-withholding",
+        "unmodelledLocalTax": true,
+        "note": "State tax only. A Pennsylvania worksite also withholds a local earned income tax, set by where the employee lives or works, and a local services tax.",
+        "sourceNote": "The local layer is deliberately not modelled: Act 32 leaves the earned income tax rate to each municipality and school district, the employer withholds the higher of the employee's resident rate and the non-resident rate of the worksite, and the flat-dollar local services tax is set the same way. Philadelphia sits outside Act 32 under its own wage tax, which is larger than the state rate on this page. A single figure for any of it would be a figure for nobody.",
+        "noteSourceUrl": "https://dced.pa.gov/local-government/local-income-tax-information/"
+      }
+    ],
+    "RI": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2026%20Withholding%20Tax%20Booklet.pdf",
+        "exemptionPerAllowance": 1000,
+        "allowanceCliff": 290800,
+        "brackets": {
+          "single": [
+            [0, 0, 0.0375],
+            [82050, 3076.88, 0.0475],
+            [186450, 8035.88, 0.0599]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0375],
+            [82050, 3076.88, 0.0475],
+            [186450, 8035.88, 0.0599]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0375],
+            [82050, 3076.88, 0.0475],
+            [186450, 8035.88, 0.0599]
+          ]
+        }
+      }
+    ],
+    "SC": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://dor.sc.gov/sites/dor/files/forms/WH1603F_2026.pdf",
+        "deductionPercentOfGross": 0.1,
+        "deductionCap": 7500,
+        "deductionRequiresAllowance": true,
+        "exemptionPerAllowance": 5000,
+        "brackets": {
+          "single": [
+            [0, 0, 0.0],
+            [3640, 0, 0.03],
+            [18230, 437.7, 0.06]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0],
+            [3640, 0, 0.03],
+            [18230, 437.7, 0.06]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0],
+            [3640, 0, 0.03],
+            [18230, 437.7, 0.06]
+          ]
+        }
+      }
+    ],
+    "SD": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "none",
+        "verified": true,
+        "note": "No state income tax is withheld from wages in South Dakota.",
+        "sourceUrl": "https://dor.sd.gov/individuals/taxes/",
+        "sourceNote": "The department says it on the page it gives to individuals, counting itself among the states that impose no state income tax at all."
+      }
+    ],
+    "TN": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "none",
+        "verified": true,
+        "note": "No state income tax is withheld from wages in Tennessee.",
+        "sourceUrl": "https://www.tn.gov/revenue/taxes/hall-income-tax.html",
+        "sourceNote": "Tennessee taxed interest and dividends under the Hall income tax and never wages. The department's page for that tax states that it was repealed for tax periods beginning on 1 January 2021 or later, and asks that no return be filed for them. Wages were outside it while it stood, so nothing here changed when it fell."
+      }
+    ],
+    "TX": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "none",
+        "verified": true,
+        "note": "No state income tax is withheld from wages in Texas.",
+        "sourceUrl": "https://tlc.texas.gov/docs/legref/TxConst.pdf",
+        "sourceNote": "The prohibition is constitutional here rather than administrative, so there is no department page to cite. Article VIII, Section 24-a forbids the legislature to impose a tax on the net incomes of individuals, including an individual's share of partnership and unincorporated association income; the section was added by the amendment of November 5, 2019."
+      }
+    ],
+    "UT": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://web.archive.org/web/20260114210054/https://files.tax.utah.gov/tax/forms/pubs/pub-14.pdf",
+        "sourceNote": "Pay periods beginning before 1 June 2026 use Publication 14 Rev. 4/25: 4.5% less a base allowance that tapers by 1.3% of wages over the threshold. Utah publishes only Single and Married schedules, so head of household is withheld on the single column.",
+        "taperingCredit": {
+          "single": {
+            "amount": 450,
+            "from": 9107,
+            "rate": 0.013
+          },
+          "married_jointly": {
+            "amount": 900,
+            "from": 18213,
+            "rate": 0.013
+          },
+          "head_of_household": {
+            "amount": 450,
+            "from": 9107,
+            "rate": 0.013
+          }
+        },
+        "brackets": {
+          "single": [[0, 0, 0.045]],
+          "married_jointly": [[0, 0, 0.045]],
+          "head_of_household": [[0, 0, 0.045]]
+        }
+      },
+      {
+        "effectiveFrom": "2026-06-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://tax.utah.gov/forms-pubs/pub-14/",
+        "sourceNote": "Publication 14 Rev. 04/26, cited as the page the state publishes it on rather than as a file: the download the page offers answers 404, and the withholding schedules printed on the page itself are the ones used here. SB 60 cut the rate to 4.45% for pay periods beginning on or after 1 June 2026, a date the guide carries on its cover and the page does not repeat. Utah publishes only Single and Married schedules, so head of household is withheld on the single column.",
+        "taperingCredit": {
+          "single": {
+            "amount": 485,
+            "from": 9348,
+            "rate": 0.013
+          },
+          "married_jointly": {
+            "amount": 970,
+            "from": 18696,
+            "rate": 0.013
+          },
+          "head_of_household": {
+            "amount": 485,
+            "from": 9348,
+            "rate": 0.013
+          }
+        },
+        "brackets": {
+          "single": [[0, 0, 0.0445]],
+          "married_jointly": [[0, 0, 0.0445]],
+          "head_of_household": [[0, 0, 0.0445]]
+        }
+      }
+    ],
+    "VT": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://tax.vermont.gov/sites/tax/files/documents/GB-1210-2026.pdf",
+        "exemptionPerAllowance": 5400,
+        "brackets": {
+          "single": [
+            [0, 0, 0.0],
+            [3925, 0, 0.0335],
+            [54675, 1700.13, 0.066],
+            [126775, 6458.73, 0.076],
+            [260225, 16600.93, 0.0875]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0],
+            [11775, 0, 0.0335],
+            [96475, 2837.45, 0.066],
+            [216525, 10760.75, 0.076],
+            [323825, 18915.55, 0.0875]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0],
+            [3925, 0, 0.0335],
+            [54675, 1700.13, 0.066],
+            [126775, 6458.73, 0.076],
+            [260225, 16600.93, 0.0875]
+          ]
+        }
+      }
+    ],
+    "VA": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/employer-withholding-instructions.pdf",
+        "note": "The age and blindness exemptions on Form VA-4 are not applied here, so an employee claiming them has less Virginia tax withheld than this line shows.",
+        "sourceNote": "Virginia's VA-4 does not collect filing status, so one table serves everyone. Age and blindness exemptions are not modelled.",
+        "annualStandardDeduction": {
+          "single": 8750,
+          "married_jointly": 8750,
+          "head_of_household": 8750
+        },
+        "exemptionPerAllowance": 930,
+        "brackets": {
+          "single": [
+            [0, 0, 0.02],
+            [3000, 60, 0.03],
+            [5000, 120, 0.05],
+            [17000, 720, 0.0575]
+          ],
+          "married_jointly": [
+            [0, 0, 0.02],
+            [3000, 60, 0.03],
+            [5000, 120, 0.05],
+            [17000, 720, 0.0575]
+          ],
+          "head_of_household": [
+            [0, 0, 0.02],
+            [3000, 60, 0.03],
+            [5000, 120, 0.05],
+            [17000, 720, 0.0575]
+          ]
+        }
+      }
+    ],
+    "WA": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "none",
+        "verified": true,
+        "note": "No state income tax is withheld from wages in Washington.",
+        "sourceUrl": "https://dor.wa.gov/income-tax",
+        "sourceNote": "The department writes that Washington does not currently have an individual income tax, and the qualifier is the state's own: Senate Bill 6346 of the 2026 legislature charges 9.9 per cent on adjusted gross income above one million dollars from 1 January 2028, with the first return due in 2029. Nothing is withheld from wages for it, and nothing at all is withheld in the year these tables cover."
+      }
+    ],
+    "WV": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://tax.wv.gov/Documents/Withholding/it100.2a.pdf",
+        "note": "State tax only. Some West Virginia cities charge a flat weekly service fee on people who work in the city, withheld from the pay.",
+        "noteSourceUrl": "https://www.charlestonwv.gov/sites/default/files/documents/2018-02/CITY%20SERVICE%20FEE%20OVERVIEW%20revised%202-2018.pdf",
+        "unmodelledLocalTax": true,
+        "sourceNote": "IT-100.2A prints two complete sets of tables and both are loaded. The unmarked set is headed \"TWO EARNER/TWO OR MORE JOBS. Married filing jointly, both working/individual earning wages from two jobs\" and its rungs sit lower; the set headed \"OPTIONAL ONE EARNER/ONE JOB. Single, head of household or married with nonemployed spouse\" is the one everyone else reads. The exemption is $2,000 a year in both. Both halves of that heading are modelled: a joint filer whose spouse works reads the two earner set, and so does an employee holding two jobs of their own, whatever their filing status.",
+        "twoIncomeBrackets": {
+          "single": [
+            [0, 0, 0.0211],
+            [7500, 158.25, 0.0281],
+            [18750, 474.38, 0.0316],
+            [30000, 829.88, 0.0422],
+            [45000, 1462.88, 0.0458]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0211],
+            [7500, 158.25, 0.0281],
+            [18750, 474.38, 0.0316],
+            [30000, 829.88, 0.0422],
+            [45000, 1462.88, 0.0458]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0211],
+            [7500, 158.25, 0.0281],
+            [18750, 474.38, 0.0316],
+            [30000, 829.88, 0.0422],
+            [45000, 1462.88, 0.0458]
+          ]
+        },
+        "exemptionPerAllowance": 2000,
+        "brackets": {
+          "single": [
+            [0, 0, 0.0211],
+            [10000, 211.0, 0.0281],
+            [25000, 632.5, 0.0316],
+            [40000, 1106.5, 0.0422],
+            [60000, 1950.5, 0.0458]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0211],
+            [10000, 211.0, 0.0281],
+            [25000, 632.5, 0.0316],
+            [40000, 1106.5, 0.0422],
+            [60000, 1950.5, 0.0458]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0211],
+            [10000, 211.0, 0.0281],
+            [25000, 632.5, 0.0316],
+            [40000, 1106.5, 0.0422],
+            [60000, 1950.5, 0.0458]
+          ]
+        }
+      }
+    ],
+    "WI": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.revenue.wi.gov/DOR%20Publications/pb166.pdf",
+        "annualStandardDeduction": {
+          "single": 6702,
+          "married_jointly": 9461,
+          "head_of_household": 6702
+        },
+        "deductionPhaseOut": {
+          "single": {
+            "start": 17780,
+            "end": 73630
+          },
+          "married_jointly": {
+            "start": 25727,
+            "end": 73032
+          },
+          "head_of_household": {
+            "start": 17780,
+            "end": 73630
+          }
+        },
+        "exemptionPerAllowance": 400,
+        "brackets": {
+          "single": [
+            [0, 0, 0.0354],
+            [12760, 451.7, 0.0465],
+            [25520, 1045.04, 0.053],
+            [280950, 14582.83, 0.0765]
+          ],
+          "married_jointly": [
+            [0, 0, 0.0354],
+            [12760, 451.7, 0.0465],
+            [25520, 1045.04, 0.053],
+            [280950, 14582.83, 0.0765]
+          ],
+          "head_of_household": [
+            [0, 0, 0.0354],
+            [12760, 451.7, 0.0465],
+            [25520, 1045.04, 0.053],
+            [280950, 14582.83, 0.0765]
+          ]
+        }
+      }
+    ],
+    "WY": [
+      {
+        "effectiveFrom": "2026-01-01",
+        "taxType": "none",
+        "verified": true,
+        "note": "No state income tax is withheld from wages in Wyoming.",
+        "sourceUrl": "https://wyoleg.gov/InterimCommittee/2025/03-202506032-01WyomingtaxstructureratesandcollectionsJune32025.pdf",
+        "sourceNote": "No department administers the tax and no constitutional prohibition exists to cite, so the claim is the legislature's own: the LSO Legal and Budget/Fiscal Divisions' overview of Title 39, Wyoming Statutory Tax Structure of June 3, 2025, whose Tax Rates and Collections table lists the individual income tax at a base rate of 0% with $0 collected in FY24."
+      }
+    ]
+  }
+}

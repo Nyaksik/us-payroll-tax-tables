@@ -1,0 +1,377 @@
+{
+  "year": 2026,
+  "states": {
+    "CA": [
+      {
+        "key": "ca_sdi",
+        "label": "CA SDI",
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "rate": 0.013,
+            "base": "gross_less_section_125",
+            "verified": true,
+            "sourceUrl": "https://edd.ca.gov/siteassets/files/pdf_pub_ctr/de44.pdf",
+            "baseSourceUrl": "https://edd.ca.gov/siteassets/files/pdf_pub_ctr/de231eb.pdf",
+            "sourceNote": "DE 44 Rev. 52 (4-26), page 8: employers withhold 1.3 percent (.013) for SDI on all subject wages. There is no taxable wage limit beginning January 1, 2024, so the entry carries no annualWageBase. The base follows DE 231EB Rev. 12 (6-17): salary reductions into a cafeteria plan are not subject to SDI, salary reductions into a qualified retirement plan are. Tips are inside this base as well, and answering that took a third document: DE 44 sends the reader to Information Sheet: Types of Payments (DE 231TP), where cash tips the employee accounts for to the employer are subject to UI, ETT and SDI once they reach $20 in a month (CUIC 927), banquet and employer-controlled tips are subject whatever the employee reports (CUIC 926), and only noncash tips are not. The condition is not modelled: an earnings line marked as tips is charged in full.",
+            "note": "California State Disability Insurance, which also funds Paid Family Leave. Withheld from the employee, at a rate set by law rather than by the employer."
+          }
+        ]
+      }
+    ],
+    "CO": [
+      {
+        "key": "co_famli",
+        "label": "Colorado FAMLI",
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "rate": 0.0044,
+            "base": "gross",
+            "annualWageBase": 184500,
+            "verified": true,
+            "sourceUrl": "https://famli.colorado.gov/individuals-and-families/how-famli-works/premium-and-benefits-calculator",
+            "baseSourceUrl": "https://famli.colorado.gov/employers",
+            "sourceNote": "Colorado FAMLI Division: the premiums in 2026 are set to 0.88 percent of the employee's wage, with 0.44 percent paid by the employer and 0.44 percent paid by the employee, on wages up to the federal Social Security wage cap, which is $184,500 for earnings in 2026. The employee's half is published as a rate of its own, so nothing here is a product of ours. annualWageBase repeats the base in fica.json, and a test holds the two together. The base is the division's own definition: wages means gross wages, the figure a pay stub prints as gross wages, and the exclusions it lists are employer contributions to a deferred compensation plan rather than the employee's own, so nothing comes off before the rate is applied. Tips are inside this base, and the same page says so by listing Tips among gross wages, beside salary, overtime, commissions and bonuses.",
+            "note": "Colorado's paid family and medical leave insurance. The employee pays half the premium, unless the employer has chosen to cover that half as well."
+          }
+        ]
+      }
+    ],
+    "CT": [
+      {
+        "key": "ct_paid_leave",
+        "label": "CT Paid Leave",
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "rate": 0.005,
+            "base": "gross_less_section_125",
+            "annualWageBase": 184500,
+            "verified": true,
+            "sourceUrl": "https://www.ctpaidleave.org/how-ct-paid-leave-works/contributions",
+            "baseSourceUrl": "https://www.ctpaidleave.org/resources-and-guides/frequently-asked-questions/glossary-of-terms",
+            "sourceNote": "CT Paid Leave Authority, Contributions: the board voted to maintain the contribution rate at 0.5 percent for 2026, employers deduct 0.5 percent from an employee's pay, and employees contribute until they reach the Social Security contribution limit. The cap is that limit and not a figure Connecticut publishes of its own: Conn. Gen. Stat. 31-49e defines subject earnings as total wages capped by the Social Security contribution and benefit base under 42 USC 430. annualWageBase therefore repeats the base in fica.json, and a test holds the two together. The base follows the Authority's glossary, which says the base for calculating a Paid Family and Medical Leave contribution is the same as the one used for determining FICA. Both pages were read through the Wayback Machine on 2026-08-31: ctpaidleave.org answers this network with a block page whether the request comes from curl or from a browser. That had stopped being true by 2026-09-01, when the site answered both curl and a browser; what curl still misses is the glossary itself, which renders on the client. Tips are inside this base, and it takes the unemployment statute to say so: the glossary defines CT Gross Wages as line 1 of Form Conn UC-2, and Conn. Gen. Stat. 31-222(b)(1) counts tips or gratuities paid to an employee directly by a customer as wages to the extent the employee accounts for them to the employer. The condition is not modelled: an earnings line marked as tips is charged in full.",
+            "note": "Connecticut's paid family and medical leave contribution. Employees fund the programme in full, the employer pays no share of it, and an employee cannot opt out."
+          }
+        ]
+      }
+    ],
+    "DE": [
+      {
+        "key": "de_paid_leave",
+        "label": "Delaware Paid Leave",
+        "employerElectsShare": true,
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "employerSizeTiers": [
+              {
+                "minEmployees": 10,
+                "maxRate": 0.0016
+              },
+              {
+                "minEmployees": 25,
+                "maxRate": 0.004
+              }
+            ],
+            "base": "gross_less_section_125",
+            "annualWageBase": 184500,
+            "verified": true,
+            "sourceUrl": "https://delcode.delaware.gov/title19/c037/index.html",
+            "baseSourceUrl": "https://delcode.delaware.gov/title19/c037/index.html",
+            "sourceNote": "19 Del. C. c. 37. Section 3707(b) sets the contribution rates for 2025 and 2026: medical leave 0.4 per cent of wages, family caregiving leave 0.08 per cent, parental leave 0.32 per cent, and for 2027 and after the Department sets them, so this record covers 2026 and no further. Sections 3707(d) to (f) repeat one sentence for each of the three: an employer shall deduct not greater than 50 per cent of the contribution required for the employee, and may elect to pay any part of the employee's share itself. Section 3701(7)a fixes which of them an employer owes: 10 to 24 employees during the previous 12 months is subject to the parental leave provisions only, 25 or more to all of them, and 3701(7)b.1 puts anyone employing fewer than 10 outside the definition of employer entirely. So the ceiling on the employee is half of 0.32 per cent, that is 0.16 per cent, from 10 employees, and half of 0.8 per cent, that is 0.4 per cent, from 25; below 10 there is no line at all rather than a line at zero. The base is section 3701(24), wages meaning remuneration for employment as determined for old-age, survivors, and disability insurance under the Federal Insurance Contribution Act, 26 U.S.C. Chapter 21, which is the FICA base and so takes cafeteria plan reductions off and leaves 401(k) deferrals in. The wage ceiling is not in the chapter: it comes from the department's own Benefits Contribution Calculator, embedded on labor.delaware.gov/delaware-paid-leave/employers/, which prints Contributions are paid on wages up to the FICA Wage Cap which is set at $184,500 for earnings in 2026. Tips are inside that base, and by the same reference: FICA counts the cash tips an employee reports to the employer, so an earnings line marked as tips is charged here like any other pay. That calculator is also the control example in test/state-control-examples.test.ts, run on 2026-09-02 (PAY-193).",
+            "note": "Delaware Paid Leave. The employer may pass on up to half of the contribution, and how much there is to pass on follows the size of the employer: fewer than 10 employees is outside the programme altogether, 10 to 24 covers parental leave only, and 25 or more covers parental, family caregiving and medical leave."
+          }
+        ]
+      }
+    ],
+    "HI": [
+      {
+        "key": "hi_tdi",
+        "label": "HI Temporary Disability Insurance",
+        "unmodelled": true,
+        "employerElects": true,
+        "note": "Hawaii lets an employer pay the whole cost of temporary disability coverage or share it with the employee, so the deduction is on some stubs and not others. Where it is taken, it is half of the employer's own insurance premium, held down by two ceilings: 0.5 per cent of the employee's weekly wages, and the maximum weekly deduction the Division sets each year. The premium is a matter between an employer and its carrier and is published nowhere, so this document names the line and does not name its size.",
+        "sourceUrl": "https://labor.hawaii.gov/dcd/frequently-asked-questions/tdi/"
+      }
+    ],
+    "MA": [
+      {
+        "key": "ma_pfml",
+        "label": "MA Paid Family and Medical Leave",
+        "employerElectsShare": true,
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "maxRate": 0.0046,
+            "base": "gross",
+            "annualWageBase": 184500,
+            "verified": true,
+            "sourceUrl": "https://www.mass.gov/info-details/paid-family-and-medical-leave-employer-contribution-rates-and-calculator",
+            "baseSourceUrl": "https://www.mass.gov/info-details/wage-contributions-reporting-for-paid-family-and-medical-leave",
+            "sourceNote": "Department of Family and Medical Leave, employer contribution rates and calculator, chart for 2025 and 2026. An employer with 25 or more covered individuals sends 0.88 per cent of eligible wages, of which up to 100 per cent of the family leave contribution (0.18 per cent of eligible wages) and up to 40 per cent of the medical leave contribution (0.28 per cent of eligible wages) may be withheld from the covered individual. An employer with fewer than 25 sends an effective 0.46 per cent, of which up to 100 per cent of family leave (0.18 per cent) and up to 100 per cent of medical leave (0.28 per cent) may be withheld. The ceiling on the employee is therefore 0.46 per cent on both sides of the state's own threshold of 25, and the headcount changes only what the employer must add on top of it, which is why this record needs no employer size, the same finding Maine's guide carries (PAY-193). The wage ceiling is the page's own sentence, individual contributions are capped by the Social Security taxable maximum, so annualWageBase repeats the base in fica.json and a test holds the two together. The base comes from the department's wage contributions page: the PFML law follows the unemployment statute, section 1 of M.G.L. c. 151A, and employee payments to a cafeteria plan are subject to the contribution if they are part of an employee's salary, so salary reductions do not come off and the base is gross pay rather than the FICA base California uses. Tips are inside that base as well: cash tips of $20 or more in a month and non-cash tips are wages, so the record carries no tips exclusion. Both pages were read on 2026-09-02 through the web archive, snapshot 20260617060228, because mass.gov answers 403 to curl here and to the GitHub Actions runner alike; the rates page carries Last updated: October 1, 2025 and names no rate for 2027.",
+            "note": "Massachusetts employers withhold the employee's share of the paid family and medical leave contribution. The employer chooses how much of it to pass on, up to 0.46 per cent of eligible wages, and the state allows it to apply different percentages to different groups of employees, so two people at one employer can be charged differently."
+          }
+        ]
+      }
+    ],
+    "ME": [
+      {
+        "key": "me_pfml",
+        "label": "ME Paid Family and Medical Leave",
+        "employerElectsShare": true,
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "maxRate": 0.005,
+            "base": "gross",
+            "annualWageBase": 184500,
+            "verified": true,
+            "sourceUrl": "https://www.maine.gov/paidleave/docs/2024/EmployersGuidetoMainePFMLContributions.pdf",
+            "baseSourceUrl": "https://www.maine.gov/paidleave/docs/2024/EmployersGuidetoMainePFMLContributions.pdf",
+            "sourceNote": "Employer's Guide to Maine PFML Contributions: an employer with 15 or more covered employees remits the whole premium, 1 percent of wages, and may deduct up to fifty percent of it, .5 percent of wages, from the employee; an employer with fewer than 15 remits half and may deduct that same .5 percent. The ceiling on the employee is the same either way, which is why the size of the employer is not an input here. This sentence used to end with “as it is for Massachusetts”, and that was wrong: Massachusetts turned out to work the same way, its threshold of 25 moving what the employer adds rather than what the employee may be charged (PAY-193). Delaware is the state where the size does decide, and it is the only one. The wage cap is the guide's own: premiums are required up to the contribution and benefit base the Social Security Administration sets under 42 U.S.C. 430, so annualWageBase repeats the base in fica.json and a test holds the two together. The base is gross pay, and that reading rests on three documents rather than one sentence: the guide defines wages as all remuneration for personal services; 26 M.R.S. 1043(19)(B-E), which it calculates them by, carries a closed list of exclusions in which every item is a payment by the employer and none is an employee's own pre-tax deferral; and the state says gross wages twice more, on its unemployment employers page and throughout the 2026 ME UC-1 instructions, which is the figure the guide says PFML subject wages must equal. Read on 2026-09-01. No worked example exists, and none is needed: there is no formula here to get the order of operations wrong in. Tips are inside this base, and the same definition says so in as many words: wages means all remuneration for personal services, including tips and gratuities.",
+            "note": "Maine paid family and medical leave. The employer chooses how much of the premium to pass on, up to half of one per cent of wages, and may pay all of it instead."
+          }
+        ]
+      }
+    ],
+    "MN": [
+      {
+        "key": "mn_paid_leave",
+        "label": "MN Paid Leave",
+        "unmodelled": true,
+        "employerElects": true,
+        "note": "Minnesota Paid Leave began in 2026. The employer pays at least half the premium and may deduct the remainder from the employee's wages, and how large that premium is depends on the employer: a small employer pays 75 per cent of the ordinary rate. This document names the line and not its size, and that is where it stays: an employer counts as small only if it is both under the state's headcount and paying an average wage no higher than 150 per cent of the state average in covered employment, and the second half is a yearly figure of the state's that an employee has no way to answer for (PAY-193).",
+        "sourceUrl": "https://www.revisor.mn.gov/statutes/cite/268B.14"
+      }
+    ],
+    "NJ": [
+      {
+        "key": "nj_ui_wf_swf",
+        "label": "NJ UI/WF/SWF",
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "rate": 0.00425,
+            "base": "gross",
+            "annualWageBase": 44800,
+            "verified": true,
+            "sourceUrl": "https://www.nj.gov/labor/ea/employer-services/rate-info/",
+            "baseSourceUrl": "https://www.nj.gov/labor/ea/help/employer_handbook/taxes_wages.shtml",
+            "sourceNote": "New Jersey Division of Employer Accounts, annual rate table for calendar year 2026: the worker pays 0.003825 for unemployment insurance and 0.000425 for the workforce development and supplemental workforce funds, both on the taxable wage base of $44,800. The two are one deduction and one figure in box 14 of the W-2, so they are one record here and the rate is their sum. The sum is the state's own arithmetic elsewhere: the same 0.00425 on the 2025 base of $43,300 gives the $184.03 annual maximum the Department of the Treasury prints on its W-2 statement. The base follows the Employer Handbook, which counts both Section 125 cafeteria plan contributions and employee payments into deferred compensation plans as taxable remuneration, so nothing comes off the pay before this rate is applied. Tips are inside it too: the handbook deems payments made under an agreement allowing service charges in lieu of tips to be remuneration, and counts gratuities received in the course of employment from other than the employer as wages where the employee reports them to the employer in writing. The condition is not modelled: an earnings line marked as tips is charged in full.",
+            "note": "New Jersey's unemployment, workforce development and supplemental workforce funds, which the worker pays into beside the employer and the W-2 reports as one figure."
+          }
+        ]
+      },
+      {
+        "key": "nj_tdi",
+        "label": "NJ Temporary Disability Insurance",
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "rate": 0.0019,
+            "base": "gross",
+            "annualWageBase": 171100,
+            "verified": true,
+            "sourceUrl": "https://www.nj.gov/labor/myleavebenefits/worker/tdi/",
+            "baseSourceUrl": "https://www.nj.gov/labor/ea/help/employer_handbook/taxes_wages.shtml",
+            "sourceNote": "New Jersey Department of Labor and Workforce Development: for 2026 workers contribute 0.19 percent on the first $171,100 in covered wages, and the maximum worker contribution for 2026 is $325.09. The ceiling is the one the state sets for workers, which is not the one it sets for employers or for unemployment insurance: the same page of rates carries $44,800 beside this $171,100. The base follows the Employer Handbook, which counts both Section 125 cafeteria plan contributions and employee payments into deferred compensation plans as taxable remuneration. Tips are inside it too: the handbook deems payments made under an agreement allowing service charges in lieu of tips to be remuneration, and counts gratuities received from other than the employer as wages where the employee reports them to the employer in writing. The condition is not modelled: an earnings line marked as tips is charged in full.",
+            "note": "New Jersey's temporary disability insurance, which workers pay for through deductions taken out of their paychecks."
+          }
+        ]
+      },
+      {
+        "key": "nj_fli",
+        "label": "NJ Family Leave Insurance",
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "rate": 0.0023,
+            "base": "gross",
+            "annualWageBase": 171100,
+            "verified": true,
+            "sourceUrl": "https://www.nj.gov/labor/myleavebenefits/worker/fli/",
+            "baseSourceUrl": "https://www.nj.gov/labor/ea/help/employer_handbook/taxes_wages.shtml",
+            "sourceNote": "New Jersey Department of Labor and Workforce Development: for 2026 workers contribute 0.23 percent on the first $171,100 in covered wages, and the maximum worker contribution for 2026 is $393.53. Family leave insurance shares the worker ceiling with temporary disability insurance and carries a rate of its own. The base follows the Employer Handbook, which counts both Section 125 cafeteria plan contributions and employee payments into deferred compensation plans as taxable remuneration. Tips are inside it too: the handbook deems payments made under an agreement allowing service charges in lieu of tips to be remuneration, and counts gratuities received from other than the employer as wages where the employee reports them to the employer in writing. The condition is not modelled: an earnings line marked as tips is charged in full.",
+            "note": "New Jersey's family leave insurance is financed entirely by worker payroll deductions; employers do not contribute to the programme at all."
+          }
+        ]
+      }
+    ],
+    "NM": [
+      {
+        "key": "nm_workers_comp_fee",
+        "label": "NM Workers' Compensation Fee",
+        "unmodelled": true,
+        "note": "A fee for each calendar quarter, not for each pay period, charged for administering the Workers' Compensation Act: $4.80 for every covered employee, of which the worker pays $2.25 and the employer $2.55. Two conditions decide whether it is owed at all. It is owed by employers of three or more workers, and it is owed for a worker employed on the last working day of the quarter, which is why it belongs to one pay period out of the quarter rather than to all of them. This document names the line and leaves the amount to the quarter it falls in: spreading it over the periods would print a number the state never charges.",
+        "sourceUrl": "https://www.workerscomp.nm.gov/faqs/"
+      }
+    ],
+    "NY": [
+      {
+        "key": "ny_pfl",
+        "label": "NY Paid Family Leave",
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "rate": 0.00432,
+            "base": "gross",
+            "annualWageBase": 95348.76,
+            "verified": true,
+            "sourceUrl": "https://paidfamilyleave.ny.gov/2026",
+            "baseSourceUrl": "https://paidfamilyleave.ny.gov/cost",
+            "sourceNote": "New York State Paid Family Leave, updates for 2026: employees contribute 0.432 percent of their gross wages per pay period, with a maximum annual contribution of $411.91, and the state average weekly wage the cap is built on is $1,833.63. New York publishes the ceiling as a maximum contribution rather than as a wage base, so annualWageBase is that weekly wage over a year, $95,348.76, and the control example checks that the two agree by multiplying it back into $411.91. The maximum is per employer, not per employee, which is a distinction a stub cannot make and the same one New Jersey's worker ceiling carries. The base is the state's own word, gross wages, repeated on every page it publishes about the deduction, and the cost page adds that commissions and bonuses count as wages for this purpose. Read with a browser on 2026-08-31: paidfamilyleave.ny.gov answers curl with 403. Tips are inside this base, and the statute is not where that is settled: WCL 201(12) names board, rent, housing and lodging and no gratuities at all, which reads as an exclusion and is not one. The paid family leave regulation hands the whole of the definition to 12 NYCRR 357.1, whose paragraph (c), Tips and gratuities as wages, includes tips received from someone other than the employer where the employment is one in which tips customarily form part of the pay, and whose paragraph (d) lists what wages exclude without them. Read on 2026-09-01: the official publisher of the NYCRR refuses this network from every channel, so the regulation was read in Cornell's reproduction of it. The condition is not modelled: an earnings line marked as tips is charged in full.",
+            "note": "New York paid family leave, funded by employee payroll deductions. An employer may choose to pay it on the employee's behalf, and an employee who has signed a waiver for short-term or part-time work contributes nothing."
+          }
+        ]
+      },
+      {
+        "key": "ny_dbl",
+        "label": "NY Disability Benefits",
+        "employerElectsShare": true,
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "maxRate": 0.005,
+            "base": "gross",
+            "weeklyCap": 0.6,
+            "verified": true,
+            "sourceUrl": "https://www.wcb.ny.gov/content/main/DisabilityBenefits/employer-disability-benefits.jsp",
+            "baseSourceUrl": "https://www.nysenate.gov/legislation/laws/WKC/209",
+            "sourceNote": "Workers' Compensation Law section 209(3)(a): the contribution of each employee to the cost of disability benefits is one-half of one per centum of the employee's wages, but not in excess of sixty cents per week. Section 209(5) says the same of the weekly contribution, and the Board repeats it on both its employer and its employee pages. The rate sits in the statute and is not reset each year: the sentence about the Department of Financial Services setting a contribution rate annually, two paragraphs below on the same page, belongs to paid family leave. The ceiling is weekly and in dollars, which is what weeklyCap is for, and no document of the state converts it to a pay period that is not a whole number of weeks, so the line is not printed on semi-monthly and monthly stubs at all rather than carrying a figure of ours. The base is the statute's own word, the employee's wages, with no exclusion named anywhere in section 209. Read on 2026-09-01. Two things the stub cannot express are named in note instead: the ceiling is shared across employers, and an approved plan may by agreement charge more than sixty cents. Tips are inside this base for the same reason they are inside the paid family leave one, and by the same regulation: 12 NYCRR 357.1(c), Tips and gratuities as wages, includes tips received from someone other than the employer where the employment is one in which tips customarily form part of the pay. WCL 201(12) alone would read the other way, naming board, rent, housing and lodging and no gratuities, which is why the regulation and not the statute settles it. Read on 2026-09-01. The condition is not modelled: an earnings line marked as tips is charged in full.",
+            "note": "New York lets an employer collect part of the cost of statutory disability coverage from the employee, up to sixty cents a week set in law, but does not require it. The ceiling is shared: an employee with two jobs may ask both employers to split it, and no single stub can see the other. An approved plan with better than statutory benefits may by agreement charge more."
+          }
+        ]
+      }
+    ],
+    "OR": [
+      {
+        "key": "or_paid_leave",
+        "label": "Paid Leave Oregon",
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "rate": 0.006,
+            "base": "gross_less_section_125",
+            "annualWageBase": 184500,
+            "verified": true,
+            "sourceUrl": "https://paidleave.oregon.gov/employers/contributions-calculator.html",
+            "baseSourceUrl": "https://paidleave.oregon.gov/resources/common-questions.html",
+            "sourceNote": "Paid Leave Oregon: the total contribution rate for 2026 is 1 percent and employees pay 60 percent of it, which is the 0.6 percent stored here. The product is the state's own and not ours: the same page works it out, if your wages total $1,000 for the pay period, you would pay $6. The ceiling is the Social Security wage index, which Oregon prints as a figure of its own, $184,500 for 2026, and a test holds it equal to the base in fica.json. The base follows the programme's common questions: gross wages are what you pay before taxes or deductions, and where an employee has deductions such as flexible spending or health savings accounts, those come off first and what is left is the subject wages. Tips are inside this base: the same page lists Tips and gratuities among subject wages.",
+            "note": "The employee's share of the Paid Leave Oregon contribution, which is 60 percent of the total. An employer may choose to pay part or all of it instead."
+          }
+        ]
+      },
+      {
+        "key": "or_transit",
+        "label": "OR Statewide Transit Tax",
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "rate": 0.001,
+            "base": "gross_less_pre_tax",
+            "verified": true,
+            "sourceUrl": "https://www.oregon.gov/dor/programs/businesses/pages/statewide-transit-tax.aspx",
+            "baseSourceUrl": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html",
+            "sourceNote": "Oregon Department of Revenue: employers withhold one-tenth of 1 percent, or .001, from the wages of Oregon residents and of nonresidents working in Oregon, with no ceiling. Measure 120 would have changed this and did not pass in the May 2026 primary, and the department says to continue withholding at .001. The base is the department's own citation, ORS 316.162, where wages are remuneration for services less, among other things, remuneration exempt from taxation under that chapter, which is the income tax base. What differs from the income tax is the threshold rather than the base: the department states that employees below the income tax withholding threshold are still subject to this tax. ORS 316 read through the Wayback Machine on 2026-08-31, oregonlegislature.gov being unreachable from this network. Tips are inside this base as well: the department lists Tips and gratuities among the subject wages of the same wage report.",
+            "note": "Oregon's statewide transit tax, which the employer withholds from the employee's wages even when the pay is below the income tax withholding threshold."
+          }
+        ]
+      }
+    ],
+    "PA": [
+      {
+        "key": "pa_uc",
+        "label": "PA Unemployment Compensation",
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "rate": 0.0007,
+            "base": "gross",
+            "verified": true,
+            "sourceUrl": "https://www.pa.gov/agencies/dli/resources/for-employers-and-educators/how-to-file/uc-tax/calculating-contributions--penalties-and-interest",
+            "baseSourceUrl": "https://www.pa.gov/agencies/dli/resources/for-employers-and-educators/how-to-file/uc-tax/employee-withholding",
+            "sourceNote": "Pennsylvania Department of Labor and Industry: the employee contribution rate has been set at 0.07 percent, printed beside its decimal figure of .0007, for calendar year 2026. There is no ceiling, and the department says so in the one place it could be mistaken for one: employee contributions are based on an individual's total gross wages and are not limited to the taxable wage base in effect for employer contributions, which is $10,000. That same page is the source for the base, which is total gross wages in covered employment and takes nothing off. The department also publishes a rounding rule, carry to three decimal places, drop the excess, then round to the nearest cent, and the boundary it prints is reproduced in the control example. Tips are inside this base: the department's own sentence is that wages include not only salary, commissions and bonuses but tips.",
+            "note": "Pennsylvania's unemployment compensation contribution, withheld from gross wages with no ceiling on the wages it is charged on."
+          }
+        ]
+      }
+    ],
+    "RI": [
+      {
+        "key": "ri_tdi",
+        "label": "RI Temporary Disability Insurance",
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "rate": 0.011,
+            "base": "gross_less_pre_tax",
+            "annualWageBase": 100000,
+            "verified": true,
+            "sourceUrl": "https://dlt.ri.gov/press-releases/2026-tax-rates-unemployment-insurance-and-temporary-disability-insurance",
+            "baseSourceUrl": "https://dlt.ri.gov/employers/employer-tax-unit/frequently-asked-employer-tax-questions",
+            "sourceNote": "Rhode Island Department of Labor and Training, 2026 Tax Rates for Unemployment Insurance and Temporary Disability Insurance, published 18 December 2025: the TDI taxable wage base for employees is $100,000, the contribution rate is 1.1 percent, and the maximum contribution is $1,100.00. The base follows the department's employer tax questions, which exclude employee contributions to retirement plans such as 401(k) plans, to medical or disability insurance plans and to Section 125 cafeteria plans from wages under the Employment Security and Temporary Disability Insurance Acts. Only the retirement deferrals and the cafeteria plan are expressible here, so an insurance premium a user enters as a post-tax deduction stays inside this base though Rhode Island would leave it out. Both documents were read through the Wayback Machine on 2026-08-31: dlt.ri.gov refuses this network. Tips are inside this base, and it takes two sections to get there: RIGL 28-42-3(29) treats gratuities customarily received from persons other than the employing unit as wages paid by that unit, and RIGL 28-40-1(b) charges this contribution on the wages paid by the employer up to the taxable wage base. No sentence hands chapters 39 to 41 that definition outright; the two are tied by the phrase they share. Read from the archive on 2026-09-01, webserver.rilegislature.gov resolving in DNS and then timing out, which is a cut route rather than a refusal.",
+            "note": "Rhode Island temporary disability insurance, which also funds temporary caregiver insurance. Employees pay for it in full through payroll deduction and the employer contributes nothing."
+          }
+        ]
+      }
+    ],
+    "VT": [
+      {
+        "key": "vt_ccc",
+        "label": "VT Child Care Contribution",
+        "employerElectsShare": true,
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "maxRate": 0.0011,
+            "base": "gross_less_pre_tax",
+            "verified": true,
+            "sourceUrl": "https://tax.vermont.gov/business/child-care-contribution",
+            "baseSourceUrl": "https://tax.vermont.gov/business/child-care-contribution",
+            "sourceNote": "Vermont Department of Taxes, Child Care Contribution, under Act 76 of 2023: employers pay a 0.44 percent payroll tax on all employee wages earned in Vermont, and an employer may choose to deduct and withhold a maximum of 25 percent of the required contribution, which the department writes out as 0.11 percent of an employee's wages. maxRate is that figure rather than the quarter, because a rate on wages is what the document prints. There is no wage ceiling of any kind, and the department names none. The base is the department's own answer to its own question, How are employee wages defined: wages means payments included in the definition of wages in 26 U.S.C. 3401, and in general wages subject to federal income tax withholding are also subject to the contribution. That is the income tax base, so pre-tax deferrals come off, which is the same base Rhode Island uses. The rate and the base live in one document, so sourceUrl and baseSourceUrl are the same page. Read on 2026-09-01: legislature.vermont.gov is unreachable from this network, DNS resolving while TCP times out, and the text of Act 76 was not needed. Tips are inside this base: the contribution is charged on the wages Vermont income tax withholding is charged on, and tips are among those.",
+            "note": "Vermont's child care contribution is a payroll tax on the employer, which may pass up to a quarter of it on to the employee, and need not do so equally."
+          }
+        ]
+      }
+    ],
+    "WA": [
+      {
+        "key": "wa_pfml",
+        "label": "WA Paid Family and Medical Leave",
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "rate": 0.00807159,
+            "base": "gross",
+            "excludesTips": true,
+            "annualWageBase": 184500,
+            "verified": true,
+            "sourceUrl": "https://paidleave.wa.gov/updates/",
+            "baseSourceUrl": "https://paidleave.wa.gov/app/uploads/2021/12/Employer-Wage-Reporting-and-Premiums-Toolkit-v25.1-2026.06.26.pdf",
+            "sourceNote": "Paid Leave updates, Starting Jan. 1, 2026: the premium rate will increase to 1.13 percent, employers will pay 28.57 percent of the total premium and employees will pay 71.43 percent, and the Social Security cap for the 2026 calendar year will increase to $184,500. The rate stored is the employee's share, 0.0113 x 0.7143, because the state publishes the two constants and not their product; the Employer Toolkit writes the same multiplication out as Gross wages x 0.0113 x 0.7143 = Employee Share, rounded to two decimals, and says the rounding happens once per employee per pay period, which is where this engine rounds. annualWageBase repeats the base in fica.json, and a test holds the two together. Employer Toolkit v25.1, June 2026, page 16: Paid Leave and WA Cares use the same definition of gross wages, gross wages are the employees' gross wages without tips as defined in RCW 50A.05.010 and WAC 192-510-025, and tips head the list of what wages do not include. Nothing else comes off: the exclusions listed beside tips are payments by the employer, not the employee's own pre-tax deferrals, so the base is gross pay with tips taken out and cafeteria plan and retirement deferrals left in. The two programmes are tied to that one definition by law as well as by the toolkit: RCW 50B.04.010(16) gives WA Cares the meaning of remuneration from RCW 50A.05.010, and RCW 50A.05.010(22)(d)(i) says remuneration does not include the payment of tips. Both read on 2026-09-01.",
+            "note": "Washington's paid family and medical leave premium. The employee pays 71.43 per cent of it, unless the employer has chosen to cover that share as well, and it is not charged on tips."
+          }
+        ]
+      },
+      {
+        "key": "wa_cares",
+        "label": "WA Cares",
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "rate": 0.0058,
+            "base": "gross",
+            "excludesTips": true,
+            "verified": true,
+            "sourceUrl": "https://wacaresfund.wa.gov/employers",
+            "baseSourceUrl": "https://paidleave.wa.gov/app/uploads/2021/12/Employer-Wage-Reporting-and-Premiums-Toolkit-v25.1-2026.06.26.pdf",
+            "sourceNote": "WA Cares Fund, employers: the premium is 0.58 percent of an employee's gross wages, Gross wages x .0058 = total premium for employee, and unlike Paid Leave premium contributions are not capped at the taxable maximum for social security, so the entry carries no annualWageBase. The employee pays the whole of it: the same page says an employer pays no share of these contributions and may elect to pay some or all of the employee's share on their behalf, which is a choice about who settles the bill and not about how much the state charges. Employer Toolkit v25.1, June 2026, page 16: Paid Leave and WA Cares use the same definition of gross wages, gross wages are the employees' gross wages without tips as defined in RCW 50A.05.010 and WAC 192-510-025, and tips head the list of what wages do not include. Nothing else comes off: the exclusions listed beside tips are payments by the employer, not the employee's own pre-tax deferrals, so the base is gross pay with tips taken out and cafeteria plan and retirement deferrals left in. The two programmes are tied to that one definition by law as well as by the toolkit: RCW 50B.04.010(16) gives WA Cares the meaning of remuneration from RCW 50A.05.010, and RCW 50A.05.010(22)(d)(i) says remuneration does not include the payment of tips. Both read on 2026-09-01.",
+            "note": "A contribution to Washington's long-term care fund, charged at one rate whatever the employee earns and not charged on tips. An employee who qualifies for one may apply to the state for an exemption."
+          }
+        ]
+      }
+    ]
+  }
+}
