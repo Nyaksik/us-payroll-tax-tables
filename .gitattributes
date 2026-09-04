@@ -1,0 +1,3 @@
+# The data is mirrored byte for byte from the application repository, so a
+# checkout must not rewrite its line endings.
+* text=auto eol=lf
