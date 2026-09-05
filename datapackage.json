@@ -1,0 +1,79 @@
+{
+  "$schema": "https://datapackage.org/profiles/2.0/datapackage.json",
+  "name": "us-payroll-tax-tables",
+  "title": "US payroll withholding tables, 2026",
+  "description": "Machine-readable federal, FICA and state income tax withholding tables for United States payroll, together with the published worked examples each verified state is checked against. Every figure was read out of a revenue department document and carries a link to it: nothing is inferred, averaged or copied from another aggregator. A state entry is marked verified only where a test reproduces a calculation the state itself published.",
+  "homepage": "https://paystubdesk.com/how-we-verify",
+  "keywords": [
+    "payroll",
+    "withholding",
+    "income-tax",
+    "fica",
+    "united-states",
+    "irs",
+    "tax-tables"
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "sources": [
+    {
+      "title": "PayStub Desk, how the figures are verified",
+      "path": "https://paystubdesk.com/how-we-verify"
+    }
+  ],
+  "resources": [
+    {
+      "name": "federal",
+      "path": "data/tax/2026/federal.json",
+      "title": "Federal percentage method, 2026",
+      "description": "IRS Publication 15-T percentage method: the standard and Step 2 bracket schedules and the standard deduction adjustment.",
+      "format": "json",
+      "mediatype": "application/json"
+    },
+    {
+      "name": "fica",
+      "path": "data/tax/2026/fica.json",
+      "title": "Social Security and Medicare, 2026",
+      "description": "Social Security rate and wage base, Medicare rate, and the Additional Medicare rate with the threshold it starts at.",
+      "format": "json",
+      "mediatype": "application/json"
+    },
+    {
+      "name": "state-income-tax",
+      "path": "data/tax/2026/state-income-tax.json",
+      "title": "State income tax withholding, 2026",
+      "description": "54 withholding entries across 51 jurisdictions, 52 of them verified against a published calculation. More than one entry per state where a rate changed during the year, so the entry is chosen by pay date.",
+      "format": "json",
+      "mediatype": "application/json"
+    },
+    {
+      "name": "state-other-withholding",
+      "path": "data/tax/2026/state-other-withholding.json",
+      "title": "Other mandatory state withholdings, 2026",
+      "description": "21 records across 16 states: disability, paid family and medical leave, and the other employee withholdings a state charges beside its income tax.",
+      "format": "json",
+      "mediatype": "application/json"
+    },
+    {
+      "name": "control-examples",
+      "path": "data/tax/2026/control-examples.json",
+      "title": "Published calculations the tables are checked against",
+      "description": "100 rows, each naming the document it came from: a worked example from a state guide, an answer from the calculator the state runs, a closed list of rates from the state's own form, or a printed withholding table read in at least two places. Each row carries its tolerance and why it has one.",
+      "format": "json",
+      "mediatype": "application/json"
+    },
+    {
+      "name": "source-checks",
+      "path": "data/source-checks.json",
+      "title": "Source journal",
+      "description": "92 rows recording when each source URL was last fetched and the hash of the text at that moment, including the one source that refuses automated requests.",
+      "format": "json",
+      "mediatype": "application/json"
+    }
+  ]
+}
