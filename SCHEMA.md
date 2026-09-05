@@ -132,7 +132,18 @@ milliseconds, and `textHash`, the hash of the readable text at that moment. Some
 A monthly job refetches each URL and rewrites its row, so a document that changed under a
 table is visible without a person rereading fifty guides.
 
-**The journal holds a row only for a source it could fetch.** A department that refuses
-automated requests outright leaves no row at all, so its document is cited and read by a
-person but not watched by the machine. Today that is one source, New Hampshire's, and
-`validate.mjs` reports it as a warning rather than pretending the coverage is complete.
+**A row the job could not read carries `unreadable` instead of a hash**, an object of
+`code` (`http-403`, `timeout`, `dns`, `connection`, `tls`, `empty`, `error`), `reason` in
+the words of whatever refused, and `since`, the first sweep of the unbroken run of
+refusals. Everything else on such a row is left exactly as the last successful read wrote
+it, so `checkedAt` and `textHash` never claim a check that did not happen; a source that
+has never once been read has neither. New Hampshire is the standing example: its
+department answers 403 to anything automated, from here and from the job's runner alike.
+
+The row exists so that a refusal can be counted. A department that blocks the job used to
+leave no row at all, and a missing line does not read as anything: the monthly report
+looked complete precisely because the source that dropped out of it was invisible.
+
+`validate.mjs` lists unreadable sources as a note rather than a warning. The warning it
+does raise, for a cited URL with no row of any kind, now means a citation added to the
+tables since the last monthly sweep, which the next run picks up on its own.

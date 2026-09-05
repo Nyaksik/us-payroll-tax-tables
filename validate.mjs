@@ -92,11 +92,16 @@ for (const year of years) {
       if (typeof entry.verified !== 'boolean') problems.push(`${where} does not say verified`)
       if (!entry.sourceUrl) problems.push(`${where} names no source`)
       else if (!watched.has(entry.sourceUrl))
-        // A warning and not a failure: the journal records a row only for a
-        // source it could fetch, so a department that refuses automated
-        // requests outright leaves none. The source is real and was read by a
-        // person; what is missing is the machine watching it for changes.
-        warnings.push(`${where} cites ${entry.sourceUrl}, which the refetch journal does not watch`)
+        // A warning and not a failure, and the reason changed with the journal.
+        // It used to mean a department that refuses automated requests, which
+        // left no row at all; such a source now gets a row carrying the refusal,
+        // so what is left here is a citation added to the tables since the last
+        // monthly sweep. The next run records it, and nothing in this repository
+        // can make that happen sooner, so failing on it would only mean a red
+        // dataset for however many days are left in the month.
+        warnings.push(
+          `${where} cites ${entry.sourceUrl}, which the refetch journal has not watched yet`,
+        )
 
       if (entry.verified === false && !entry.sourceNote)
         problems.push(`${where} is unverified and does not say what is missing`)
@@ -142,6 +147,18 @@ for (const year of years) {
   const verified = Object.values(states).flat().filter((entry) => entry.verified).length
   const total = Object.values(states).flat().length
   notes.push(`${year}: ${total} entries, ${verified} verified, ${controls.length} control examples`)
+}
+
+// Sources the journal holds and could not read. Not a warning: half of these
+// departments refuse automated requests as a matter of policy, and a repeated
+// warning is one nobody reads. The date is the point — a refusal that has stood
+// for months means the citation is worth opening by hand.
+for (const row of journal) {
+  if (!row.unreadable) continue
+  const since = new Date(row.unreadable.since).toISOString().slice(0, 10)
+  notes.push(
+    `${row.state} ${row.sourceUrl}: refetch refused (${row.unreadable.code}) since ${since}`,
+  )
 }
 
 for (const note of notes) console.log(note)
