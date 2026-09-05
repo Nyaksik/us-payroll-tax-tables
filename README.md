@@ -45,6 +45,9 @@ opinion:
 Reprinting the constants of a formula is not one of them. It catches a typo in a number and
 does not catch an error in the order of operations.
 
+The method behind those four kinds, and the reasoning for each, is written up at
+[paystubdesk.com/how-we-verify](https://paystubdesk.com/how-we-verify).
+
 `data/tax/2026/control-examples.json` is that evidence, one row per check, each naming the
 document it came from. A row's `note` says why it is the row it is: which cell of a printed
 table it reads, why the pair either side of a bracket edge is a pair, where its `tolerance`
@@ -68,7 +71,8 @@ state's own answer to check them against, and the entry says so in `sourceNote`.
 
 ## Where these tables are used
 
-They are the tables behind a pay stub generator and its per-state paycheck calculators.
+They are the tables behind [PayStub Desk](https://paystubdesk.com), a pay stub generator,
+and its per-state paycheck calculators.
 The same files run in production; this repository mirrors them from the application's
 `main` branch, so what is published here is what is computed with, not a copy kept
 alongside.
@@ -79,9 +83,8 @@ The data in `data/`, including the control examples, is licensed
 **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**. Use it, redistribute it,
 build on it, commercially or not. Attribute it as:
 
-> PLACEHOLDER, SET BEFORE THIS REPOSITORY GOES PUBLIC: the project name and its
-> domain, chosen in PAY-67. Every attribution anyone gives this dataset copies this
-> line, so it cannot ship with a placeholder in it.
+> US payroll tax tables by [PayStub Desk](https://paystubdesk.com), licensed under
+> [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 The validator and any other code in this repository is **MIT**, see
 [LICENSE-CODE](./LICENSE-CODE).
