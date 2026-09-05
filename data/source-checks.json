@@ -285,6 +285,16 @@
     "revision": "Rev. 11-2025"
   },
   {
+    "state": "NH",
+    "sourceUrl": "https://www.revenue.nh.gov/taxes-glance/interest-dividends-tax",
+    "checkedAt": 1788566400000,
+    "unreadable": {
+      "code": "http-403",
+      "reason": "answered 403",
+      "since": 1788566400000
+    }
+  },
+  {
     "state": "NJ",
     "sourceUrl": "https://www.nj.gov/labor/ea/employer-services/rate-info/",
     "checkedAt": 1788337243992,
