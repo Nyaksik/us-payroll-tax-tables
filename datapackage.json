@@ -74,6 +74,32 @@
       "description": "92 rows recording when each source URL was last fetched and the hash of the text at that moment, including the one source that refuses automated requests.",
       "format": "json",
       "mediatype": "application/json"
+    },
+    {
+      "name": "control-examples-csv",
+      "path": "data/tax/2026/control-examples.csv",
+      "title": "Published calculations the tables are checked against, as a table",
+      "description": "The same 100 rows as control-examples.json, derived from it by the mirror on every run. Columns are the union of every key any row carries; a nested value sits in its cell as JSON.",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "header": true
+      }
+    },
+    {
+      "name": "source-checks-csv",
+      "path": "data/source-checks.csv",
+      "title": "Source journal, as a table",
+      "description": "The same 92 rows as source-checks.json, derived from it by the mirror on every run. Columns are the union of every key any row carries; a nested value sits in its cell as JSON.",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "header": true
+      }
     }
   ]
 }
