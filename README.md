@@ -17,8 +17,17 @@ Nothing was inferred, averaged or copied from another aggregator.
 | `data/tax/2026/state-other-withholding.json` | State disability, family leave and other mandatory employee withholdings  |
 | `data/tax/2026/control-examples.json`      | 100 published calculations the tables are tested against                    |
 | `data/source-checks.json`                  | When each source URL was last fetched, and the hash of the text then        |
+| `data/tax/2026/control-examples.csv`       | The control examples again, as a table                                      |
+| `data/source-checks.csv`                   | The source journal again, as a table                                        |
 
 Field by field, [SCHEMA.md](./SCHEMA.md) says what every key means.
+
+The two CSV files are derived from the JSON beside them, written by the mirror on every
+run and never by hand, so they cannot drift from it. They exist so that a catalogue can
+show the rows as a table, which it does for CSV and not for JSON. The JSON is the source:
+a column is the union of every key any row carries, and a nested value, such as the
+exemption counts of an Indiana example, sits in its cell as JSON. The other four files
+are objects and maps, and a CSV of them would have to invent its columns.
 
 ## How it is verified
 
