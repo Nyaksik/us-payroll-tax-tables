@@ -3021,6 +3021,9 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://www.revenue.wi.gov/DOR%20Publications/pb166.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://docs.legis.wisconsin.gov/statutes/statutes/71/i/01/13",
+        "sourceNote": "Wisconsin defines its own wages and then subtracts whatever its own chapter does not tax. Wis. Stat. 71.63(6) makes wages \"all remuneration ... minus the amount of remuneration not subject to tax under this chapter\", and 71.01(13) makes Wisconsin adjusted gross income \"federal adjusted gross income, with the modifications prescribed in s. 71.05 (6) to (12), (19), (20), (25), (25m), and (26)\". Chapter 71 was read whole, as the chapter PDF rather than the paginated pages, and none of those modifications names a cafeteria plan, section 125 of the Internal Revenue Code or a 401(k): a pre-tax deferral or premium is outside federal adjusted gross income and nothing adds it back. Publication W-166 only hedges, \"laws generally conform to the federal Internal Revenue Code\", so the statutes carry this and not the guide.",
         "annualStandardDeduction": {
           "single": 6702,
           "married_jointly": 9461,
