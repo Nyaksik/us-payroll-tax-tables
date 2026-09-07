@@ -1384,6 +1384,8 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://www.ksrevenue.gov/pdf/kw100.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://www.ksrevenue.gov/pdf/kw100.pdf",
         "sourceNote": "KW-100 Rev. 10-24 is still the guide Kansas serves; the file has not changed since October 2024, and it is cited here from a web archive copy of that same revision.",
         "exemptionPerAllowance": 2320,
         "firstAllowanceAmount": 9160,
@@ -1461,6 +1463,8 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/26_wh_tab_instr.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://legislature.maine.gov/statutes/36/title36sec5250.html",
         "annualStandardDeduction": {
           "single": 12450,
           "married_jointly": 27750,
@@ -1914,6 +1918,8 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://dor.mo.gov/forms/Withholding%20Formula_2026.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://dor.mo.gov/forms/4282_2026.pdf",
         "note": "State tax only. Kansas City and St. Louis charge an earnings tax on wages earned in the city, withheld by the employer on top of this.",
         "noteSourceUrl": "https://www.kcmo.gov/city-hall/departments/finance/tax-home/tax-form-descriptions",
         "unmodelledLocalTax": true,
@@ -1989,6 +1995,8 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://revenue.nebraska.gov/sites/default/files/doc/business/Cir_En_2025/2026cir_en_whole.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://revenue.nebraska.gov/sites/default/files/doc/legal/regs/withhold.pdf",
         "exemptionPerAllowance": 2440,
         "brackets": {
           "single": [
@@ -2485,6 +2493,8 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2026-iit/2026-income-tax-withholding-rates-booklet.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://www.tax.nd.gov/sites/www/files/documents/guidelines/business/it-withhold/income-tax-withholding-information-returns-guideline.pdf",
         "brackets": {
           "single": [
             [0, 0, 0.0],
