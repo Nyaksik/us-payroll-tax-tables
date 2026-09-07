@@ -1334,6 +1334,8 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://revenue.iowa.gov/media/53/download?inline=",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://www.legis.iowa.gov/docs/iac/chapter/701.307.pdf",
         "sourceNote": "Iowa Withholding Formula effective January 1, 2026: a flat 3.8% on wages less a deduction keyed to the pay period and to the marital status on the IA W-4. The allowance is a dollar amount on that form, and a 2023 or earlier IA W-4 is converted at $40 an allowance. The daily payroll period is not modelled: the form has no daily frequency.",
         "deductionPerPeriod": {
           "weekly": {
@@ -1504,6 +1506,8 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/legal-publications/facts/withholding-tax-facts-2026.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-905",
         "sourceNote": "Withholding Tax Facts for 2026 (COM RAD 098, revised 12/25) for both rate schedules, the county rates and the $3,200 exemption. Maryland publishes two ways to withhold and they do not agree. The percentage tables in the 2026 employer guide are the manual one: Tax Facts offers them to employers who withhold without a computer and groups the county rates into nine brackets, each to be rounded up to, so Cecil, Washington, Carroll, Charles and Harford have no table of their own. Those tables charge 4.75% from the first dollar and give every filing status one $3,400 standard deduction, where the 2025 Act sets two, $3,350 and $6,700 for 2025 and indexed after. This entry follows the schedules Tax Facts prints, whose cumulative amounts it reproduces to the cent and which reach only $90 by $3,000, with the $3,400 and $6,850 deductions the comptroller's own calculator applies for 2026; the two readings differ by $52.50 a year at every income. State and county come to one line here because that is how the comptroller's own payroll memo says a Maryland stub prints them.",
         "annualStandardDeduction": {
           "single": 3400,
