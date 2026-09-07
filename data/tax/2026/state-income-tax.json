@@ -1442,6 +1442,8 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://dam.ldr.la.gov/taxforms/1306-1-26.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://legis.la.gov/Legis/Law.aspx?d=101090",
         "sourceNote": "Withholding Tables and Formulas, R-1306 (1/26), effective on or after 1 January 2026. The standard deductions and the rate come from the computer formula method printed there, which divides the annual deduction by the number of pay periods. The wage-bracket tables in the same document are not reproduced: they read the same formula off a grid, and the formula covers every wage they do.",
         "note": "Louisiana withholds at 3.09% rather than the 3% tax rate, as a deliberate cushion.",
         "noteSourceUrl": "https://revenue.louisiana.gov/tax-education-and-faqs/faqs/income-tax-reform/why-do-the-withholding-tables-use-3-09/",
