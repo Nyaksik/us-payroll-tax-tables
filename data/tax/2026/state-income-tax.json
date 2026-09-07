@@ -1791,6 +1791,8 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://web.archive.org/web/20260312193631/https://www.mass.gov/doc/massachusetts-circular-m-income-tax-withholding-tables-at-50-effective-january-1-2026/download",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIX/Chapter62B/Section1",
         "note": "Massachusetts' blindness credit is not applied here, so a blind employee has less Massachusetts tax withheld than this line shows.",
         "sourceNote": "Circular M Rev. 12/25. An exemption is worth $4,400 for the first and $1,000 for each further one, FICA and Medicare come off the base up to $2,000, and head of household gets $120 a year. The blindness credit is not modelled: the form has nowhere to claim it.",
         "exemptionPerAllowance": 1000,
@@ -1859,6 +1861,8 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://www.revenue.state.mn.us/sites/default/files/2025-12/wh-inst-26.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://www.revisor.mn.gov/statutes/cite/290.92",
         "exemptionPerAllowance": 5300,
         "brackets": {
           "single": [
@@ -2472,6 +2476,8 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://www.ncdor.gov/income-tax-withholding-tables-and-instructions-employers/open",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-163.1.html",
         "note": "North Carolina withholds at 3.99% plus a 0.1% cushion.",
         "sourceNote": "NC-30 (Web 11-25). Married filing jointly gets the same $12,750 deduction as single; only head of household differs.",
         "annualStandardDeduction": {
@@ -2885,6 +2891,8 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/employer-withholding-instructions.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-460/",
         "note": "The age and blindness exemptions on Form VA-4 are not applied here, so an employee claiming them has less Virginia tax withheld than this line shows.",
         "sourceNote": "Virginia's VA-4 does not collect filing status, so one table serves everyone. Age and blindness exemptions are not modelled.",
         "annualStandardDeduction": {
