@@ -2530,10 +2530,12 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://web.archive.org/web/20260227131034/https://dam.assets.ohio.gov/image/upload/tax.ohio.gov/employer_withholding/2025%20Withholding%20Tables/WHT_PercentageMethod_2025.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://codes.ohio.gov/ohio-revised-code/section-5747.01",
         "note": "State tax only. Ohio municipalities and school districts charge income taxes of their own, withheld by the employer on top of this.",
         "noteSourceUrl": "https://tax.ohio.gov/business/employer-withholding",
         "unmodelledLocalTax": true,
-        "sourceNote": "Payroll periods ending before 1 August 2026 use the tables effective 1 October 2025. Annual thresholds are the weekly table times 52, the same convention as the current record.",
+        "sourceNote": "Payroll periods ending before 1 August 2026 use the tables effective 1 October 2025. Annual thresholds are the weekly table times 52, the same convention as the current record. Ohio reaches the federal base through two sections of its code. ORC 5747.06(A) makes the employer withhold on \"the amount of such compensation included in the employee's adjusted gross income\", and ORC 5747.01(A) defines that term as \"federal adjusted gross income, as defined and used in the Internal Revenue Code, adjusted as provided in this section\". None of the modifications that section lists names a cafeteria plan, a 401(k) or deferred compensation, so a pre-tax deferral or premium stays out of the Ohio base as it stays out of the federal one.",
         "exemptionPerAllowance": 650,
         "brackets": {
           "single": [
@@ -2558,10 +2560,12 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://dam.assets.ohio.gov/image/upload/tax.ohio.gov/employer_withholding/2026%20Withholding%20Tables/WHT_PercentageMethod_2026.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://codes.ohio.gov/ohio-revised-code/section-5747.01",
         "note": "State tax only. Ohio municipalities and school districts charge income taxes of their own, withheld by the employer on top of this.",
         "noteSourceUrl": "https://tax.ohio.gov/business/employer-withholding",
         "unmodelledLocalTax": true,
-        "sourceNote": "House Bill 96 cut Ohio's rates for payroll periods ending on or after 1 August 2026.",
+        "sourceNote": "House Bill 96 cut Ohio's rates for payroll periods ending on or after 1 August 2026. Ohio reaches the federal base through two sections of its code. ORC 5747.06(A) makes the employer withhold on \"the amount of such compensation included in the employee's adjusted gross income\", and ORC 5747.01(A) defines that term as \"federal adjusted gross income, as defined and used in the Internal Revenue Code, adjusted as provided in this section\". None of the modifications that section lists names a cafeteria plan, a 401(k) or deferred compensation, so a pre-tax deferral or premium stays out of the Ohio base as it stays out of the federal one.",
         "exemptionPerAllowance": 650,
         "brackets": {
           "single": [
@@ -2951,10 +2955,12 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://tax.wv.gov/Documents/Withholding/it100.2a.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://code.wvlegislature.gov/11-21-12/",
         "note": "State tax only. Some West Virginia cities charge a flat weekly service fee on people who work in the city, withheld from the pay.",
         "noteSourceUrl": "https://www.charlestonwv.gov/sites/default/files/documents/2018-02/CITY%20SERVICE%20FEE%20OVERVIEW%20revised%202-2018.pdf",
         "unmodelledLocalTax": true,
-        "sourceNote": "IT-100.2A prints two complete sets of tables and both are loaded. The unmarked set is headed \"TWO EARNER/TWO OR MORE JOBS. Married filing jointly, both working/individual earning wages from two jobs\" and its rungs sit lower; the set headed \"OPTIONAL ONE EARNER/ONE JOB. Single, head of household or married with nonemployed spouse\" is the one everyone else reads. The exemption is $2,000 a year in both. Both halves of that heading are modelled: a joint filer whose spouse works reads the two earner set, and so does an employee holding two jobs of their own, whatever their filing status.",
+        "sourceNote": "IT-100.2A prints two complete sets of tables and both are loaded. The unmarked set is headed \"TWO EARNER/TWO OR MORE JOBS. Married filing jointly, both working/individual earning wages from two jobs\" and its rungs sit lower; the set headed \"OPTIONAL ONE EARNER/ONE JOB. Single, head of household or married with nonemployed spouse\" is the one everyone else reads. The exemption is $2,000 a year in both. Both halves of that heading are modelled: a joint filer whose spouse works reads the two earner set, and so does an employee holding two jobs of their own, whatever their filing status. West Virginia reaches the federal base through three documents. TSD-381 (Rev. September 2025) states one direction, \"Compensation subject to Federal withholding is subject to West Virginia withholding\"; Code 11-21-71(a) makes the employer withhold the tax due \"resulting from the inclusion in the employee's West Virginia adjusted gross income of wages received during such calendar year\"; and 11-21-12(a) defines that income as \"his or her federal adjusted gross income as defined in the laws of the United States for the taxable year with the modifications specified in this section\". None of those modifications names a cafeteria plan, a 401(k) or deferred compensation.",
         "twoIncomeBrackets": {
           "single": [
             [0, 0, 0.0211],
