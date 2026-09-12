@@ -2414,10 +2414,12 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://www.tax.ny.gov/pdf/publications/withholding/nys50_t_nys.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://www.tax.ny.gov/bus/wt/income_subject.htm",
         "noteSourceUrl": "https://www.tax.ny.gov/pdf/publications/withholding/nys50_t_nyc.pdf",
         "unmodelledLocalTax": true,
         "note": "State only, excluding New York City and Yonkers.",
-        "sourceNote": "The marginal rates are deliberately non-monotonic: that is New York's benefit recapture, not an error. Method III, which the tables hand the highest earners to, is charged here at its first rate alone: New York steps it to 0.1110 above $5,000,000 of annualised wages and to 0.1170 above $25,000,000, and neither step is modelled, so a figure past $5,000,000 a year is below the state's own.",
+        "sourceNote": "The marginal rates are deliberately non-monotonic: that is New York's benefit recapture, not an error. Method III, which the tables hand the highest earners to, is charged here at its first rate alone: New York steps it to 0.1110 above $5,000,000 of annualised wages and to 0.1170 above $25,000,000, and neither step is modelled, so a figure past $5,000,000 a year is below the state's own. The base is named by the Department rather than reasoned to: its page Income subject to withholding says to withhold \"on compensation that is considered wages for federal income tax withholding purposes\", which is the 26 USC 3401(a) wage, so a cafeteria premium and a retirement deferral are outside it. Tax Law § 671(a)(1) agrees from the other end, computing the amount from the tax due \"resulting from the inclusion in the employee's New York adjusted gross income or New York source income of the employee's wages\", and § 612(a) starts that income at the federal adjusted gross income, whose modifications name neither deduction.",
         "annualStandardDeduction": {
           "single": 7400,
           "married_jointly": 7950,
