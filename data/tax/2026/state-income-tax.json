@@ -1979,7 +1979,7 @@
         "verified": true,
         "sourceUrl": "https://revenuefiles.mt.gov/files/Forms/Montana_Employer_and_Information_Agent_Guide_with_Tax_Tables.pdf",
         "taxableWageBase": "gross_less_pre_tax",
-        "baseSourceUrl": "https://archive.legmt.gov/bills/mca/title_0150/chapter_0300/part_0250/section_0010/0150-0300-0250-0010.html",
+        "baseSourceUrl": "https://mca.legmt.gov/bills/mca/title_0150/chapter_0300/part_0250/section_0010/0150-0300-0250-0010.html",
         "brackets": {
           "single": [
             [0, 0, 0.0],
