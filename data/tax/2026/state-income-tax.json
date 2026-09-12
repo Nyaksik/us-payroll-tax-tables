@@ -1084,7 +1084,10 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://web.archive.org/web/20260116155245/https://dor.georgia.gov/document/document/2026-employers-tax-guide/download",
-        "sourceNote": "Wages paid before 11 May 2026 are withheld at 5.19% under the December 2025 edition of the guide, which the current edition replaced in place.",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://dor.georgia.gov/document/document/2026-employers-tax-guide-updated-june-2026/download",
+        "baseUnstatedByState": true,
+        "sourceNote": "Wages paid before 11 May 2026 are withheld at 5.19% under the December 2025 edition of the guide, which the current edition replaced in place. Half of the base is Georgia's own sentence and half is the federal default. The guide answers the retirement deferral, under \"Are contributions to qualified 401(k), profit sharing, or deferred compensation plans taxable?\": \"No. Georgia follows the federal guidelines governing such plans\", and O.C.G.A. 48-7-100(10)(J) keeps payments to a 401(a) trust out of wages. Nothing of Georgia's reaches the cafeteria premium: the words cafeteria, Section 125 and pre-tax occur nowhere in the guide, nor in 48-7-100, nor anywhere in Ga. Comp. R. & Regs. chapter 560-7-8, and 48-7-100(10) writes its own definition of wages without referring to 26 USC 3401(a) at all. That half is the federal default.",
         "annualStandardDeduction": {
           "single": 12000,
           "married_jointly": 24000,
@@ -1102,7 +1105,10 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://dor.georgia.gov/document/document/2026-employers-tax-guide-updated-june-2026/download",
-        "sourceNote": "HB 463 cut the rate to 4.99% for wages paid on or after 11 May 2026.",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://dor.georgia.gov/document/document/2026-employers-tax-guide-updated-june-2026/download",
+        "baseUnstatedByState": true,
+        "sourceNote": "HB 463 cut the rate to 4.99% for wages paid on or after 11 May 2026. The base is half Georgia's own sentence and half the federal default, as on the entry above: the guide answers the retirement deferral and O.C.G.A. 48-7-100(10)(J) keeps payments to a 401(a) trust out of wages, while nothing of Georgia's reaches the cafeteria premium.",
         "annualStandardDeduction": {
           "single": 15000,
           "married_jointly": 30000,
@@ -1122,7 +1128,9 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://files.hawaii.gov/tax/news/pubs/25BkltA.pdf",
-        "sourceNote": "The $4,350 figure is Hawaii's lump sum withholding allowance, deducted for every employee.",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://www.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0061.htm",
+        "sourceNote": "The $4,350 figure is Hawaii's lump sum withholding allowance, deducted for every employee. The base is in the statute, not in Booklet A, and it is written as a subtraction: HRS 235-61(a) defines wages as remuneration \"excluding income excluded from gross income by section 235-7 or other provisions of this chapter\". The provision that does the excluding is HRS 235-2.3(a), which makes the Internal Revenue Code operative for this chapter \"as it applies to the determination of gross income\", and its list of provisions that are not operative names neither section 125 nor the subchapter the retirement deferrals live in. So both come out of the federal gross income and out of Hawaii's wage with it. Booklet A says the retirement half on its own, in section 11(d).",
         "annualStandardDeduction": {
           "single": 4350,
           "married_jointly": 4350,
@@ -1208,7 +1216,9 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://www.in.gov/dor/files/dn01.pdf",
-        "sourceNote": "Departmental Notice #1, R46 / 01-26. Gross pay for the period less the deduction constants of the WH-4, then the 2.95% state rate and the county rate on that same base. The county is the employee's county of residence on 1 January, or their principal place of work if they lived outside Indiana that day. Read off the live notice on 2026-09-01, R46 / 01-26 itself: the 2.95%, the four exemption constants, its worked example of $800 a week, and all 92 county rates diffed name by name against the printed table with nothing out. Indiana reissues the notice each 1 January and 1 October, so the county rates fall due again after 2026-10-01.",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://iga.in.gov/laws/current/ic/titles/6#6-3-4-8",
+        "sourceNote": "Departmental Notice #1, R46 / 01-26. Gross pay for the period less the deduction constants of the WH-4, then the 2.95% state rate and the county rate on that same base. The county is the employee's county of residence on 1 January, or their principal place of work if they lived outside Indiana that day. Read off the live notice on 2026-09-01, R46 / 01-26 itself: the 2.95%, the four exemption constants, its worked example of $800 a week, and all 92 county rates diffed name by name against the printed table with nothing out. Indiana reissues the notice each 1 January and 1 October, so the county rates fall due again after 2026-10-01. The notice says nothing about the base, so that comes from the code: IC 6-3-4-8(a) has the employer withhold from \"wages subject to tax under this article\" and has the department set its instructions by the adjusted gross income tax rate, and IC 6-3-1-3.5(a) makes an individual's adjusted gross income the one \"defined in Section 62 of the Internal Revenue Code\", modified by a list that names neither a cafeteria plan nor an elective deferral. Both are outside the federal figure and nothing adds them back. The code was read on codes.findlaw.com: iga.in.gov answers every path, its own script bundle included, with the same 691-byte shell.",
         "periodExemptions": [
           {
             "key": "personal",
@@ -1905,6 +1915,10 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://www.dor.ms.gov/sites/default/files/tax-forms/business/89700251revised1.13.2026.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://www.dor.ms.gov/sites/default/files/tax-forms/business/89700251revised1.13.2026.pdf",
+        "baseUnstatedByState": true,
+        "sourceNote": "Both halves of this base are the federal default: Mississippi states neither. Form 89-700 defines wages as \"all remuneration, whether in cash or other form, with certain exceptions listed in section 8\", and section 8 is domestic service, farming, casual labour outside the employer's trade and ministers. Miss. Code Ann. 27-7-303(j) carries the same four exceptions and never mentions the Internal Revenue Code, and 27-7-15, the gross income section, is a list of Mississippi's own rather than a federal starting point. Neither cafeteria nor 401(k) nor 3401 occurs in any of them. What is left unread is Title 35 Part III of the state's administrative code, which sos.ms.gov refuses to this network and to Cloud Build alike.",
         "annualStandardDeduction": {
           "single": 8300,
           "married_jointly": 16600,
@@ -2370,6 +2384,10 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://realfile.tax.newmexico.gov/FYI-104.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://realfile.tax.newmexico.gov/FYI-104.pdf",
+        "baseUnstatedByState": true,
+        "sourceNote": "Both halves of this base are the federal default: New Mexico states neither. FYI-104 defines wages as \"remuneration in cash or other form for services performed by an employee for an employer\" and stops, and NMSA 7-3-2(J) is the same sentence with no exclusions at all. NMSA 7-3-3(A) ties the duty to the employer's federal withholding rather than to the payment, and has the department's table merely \"approximate the state income tax liability of average taxpayers\", which says nothing about what the table is applied to. 3.4.1 NMAC, the withholding rules, never uses the word wages.",
         "brackets": {
           "single": [
             [0, 0, 0.0],
@@ -2890,6 +2908,9 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://tax.vermont.gov/sites/tax/files/documents/GB-1210-2026.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://legislature.vermont.gov/statutes/section/32/151/05841",
+        "sourceNote": "The base is in the statute rather than in GB-1210, which states only that a payment subject to federal withholding is generally subject to Vermont's. 32 V.S.A. § 5841(a) reads on the payment and not on the employer: withholding is due from \"payments that are also subject to Vermont income tax\" by a person required under the laws of the United States to withhold federal income tax from them. A cafeteria premium and a retirement deferral are not payments federal income tax is withheld from, so they are outside the duty, and 32 V.S.A. § 5811(21) keeps them outside the tax as well by making an individual's taxable income the federal adjusted gross income with listed adjustments. GB-1210 does warn that Vermont taxable wages can differ from federal ones over fringe benefits affecting an employee's partner, but that is imputed income for one class of employee, not either of the deductions the form has a line for.",
         "exemptionPerAllowance": 5400,
         "brackets": {
           "single": [
