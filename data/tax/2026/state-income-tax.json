@@ -1033,7 +1033,9 @@
         "taxType": "graduated",
         "verified": false,
         "sourceUrl": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2026_D40ES_Book_wLinks04012026.pdf",
-        "sourceNote": "Brackets are the current 2026 ones from the D-40ES booklet. The District has published no withholding booklet since FR-230 Rev. 11/17: OTR Tax Notice 2022-08 says the TCJA impaired the District's ability to produce withholding tables and directs employers to the current rate schedule and the federal allowance amount, which IRS Publication 15-T (2026) sets at $4,300 per allowance. That is the allowance used here. With no worked example, table or calculator of the District's own to check a computation against, the entry stays unverified.",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://code.dccouncil.gov/us/dc/council/code/sections/47-1801.04",
+        "sourceNote": "Brackets are the current 2026 ones from the D-40ES booklet. The District has published no withholding booklet since FR-230 Rev. 11/17: OTR Tax Notice 2022-08 says the TCJA impaired the District's ability to produce withholding tables and directs employers to the current rate schedule and the federal allowance amount, which IRS Publication 15-T (2026) sets at $4,300 per allowance. That is the allowance used here. With no worked example, table or calculator of the District's own to check a computation against, the entry stays unverified. The base comes from the code rather than from a booklet, since there is no current booklet to read it off. D.C. Code § 47-1812.08(b)(1) makes the employer withhold \"a tax upon such wages\", and § 47-1801.04(56), the definition the whole chapter runs on, says \"Wages\" means wages as defined in section 3401(a) of the Internal Revenue Code of 1986. A cafeteria premium and a retirement deferral are out of the federal wage that section defines, so they are out of the District's base with it.",
         "exemptionPerAllowance": 4300,
         "brackets": {
           "single": [
