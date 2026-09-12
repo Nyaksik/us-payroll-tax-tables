@@ -1190,8 +1190,10 @@
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/withholding/documents/currentyear/il-700-t.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://www.ilga.gov/commission/jcar/admincode/086/086001000S70000R.html",
         "note": "Form IL-W-4's Line 2 allowance of $1,000 is not applied here, so an employee entitled to it has less Illinois tax withheld than this line shows.",
-        "sourceNote": "Only the $2,925 Line 1 allowance is modelled; the separate $1,000 Line 2 allowance is not.",
+        "sourceNote": "Only the $2,925 Line 1 allowance is modelled; the separate $1,000 Line 2 allowance is not. The base is the federal one, and the withholding regulation says so in both directions rather than in the usual one only. 86 Ill. Adm. Code 100.7000(a) requires the employer who withholds federal income tax under 26 USC 3401 through 3404 to withhold from the same compensation, computed under IITA sections 701 and 702, and then closes the other half: Illinois income tax \"is not required to be withheld on any compensation paid in this State of a character which is not subject to federal income tax withholding\". A cafeteria premium and a retirement deferral are out of the wage 26 USC 3401(a) defines, so they are out of the Illinois base with it, which the section's own fourth example works through for 3401(a)(12). Neither the statute nor Publication 130 gets this far: 35 ILCS 5/1501 defines compensation without excluding anything, and the publication states the sufficiency half alone.",
         "exemptionPerAllowance": 2925,
         "brackets": {
           "single": [[0, 0, 0.0495]],
