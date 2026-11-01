@@ -13,8 +13,16 @@
         "note": "State tax only. Some Alabama cities charge an occupational license fee on wages earned in the city, which the employer deducts on top of this.",
         "noteSourceUrl": "https://www.auburnal.gov/revenue/faqs/",
         "unmodelledLocalTax": true,
-        "sourceNote": "Withholding Tax Tables and Instructions, Rev. January 2026. Alabama subtracts the employee's annualized federal withholding and steps its standard deduction down by gross income, and both that deduction and the personal exemption follow the letter code on Form A-4. The printed wage-bracket tables are deliberately not reproduced: they take only the wage and the code, so they carry an assumption about federal withholding that the guide never states.",
+        "sourceNote": "Withholding Tax Tables and Instructions, Rev. January 2026. Alabama subtracts the employee's annualized federal withholding and steps its standard deduction down by gross income, and both that deduction and the personal exemption follow the letter code on Form A-4. The printed wage-bracket tables are deliberately not reproduced: they take only the wage and the code, so they carry an assumption about federal withholding that the guide never states. An employee who names no code on the form is read as one who filed no A-4, which the same guide withholds from \"using zero exemptions\": code 0 and no dependents, whatever the filing status. Before that an unnamed code was read as the letter of the filing status (S, M or H), a default the guide does not name.",
         "deductsFederalWithholding": true,
+        "withoutCertificate": {
+          "form": "Form A-4",
+          "code": "0",
+          "allowances": 0,
+          "rule": "using zero exemptions, code 0 with no dependents",
+          "selectLabel": "No Form A-4 filed (code 0, no dependents)",
+          "sourceUrl": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/whbooklet_0126.pdf"
+        },
         "exemptionCodes": [
           {
             "code": "0",
@@ -35,7 +43,6 @@
             "label": "S - single",
             "schedule": "single",
             "personalExemption": 1500,
-            "defaultFor": ["single"],
             "deduction": {
               "base": 3000,
               "from": 25999,
@@ -64,7 +71,6 @@
             "label": "M - married filing jointly",
             "schedule": "married_jointly",
             "personalExemption": 3000,
-            "defaultFor": ["married_jointly"],
             "deduction": {
               "base": 8500,
               "from": 25999,
@@ -79,7 +85,6 @@
             "label": "H - head of family",
             "schedule": "head_of_household",
             "personalExemption": 3000,
-            "defaultFor": ["head_of_household"],
             "deduction": {
               "base": 5200,
               "from": 25999,
@@ -152,7 +157,7 @@
         "sourceUrl": "https://www.dfa.arkansas.gov/wp-content/uploads/Withholding-Tax-Formula.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://www.dfa.arkansas.gov/wp-content/uploads/Withholding-Tax-Instructions-for-Employers.pdf",
-        "sourceNote": "The recapture the department prints above $94,700 is carried row for row, thirty rows of it: the adjustment starts at $369.90 over $94,701 to $94,800, falls by $10 for every $100 of income to $89.90 over $97,501 to $97,600, and stays at $79.90 from $97,601 upwards. Every row is one bracket, its base being the row floor at 3.7% less the printed adjustment, because the schedule has no other way to say the same thing. The lookup in step 2 is deliberately not modelled: below $100,001 the department reads the income at the $50 midrange of the surrounding $100 rather than at the figure itself, which is worth up to $50 of income at 3.7%, or $1.85 a year, and step 3 rounds the tax itself to the dollar afterwards. Near a recapture boundary the midrange can move the row instead of the cents, an income of $94,700 being read at $94,750 and so taking the adjustment of the row above, and that is worth the $10 by which two neighbouring rows differ. The document is also of two minds about where the rounding stops, step 2 saying $100,001 and its own worked example $97,701.",
+        "sourceNote": "The recapture the department prints above $94,700 is carried row for row, thirty rows of it: the adjustment starts at $369.90 over $94,701 to $94,800, falls by $10 for every $100 of income to $89.90 over $97,501 to $97,600, and stays at $79.90 from $97,601 upwards. Every row is one bracket, its base being the row floor at 3.7% less the printed adjustment, because the schedule has no other way to say the same thing. The lookup in step 2 is deliberately not modelled: below $100,001 the department reads the income at the $50 midrange of the surrounding $100 rather than at the figure itself, which is worth up to $50 of income at 3.7%, or $1.85 a year, and step 3 rounds the tax itself to the dollar afterwards. Near a recapture boundary the midrange can move the row instead of the cents, an income of $94,700 being read at $94,750 and so taking the adjustment of the row above, and that is worth the $10 by which two neighbouring rows differ. The document is also of two minds about where the rounding stops, step 2 saying $100,001 and its own worked example $97,701. The department published this formula on 29 May 2026, after HB 1001 cut the rate back to the start of the year; the formula it replaced was marked \"Effective 01/01/2026\" as well and withheld at 3.9%. This entry follows the law and applies 3.7% from 1 January, so a stub for a period paid before 29 May shows the tax as cut, not the 3.9% an employer withheld at the time. That is the owner's decision of 2026-10-28.",
         "annualStandardDeduction": {
           "single": 2470,
           "married_jointly": 2470,
@@ -1093,8 +1098,17 @@
         "sourceNote": "Wages paid before 11 May 2026 are withheld at 5.19% under the December 2025 edition of the guide, which the current edition replaced in place. Half of the base is Georgia's own sentence and half is the federal default. The guide answers the retirement deferral, under \"Are contributions to qualified 401(k), profit sharing, or deferred compensation plans taxable?\": \"No. Georgia follows the federal guidelines governing such plans\", and O.C.G.A. 48-7-100(10)(J) keeps payments to a 401(a) trust out of wages. Nothing of Georgia's reaches the cafeteria premium: the words cafeteria, Section 125 and pre-tax occur nowhere in the guide, nor in 48-7-100, nor anywhere in Ga. Comp. R. & Regs. chapter 560-7-8, and 48-7-100(10) writes its own definition of wages without referring to 26 USC 3401(a) at all. That half is the federal default.",
         "annualStandardDeduction": {
           "single": 12000,
-          "married_jointly": 24000,
+          "married_jointly": 12000,
+          "married_jointly_sole_earner": 24000,
           "head_of_household": 12000
+        },
+        "withoutCertificate": {
+          "form": "Form G-4",
+          "filingStatus": "single",
+          "allowances": 0,
+          "rule": "as single with zero allowances",
+          "choice": "That is Georgia's rule wherever the federal W-4 does not say enough: its Step 2, Multiple Jobs or Spouse Works, does not tell a working spouse from a second job, and its Step 3 claims credits in dollars rather than the dependents Georgia counts.",
+          "sourceUrl": "https://web.archive.org/web/20260116155245/https://dor.georgia.gov/document/document/2026-employers-tax-guide/download"
         },
         "exemptionPerAllowance": 4000,
         "brackets": {
@@ -1114,8 +1128,17 @@
         "sourceNote": "HB 463 cut the rate to 4.99% for wages paid on or after 11 May 2026. The base is half Georgia's own sentence and half the federal default, as on the entry above: the guide answers the retirement deferral and O.C.G.A. 48-7-100(10)(J) keeps payments to a 401(a) trust out of wages, while nothing of Georgia's reaches the cafeteria premium.",
         "annualStandardDeduction": {
           "single": 15000,
-          "married_jointly": 30000,
+          "married_jointly": 15000,
+          "married_jointly_sole_earner": 30000,
           "head_of_household": 15000
+        },
+        "withoutCertificate": {
+          "form": "Form G-4",
+          "filingStatus": "single",
+          "allowances": 0,
+          "rule": "as single with zero allowances",
+          "choice": "That is Georgia's rule wherever the federal W-4 does not say enough: its Step 2, Multiple Jobs or Spouse Works, does not tell a working spouse from a second job, and its Step 3 claims credits in dollars rather than the dependents Georgia counts.",
+          "sourceUrl": "https://dor.georgia.gov/document/document/2026-employers-tax-guide-updated-june-2026/download"
         },
         "exemptionPerAllowance": 5000,
         "brackets": {
@@ -1133,7 +1156,8 @@
         "sourceUrl": "https://files.hawaii.gov/tax/news/pubs/25BkltA.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://www.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0061.htm",
-        "sourceNote": "The $4,350 figure is Hawaii's lump sum withholding allowance, deducted for every employee. The base is in the statute, not in Booklet A, and it is written as a subtraction: HRS 235-61(a) defines wages as remuneration \"excluding income excluded from gross income by section 235-7 or other provisions of this chapter\". The provision that does the excluding is HRS 235-2.3(a), which makes the Internal Revenue Code operative for this chapter \"as it applies to the determination of gross income\", and its list of provisions that are not operative names neither section 125 nor the subchapter the retirement deferrals live in. So both come out of the federal gross income and out of Hawaii's wage with it. Booklet A says the retirement half on its own, in section 11(d).",
+        "sourceNote": "The $4,350 figure is Hawaii's extra lump sum withholding allowance, as Booklet A names it, deducted for every employee. The base is in the statute, not in Booklet A, and it is written as a subtraction: HRS 235-61(a) defines wages as remuneration \"excluding income excluded from gross income by section 235-7 or other provisions of this chapter\". The provision that does the excluding is HRS 235-2.3(a), which makes the Internal Revenue Code operative for this chapter \"as it applies to the determination of gross income\", and its list of provisions that are not operative names neither section 125 nor the subchapter the retirement deferrals live in. So both come out of the federal gross income and out of Hawaii's wage with it. Booklet A says the retirement half on its own, in section 11(d).",
+        "standardDeductionName": "extra lump sum withholding allowance",
         "annualStandardDeduction": {
           "single": 4350,
           "married_jointly": 4350,
@@ -1182,11 +1206,21 @@
         "sourceUrl": "https://tax.idaho.gov/document-mngr/pubs_epb00744/",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://adminrules.idaho.gov/rules/current/35/350101.pdf",
-        "sourceNote": "HB 40 cut the rate to 5.3%. The guide's withholding tables are headed 'Single Persons Including Head of Household', so head of household is withheld on the single column by the state's own rule. Checked against EPB00744 revision 07-23-2026 itself on 2026-09-01: $16,100, $32,200 and 5.3% all read off it. The guide still takes its tables on 'wages after subtracting child tax credit allowances' and sends the reader to an allowance table, which is why no allowance is modelled here: the credit sunsetted under Idaho Code 63-3029L and the department puts the allowance at zero on the same page that carries the table. Idaho reaches the federal base from both ends. Idaho Code 63-3035(a) puts the duty on every employer \"who is required under the provisions of the Internal Revenue Code to withhold\", and IDAPA 35.01.01, Rule 871.02.g, closes the other end as a rule rather than a hedge: withholding is not required if \"the compensation is exempt from federal withholding\". A 401(k) deferral and a Section 125 premium are exempt there, so Idaho does not reach them either.",
+        "sourceNote": "HB 40 cut the rate to 5.3%. The guide's withholding tables are headed 'Single Persons Including Head of Household', so head of household is withheld on the single column by the state's own rule. Checked against EPB00744 revision 07-23-2026 itself on 2026-09-01: $16,100, $32,200 and 5.3% all read off it. The guide still takes its tables on 'wages after subtracting child tax credit allowances' and sends the reader to an allowance table, which is why no allowance is modelled here: the credit sunsetted under Idaho Code 63-3029L and the department puts the allowance at zero on the same page that carries the table. Idaho reaches the federal base from both ends. Idaho Code 63-3035(a) puts the duty on every employer \"who is required under the provisions of the Internal Revenue Code to withhold\", and IDAPA 35.01.01, Rule 871.02.g, closes the other end as a rule rather than a hedge: withholding is not required if \"the compensation is exempt from federal withholding\". A 401(k) deferral and a Section 125 premium are exempt there, so Idaho does not reach them either. The ID W-4 sends \"Married filing jointly and both people work (or you have multiple jobs)\" to box C, \"Married, but withhold at Single rate\", so a joint filer whose spouse works reads the single table, and so does one who holds more than one job, read from step 2 of the federal W-4 (EFO00307 04-28-2025, the revision in a web archive copy of May 2026, checked on 2026-10-29). No rule for an employee who files no ID W-4 was found in EPB00744, the ID W-4 (EFO00307 04-28-2025) or IDAPA 35.01.01 (Rule 873 speaks of the federal W-4 only), so an unanswered spouse question withholding at the single rate is this generator's choice and not the state's, approved by the owner on 2026-10-28. The department revised EPB00744 on 23 July 2026, announced it on 31 July, and told employers \"You don't need to adjust withholding back ... use the revised tables going forward\", so a payroll run before then withheld by revision 04-28-2025, with its own zero band and allowance deduction. This entry still applies the July revision from 1 January. A stub shows the tax as the law sets it for the year, not what an employer withheld at the time, which is the owner's decision of 2026-10-28; a stub for a period paid before the revision can therefore differ from what that employer's payroll took then.",
         "annualStandardDeduction": {
           "single": 16100,
           "married_jointly": 32200,
           "head_of_household": 16100
+        },
+        "workingSpouseStatus": "single",
+        "multipleJobsMovesStatus": true,
+        "withoutCertificate": {
+          "form": "Form ID W-4",
+          "filingStatus": "single",
+          "allowances": 0,
+          "rule": "at the single rate, box C of the form",
+          "choice": "Idaho names no rule for an employer holding no ID W-4, so the single rate is this generator's choice, the cautious one.",
+          "sourceUrl": "https://tax.idaho.gov/wp-content/uploads/forms/EFO00307/EFO00307_04-28-2025.pdf"
         },
         "brackets": {
           "single": [[0, 0, 0.053]],
@@ -1348,6 +1382,7 @@
       },
       {
         "effectiveFrom": "2026-10-01",
+        "effectiveBy": "periodStart",
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://www.in.gov/dor/files/dn01.pdf",
@@ -1487,7 +1522,7 @@
         "sourceUrl": "https://revenue.iowa.gov/media/53/download?inline=",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://www.legis.iowa.gov/docs/iac/chapter/701.307.pdf",
-        "sourceNote": "Iowa Withholding Formula effective January 1, 2026: a flat 3.8% on wages less a deduction keyed to the pay period and to the marital status on the IA W-4. The allowance is a dollar amount on that form, and a 2023 or earlier IA W-4 is converted at $40 an allowance. The daily payroll period is not modelled: the form has no daily frequency.",
+        "sourceNote": "Iowa Withholding Formula effective January 1, 2026: a flat 3.8% on wages less a deduction keyed to the pay period and to the marital status on the IA W-4. The allowance is a dollar amount on that form, and a 2023 or earlier IA W-4 is converted at $40 an allowance. Such an older form also takes its deduction from Step 1B, whose table has a column for \"Single (or married but legally separated)\", used too when no status is given, and one for \"Married\", and asks nothing about the spouse's earnings, so a married employee on it is given the married amount whether or not the spouse works. The older form had no head of household box either; someone filing as head of household is unmarried or treated as unmarried, and is read into the single column. Which edition is on file is read from what was entered: a count of allowances with no dollar amount is the older form, since only the older form counts them. An older form claiming no allowances looks the same as a current one claiming no dollars, and is read as the current one. The daily payroll period is not modelled: the form has no daily frequency.",
         "deductionPerPeriod": {
           "weekly": {
             "single": 250.0,
@@ -1520,6 +1555,13 @@
             "married_jointly_sole_earner": 26000.0
           }
         },
+        "olderFormDeductionPerPeriod": {
+          "weekly": { "single": 250.0, "married_jointly": 500.0 },
+          "biweekly": { "single": 500.0, "married_jointly": 1000.0 },
+          "semimonthly": { "single": 541.67, "married_jointly": 1083.33 },
+          "monthly": { "single": 1083.33, "married_jointly": 2166.67 },
+          "annually": { "single": 13000.0, "married_jointly": 26000.0 }
+        },
         "creditPerAllowance": 40,
         "creditFromAllowanceAmount": true,
         "brackets": {
@@ -1537,7 +1579,15 @@
         "sourceUrl": "https://www.ksrevenue.gov/pdf/kw100.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://www.ksrevenue.gov/pdf/kw100.pdf",
-        "sourceNote": "KW-100 Rev. 10-24 is still the guide Kansas serves; the file has not changed since October 2024, and it is cited here from a web archive copy of that same revision.",
+        "sourceNote": "KW-100 Rev. 10-24 is still the guide Kansas serves; the file has not changed since October 2024, and it is cited here from a web archive copy of that same revision. The K-4 inside it sets the allowance rate by the spouse rather than by the filing status (block A: \"If you are married and your spouse has income mark \\\"Single\\\"\"), so a joint filer whose spouse works is withheld at the single rate, schedule and first allowance alike. Without a K-4 the guide says \"the employer must withhold wages at the single rate with no allowances\" (page 5), which is how an unanswered spouse question is read.",
+        "workingSpouseStatus": "single",
+        "withoutCertificate": {
+          "form": "Form K-4",
+          "filingStatus": "single",
+          "allowances": 0,
+          "rule": "at the single rate with no allowances",
+          "sourceUrl": "https://www.ksrevenue.gov/pdf/kw100.pdf"
+        },
         "exemptionPerAllowance": 2320,
         "firstAllowanceAmount": 9160,
         "firstAllowanceCount": {
@@ -1595,14 +1645,30 @@
         "sourceUrl": "https://dam.ldr.la.gov/taxforms/1306-1-26.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://legis.la.gov/Legis/Law.aspx?d=101090",
-        "sourceNote": "Withholding Tables and Formulas, R-1306 (1/26), effective on or after 1 January 2026. The standard deductions and the rate come from the computer formula method printed there, which divides the annual deduction by the number of pay periods. The wage-bracket tables in the same document are not reproduced: they read the same formula off a grid, and the formula covers every wage they do.",
+        "sourceNote": "Withholding Tables and Formulas, R-1306 (1/26), effective on or after 1 January 2026. The standard deductions and the rate come from the computer formula method printed there, which divides the annual deduction by the number of pay periods. The wage-bracket tables in the same document are not reproduced: they read the same formula off a grid, and the formula covers every wage they do. The deduction follows the number in block A of Form L-4 (R-1300, 1/26), not the filing status: \"0\" is none, \"1\" the single figure and \"2\" the joint one, and R-1306 lets any employee claim either of the last two. An employee who names none is read as one who filed no L-4, withheld \"without any standard deduction\". Before that the deduction was read off the filing status alone, and block A could not be answered at all.",
         "note": "Louisiana withholds at 3.09% rather than the 3% tax rate, as a deliberate cushion.",
         "noteSourceUrl": "https://revenue.louisiana.gov/tax-education-and-faqs/faqs/income-tax-reform/why-do-the-withholding-tables-use-3-09/",
-        "annualStandardDeduction": {
-          "single": 12875,
-          "married_jointly": 25750,
-          "head_of_household": 25750
+        "withoutCertificate": {
+          "form": "Form L-4",
+          "code": "0",
+          "allowances": 0,
+          "rule": "without any standard deduction",
+          "selectLabel": "No Form L-4 filed (no deduction)",
+          "sourceUrl": "https://dam.ldr.la.gov/taxforms/1300-1-26-F.pdf"
         },
+        "exemptionCodes": [
+          { "code": "0", "label": "0 - no standard deduction", "standardDeduction": 0 },
+          {
+            "code": "1",
+            "label": "1 - single or married filing separately",
+            "standardDeduction": 12875
+          },
+          {
+            "code": "2",
+            "label": "2 - married filing jointly, qualifying surviving spouse or head of household",
+            "standardDeduction": 25750
+          }
+        ],
         "brackets": {
           "single": [[0, 0, 0.0309]],
           "married_jointly": [[0, 0, 0.0309]],
@@ -1618,6 +1684,7 @@
         "sourceUrl": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/26_wh_tab_instr.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://legislature.maine.gov/statutes/36/title36sec5250.html",
+        "roundsToWholeDollar": true,
         "annualStandardDeduction": {
           "single": 12450,
           "married_jointly": 27750,
@@ -1665,7 +1732,7 @@
         "sourceUrl": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/legal-publications/facts/withholding-tax-facts-2026.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-905",
-        "sourceNote": "Withholding Tax Facts for 2026 (COM RAD 098, revised 12/25) for both rate schedules, the county rates and the $3,200 exemption. Maryland publishes two ways to withhold and they do not agree. The percentage tables in the 2026 employer guide are the manual one: Tax Facts offers them to employers who withhold without a computer and groups the county rates into nine brackets, each to be rounded up to, so Cecil, Washington, Carroll, Charles and Harford have no table of their own. Those tables charge 4.75% from the first dollar and give every filing status one $3,400 standard deduction, where the 2025 Act sets two, $3,350 and $6,700 for 2025 and indexed after. This entry follows the schedules Tax Facts prints, whose cumulative amounts it reproduces to the cent and which reach only $90 by $3,000, with the $3,400 and $6,850 deductions the comptroller's own calculator applies for 2026; the two readings differ by $52.50 a year at every income. State and county come to one line here because that is how the comptroller's own payroll memo says a Maryland stub prints them.",
+        "sourceNote": "Withholding Tax Facts for 2026 (COM RAD 098, revised 12/25) for both rate schedules, the county rates and the $3,200 exemption. Maryland publishes two ways to withhold and they do not agree. The percentage tables in the 2026 employer guide are the manual one: Tax Facts offers them to employers who withhold without a computer and groups the county rates into nine brackets, each to be rounded up to, so Cecil, Washington, Carroll, Charles and Harford have no table of their own. Those tables charge 4.75% from the first dollar and give every filing status one $3,400 standard deduction, where the 2025 Act sets two, $3,350 and $6,700 for 2025 and indexed after. This entry follows the schedules Tax Facts prints, whose cumulative amounts it reproduces to the cent and which reach only $90 by $3,000, with the $3,400 and $6,850 deductions the comptroller's own calculator applies for 2026; the two readings differ by $52.50 a year at every income. Tax Facts also says that \"Maryland law does not permit the use of a rate of less than 4.75% to be used for withholding tax purposes\", so its 2, 3 and 4 percent rows are not read on their own: the 4.75% row runs from the first dollar less $52.50, which is where it meets the schedule's own $90 at $3,000. The gross pay below which nothing is withheld is the employer guide's, which heads every one of its tables with \"DO NOT WITHHOLD ON GROSS WAGES LESS THAN\" a figure for each pay period. An employee who has named no county is withheld at the highest county rate, 3.30%, which is what the comptroller's Central Payroll Bureau does for state employees who file no Form MW507. State and county come to one line here because that is how the same office's payroll memo says a Maryland stub prints them. The 2.25% nonresident rate is the rule for an employee who claims no line of Form MW507: a resident of the District of Columbia, Virginia or West Virginia who keeps no place of abode in Maryland for 183 days or more claims exemption from all withholding on line 4, and a resident of Pennsylvania on line 5 from the state portion alone, \"still liable for withholding tax at the rate in effect for the Maryland county in which they are employed\" unless line 6 or 7 lifts that too. Line 5 alone is withheld as the county rate of the county where employed, charged on the same base a resident's county tax is, with the state schedule and its 2.25% left out: that is our reading of the sentence, not a calculation the comptroller prints, and no figure of the comptroller's checks it. Two more readings of ours ride on it: the per-period floor below which the employer guide withholds nothing applies on line 5 as it does to a resident, and a county already in the draft is read as the county of work once line 5 is claimed, though a resident would have named the county of home there. While no county is named the line is withheld at the 3.30% the state's payroll office uses for an employee with no certificate on file.",
         "annualStandardDeduction": {
           "single": 3400,
           "married_jointly": 6850,
@@ -1679,16 +1746,42 @@
           "monthly": 417,
           "annually": 5000
         },
+        "lowIncomeExemptionSourceUrl": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/withholding/2026/withholding-guide.pdf",
         "nonresidency": {
           "label": "Employee lives outside Maryland",
-          "hint": "A nonresident pays no county rate; Maryland withholds an additional state tax at 2.25% instead, the lowest local rate in the state.",
-          "localRate": 0.0225
+          "hint": "A nonresident pays no county rate; Maryland withholds an additional state tax at 2.25% instead, the lowest local rate in the state, unless a line of Form MW507 exempts them.",
+          "localRate": 0.0225,
+          "exemptions": {
+            "label": "Exemption on Form MW507",
+            "hint": "Residents of the District of Columbia, Virginia, West Virginia and Pennsylvania who keep no place of abode in Maryland for 183 days or more claim it on lines 4 to 7. This tool reads no other line of the form: an employee who claims none of these pays the 2.25% rate.",
+            "placeholder": "None claimed: 2.25% in place of a county",
+            "sourceUrl": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2026/mw507.pdf",
+            "lines": [
+              {
+                "value": "line-4",
+                "label": "Line 4: lives in DC, Virginia or West Virginia",
+                "note": "No Maryland tax is withheld: the employee claims exemption on Form MW507 line 4 as a resident of the District of Columbia, Virginia or West Virginia who keeps no place of abode in Maryland."
+              },
+              {
+                "value": "line-5",
+                "label": "Line 5: lives in Pennsylvania",
+                "note": "Only the county tax is withheld: the employee claims exemption from the Maryland state tax on Form MW507 line 5 as a resident of Pennsylvania and stays liable for the rate of the county where employed. Charging that rate on the base a resident's county tax is charged on is our reading of the form; the comptroller prints no calculation for it.",
+                "keepsCounty": true
+              },
+              {
+                "value": "line-5-local",
+                "label": "Line 5 with line 6 or 7: lives in Pennsylvania, local tax exempt too",
+                "note": "No Maryland tax is withheld: the employee claims exemption from the state tax on Form MW507 line 5 as a resident of Pennsylvania, and from the county tax on line 6 or 7."
+              }
+            ]
+          }
         },
         "countyTax": {
           "label": "County Income Tax",
           "hint": "County of residence from the employee's Form MW507. Maryland charges it on the same income as the state tax and prints the two as one line.",
           "joinsStateLine": true,
           "defaultRate": 0.033,
+          "defaultRateSourceUrl": "https://www.marylandcomptroller.gov/content/dam/mdcomp/md/state-payroll/memos/2026/2026-maryland-state-and-local-withholding-information.pdf",
           "rates": [
             {
               "code": "01",
@@ -2052,12 +2145,39 @@
         "sourceUrl": "https://www.dor.ms.gov/sites/default/files/tax-forms/business/89700251revised1.13.2026.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://www.dor.ms.gov/sites/default/files/tax-forms/business/89700251revised1.13.2026.pdf",
+        "roundsToWholeDollar": true,
         "baseUnstatedByState": true,
-        "sourceNote": "Both halves of this base are the federal default: Mississippi states neither. Form 89-700 defines wages as \"all remuneration, whether in cash or other form, with certain exceptions listed in section 8\", and section 8 is domestic service, farming, casual labour outside the employer's trade and ministers. Miss. Code Ann. 27-7-303(j) carries the same four exceptions and never mentions the Internal Revenue Code, and 27-7-15, the gross income section, is a list of Mississippi's own rather than a federal starting point. Neither cafeteria nor 401(k) nor 3401 occurs in any of them. What is left unread is Title 35 Part III of the state's administrative code, which sos.ms.gov refuses to this network and to Cloud Build alike.",
+        "sourceNote": "Both halves of this base are the federal default: Mississippi states neither. Form 89-700 defines wages as \"all remuneration, whether in cash or other form, with certain exceptions listed in section 8\", and section 8 is domestic service, farming, casual labour outside the employer's trade and ministers. Miss. Code Ann. 27-7-303(j) carries the same four exceptions and never mentions the Internal Revenue Code, and 27-7-15, the gross income section, is a list of Mississippi's own rather than a federal starting point. Neither cafeteria nor 401(k) nor 3401 occurs in any of them. What is left unread is Title 35 Part III of the state's administrative code, which sos.ms.gov refuses to this network and to Cloud Build alike. A married employee whose spouse also works deducts $2,300, the figure sections 13(d) and 17 of the 89-700 give for \"married individuals (both spouses employed)\", and Table D itself is headed with the words that \"the standard deduction is divided equally for both taxpayer and spouse\". The printed Table D does not do that: its cells are worked with $4,600 (semi-monthly, PDF page 33, row $1,500 to $1,520 reads 36 at column 0 and 26 at column 6,000, where $2,300 gives 40 and 30). Where the text and the cells part, the text is followed, the same choice as the reading by law for Idaho, Arkansas and West Virginia, approved by the owner on 2026-10-28. An unanswered spouse question reads as no Form 89-350, which the 89-700 withholds on \"based on zero exemption\"; it does not say which married deduction goes with that, and the $2,300 is this generator's choice, approved by the owner on the same day.",
+        "withoutCertificate": {
+          "form": "Form 89-350",
+          "filingStatus": "married_jointly",
+          "allowances": 0,
+          "exemptionClaimed": 0,
+          "spouseHasEarnedIncome": true,
+          "rule": "on zero exemption, with the $2,300 deduction of a married employee whose spouse also works",
+          "choice": "Mississippi withholds on zero exemption from an employee who files no Form 89-350 but does not say which married deduction goes with it, so the smaller one is this generator's choice.",
+          "sourceUrl": "https://www.dor.ms.gov/sites/default/files/tax-forms/business/89700251revised1.13.2026.pdf"
+        },
         "annualStandardDeduction": {
-          "single": 8300,
-          "married_jointly": 16600,
-          "head_of_household": 12900
+          "single": 2300,
+          "married_jointly": 2300,
+          "married_jointly_sole_earner": 4600,
+          "head_of_household": 3400
+        },
+        "exemptionClaimed": {
+          "label": "Form 89-350 line 6: total exemption claimed",
+          "form": "Form 89-350",
+          "hint": "Leave blank for a form that claims the filing status alone: $6,000 single, $12,000 married, $9,500 head of family. Add $1,500 for each dependent, other than the one that makes the employee head of family, and for each age 65 or blindness box (lines 4 and 5). A married employee whose spouse also works enters their own share of the $12,000, in multiples of $500 (line 2(b)); left blank, that share is taken as $6,000, half. Enter 0 if no Form 89-350 is on file: Mississippi then withholds on zero exemption.",
+          "sourceUrl": "https://www.dor.ms.gov/sites/default/files/tax-forms/business/89700251revised1.13.2026.pdf",
+          "byStatus": {
+            "single": 6000,
+            "married_jointly": 12000,
+            "head_of_household": 9500
+          },
+          "workingSpouseShare": {
+            "amount": 6000,
+            "choice": "The form sets no share for a line left blank, so half is this generator's choice: the one share that keeps the couple within the $12,000 instruction 2(b) allows if both certificates are left blank, and favours neither spouse."
+          }
         },
         "brackets": {
           "single": [
@@ -2083,10 +2203,23 @@
         "sourceUrl": "https://dor.mo.gov/forms/Withholding%20Formula_2026.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://dor.mo.gov/forms/4282_2026.pdf",
-        "note": "State tax only. Kansas City and St. Louis charge an earnings tax on wages earned in the city, withheld by the employer on top of this.",
-        "noteSourceUrl": "https://www.kcmo.gov/city-hall/departments/finance/tax-home/tax-form-descriptions",
+        "roundsToWholeDollar": true,
+        "note": "State tax only. Kansas City and St. Louis each charge a 1% earnings tax on top: on residents wherever they work, and on anyone for work in the city.",
+        "noteSourceUrl": [
+          "https://www.kcmo.gov/city-hall/departments/finance/earnings-tax",
+          "https://www.kcmo.gov/city-hall/departments/finance/tax-home/tax-form-descriptions",
+          "https://www.stlouis-mo.gov/government/departments/collector/earnings-tax/",
+          "https://www.stlouis-mo.gov/government/departments/collector/earnings-tax/payroll-tax-info.cfm"
+        ],
         "unmodelledLocalTax": true,
-        "sourceNote": "The guide lists the standard deduction by a check box on Form MO W-4 Line 1 rather than by filing status, and both figures are loaded: $32,200 where the spouse does not work, $16,100 where the spouse does. An employee who has not answered is deducted the full amount, as if the box were checked, which is what the tables did before both figures were loaded.",
+        "sourceNote": "The guide lists the standard deduction by a check box on Form MO W-4 Line 1 rather than by filing status, and both figures are loaded: $32,200 where the spouse does not work, $16,100 where the spouse does. The larger figure is its own box on line 1 of the MO W-4 (Revised 12-2025), \"Married (Spouse does not work)\", beside \"Single or Married Spouse Works or Married Filing Separate\", so only an answer reaches it. An unanswered spouse question reads as no MO W-4 at all, for which Form 4282 says \"withhold at a single tax rate\"; until October 2026 the generator deducted the full amount from such an employee, as if the box were checked.",
+        "withoutCertificate": {
+          "form": "Form MO W-4",
+          "filingStatus": "single",
+          "allowances": 0,
+          "rule": "at a single tax rate",
+          "sourceUrl": "https://dor.mo.gov/forms/4282_2026.pdf"
+        },
         "annualStandardDeduction": {
           "single": 16100,
           "married_jointly": 16100,
@@ -2135,6 +2268,13 @@
         "sourceUrl": "https://revenuefiles.mt.gov/files/Forms/Montana_Employer_and_Information_Agent_Guide_with_Tax_Tables.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://mca.legmt.gov/bills/mca/title_0150/chapter_0300/part_0250/section_0010/0150-0300-0250-0010.html",
+        "roundsToWholeDollar": true,
+        "bothSpousesWorking": {
+          "label": "Marked line 2 on Form MW-4: married filing jointly, both spouses working",
+          "hint": "Montana withholds by its single tables when line 2 is marked, for a couple who both work and earn similar amounts. Its instructions (page 3) say not to mark it \"if you or your spouse have multiple jobs, or if one spouse earns significantly more than the other\": mark box 1b instead.",
+          "sourceUrl": "https://revenuefiles.mt.gov/files/Forms/Montana_Employee_Withholding_Allowance_and_Exemption_Certificate_Form_MW-4.pdf",
+          "column": "single"
+        },
         "brackets": {
           "single": [
             [0, 0, 0.0],
@@ -2645,6 +2785,7 @@
         "sourceUrl": "https://www.ncdor.gov/income-tax-withholding-tables-and-instructions-employers/open",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-163.1.html",
+        "roundsToWholeDollar": true,
         "note": "North Carolina withholds at 3.99% plus a 0.1% cushion.",
         "sourceNote": "NC-30 (Web 11-25). Married filing jointly gets the same $12,750 deduction as single; only head of household differs.",
         "annualStandardDeduction": {
@@ -2668,6 +2809,7 @@
         "sourceUrl": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2026-iit/2026-income-tax-withholding-rates-booklet.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://www.tax.nd.gov/sites/www/files/documents/guidelines/business/it-withhold/income-tax-withholding-information-returns-guideline.pdf",
+        "roundsToWholeDollar": true,
         "brackets": {
           "single": [
             [0, 0, 0.0],
@@ -2720,6 +2862,7 @@
       },
       {
         "effectiveFrom": "2026-08-01",
+        "effectiveBy": "periodEnd",
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://dam.assets.ohio.gov/image/upload/tax.ohio.gov/employer_withholding/2026%20Withholding%20Tables/WHT_PercentageMethod_2026.pdf",
@@ -2728,7 +2871,7 @@
         "note": "State tax only. Ohio municipalities and school districts charge income taxes of their own, withheld by the employer on top of this.",
         "noteSourceUrl": "https://tax.ohio.gov/business/employer-withholding",
         "unmodelledLocalTax": true,
-        "sourceNote": "House Bill 96 cut Ohio's rates for payroll periods ending on or after 1 August 2026. Ohio reaches the federal base through two sections of its code. ORC 5747.06(A) makes the employer withhold on \"the amount of such compensation included in the employee's adjusted gross income\", and ORC 5747.01(A) defines that term as \"federal adjusted gross income, as defined and used in the Internal Revenue Code, adjusted as provided in this section\". None of the modifications that section lists names a cafeteria plan, a 401(k) or deferred compensation, so a pre-tax deferral or premium stays out of the Ohio base as it stays out of the federal one.",
+        "sourceNote": "House Bill 96 cut Ohio's rates for payroll periods ending on or after 1 August 2026. The tables themselves say only \"Effective August 1, 2026\"; which date of the period that means is the department's own bulletin of 15 July 2026, \"New Ohio Withholding Rates Effective August 1, 2026\" (content.govdelivery.com/accounts/OHTAX/bulletins/420a1ea), which issues the tables \"for payrolls that end on or after August 1, 2026\". So a period that ends on or after that day is on this entry even when it is paid before it, and one that ends in July stays on the entry before however late it is paid. Ohio reaches the federal base through two sections of its code. ORC 5747.06(A) makes the employer withhold on \"the amount of such compensation included in the employee's adjusted gross income\", and ORC 5747.01(A) defines that term as \"federal adjusted gross income, as defined and used in the Internal Revenue Code, adjusted as provided in this section\". None of the modifications that section lists names a cafeteria plan, a 401(k) or deferred compensation, so a pre-tax deferral or premium stays out of the Ohio base as it stays out of the federal one.",
         "exemptionPerAllowance": 650,
         "brackets": {
           "single": [
@@ -2757,7 +2900,16 @@
         "sourceUrl": "https://www.oklahoma.gov/content/dam/ok/en/tax/documents/resources/publications/businesses/withholding-tables/WHTables-2026.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://oklahoma.gov/content/dam/ok/en/tax/documents/resources/rules-and-policies/agency-rules/Chapter90-2023.pdf",
+        "sourceNote": "Packet OW-2, 2026 Oklahoma Income Tax Withholding Tables. The percentage method is worked inside the pay period: \"You must use the correct table for your payroll frequency\" (page 5), the allowance comes off at the amount the Table of Withholding Allowance Amounts prints for that frequency (page 6), and the rate tables are printed once per frequency on pages 8 and 9. Each periodic table is Table 7, the annual one, divided by the number of periods with its edges rounded to the dollar and its constants to the cent, which is why the periodic and the annual answers differ by up to two cents before the rounding to whole dollars the same page 6 requires. The daily, quarterly and semi-annual tables are not carried: the form has none of those frequencies. A head of household reads the single tables: the OK-W-4 offers Single, Married and Married but withhold at the higher Single rate, and nothing else. The wage bracket tables from page 10 are the state's other accepted method and \"produce almost identical results\"; at the middle of their brackets they part from the periodic percentage method by a dollar in 26 of their 3,520 cells with 0 to 9 allowances, so they are not used as control figures for the method here.",
+        "roundsToWholeDollar": true,
         "exemptionPerAllowance": 1000,
+        "exemptionPerAllowancePerPeriod": {
+          "weekly": 19.23,
+          "biweekly": 38.46,
+          "semimonthly": 41.67,
+          "monthly": 83.33,
+          "annually": 1000
+        },
         "brackets": {
           "single": [
             [0, 0, 0.0],
@@ -2777,6 +2929,88 @@
             [11250, 28.75, 0.035],
             [13550, 109.25, 0.045]
           ]
+        },
+        "bracketsPerPeriod": {
+          "weekly": {
+            "single": [
+              [0, 0, 0.0],
+              [194, 0, 0.025],
+              [216, 0.55, 0.035],
+              [261, 2.1, 0.045]
+            ],
+            "married_jointly": [
+              [0, 0, 0.0],
+              [388, 0, 0.025],
+              [433, 1.11, 0.035],
+              [521, 4.2, 0.045]
+            ],
+            "head_of_household": [
+              [0, 0, 0.0],
+              [194, 0, 0.025],
+              [216, 0.55, 0.035],
+              [261, 2.1, 0.045]
+            ]
+          },
+          "biweekly": {
+            "single": [
+              [0, 0, 0.0],
+              [388, 0, 0.025],
+              [433, 1.11, 0.035],
+              [521, 4.2, 0.045]
+            ],
+            "married_jointly": [
+              [0, 0, 0.0],
+              [777, 0, 0.025],
+              [865, 2.21, 0.035],
+              [1042, 8.4, 0.045]
+            ],
+            "head_of_household": [
+              [0, 0, 0.0],
+              [388, 0, 0.025],
+              [433, 1.11, 0.035],
+              [521, 4.2, 0.045]
+            ]
+          },
+          "semimonthly": {
+            "single": [
+              [0, 0, 0.0],
+              [421, 0, 0.025],
+              [469, 1.2, 0.035],
+              [565, 4.55, 0.045]
+            ],
+            "married_jointly": [
+              [0, 0, 0.0],
+              [842, 0, 0.025],
+              [938, 2.4, 0.035],
+              [1129, 9.1, 0.045]
+            ],
+            "head_of_household": [
+              [0, 0, 0.0],
+              [421, 0, 0.025],
+              [469, 1.2, 0.035],
+              [565, 4.55, 0.045]
+            ]
+          },
+          "monthly": {
+            "single": [
+              [0, 0, 0.0],
+              [842, 0, 0.025],
+              [938, 2.4, 0.035],
+              [1129, 9.1, 0.045]
+            ],
+            "married_jointly": [
+              [0, 0, 0.0],
+              [1683, 0, 0.025],
+              [1875, 4.79, 0.035],
+              [2258, 18.21, 0.045]
+            ],
+            "head_of_household": [
+              [0, 0, 0.0],
+              [842, 0, 0.025],
+              [938, 2.4, 0.035],
+              [1129, 9.1, 0.045]
+            ]
+          }
         }
       }
     ],
@@ -2791,7 +3025,7 @@
         "note": "State tax only. Employers in the Portland area also withhold the Metro and Multnomah County income taxes once earnings pass their thresholds.",
         "noteSourceUrl": "https://www.portland.gov/revenue/withholding",
         "unmodelledLocalTax": true,
-        "sourceNote": "Oregon Withholding Tax Formulas, 150-206-436 (Rev. 12-31-25). Every figure here is read off the formula tables, not off the prose around them: the 2026 edition still carries uncleaned 2025 text, so page 5 and FAQ 3 call the cap on the federal subtraction $8,500 while the tables and FAQ 11 call it $8,750, and Example 3 gives $5,100 where the printed phase-out says $5,250. The tables are the ones that hold together: each rung of the phase-out is 80, 60, 40 and 20 percent of $8,750 and not of $8,500, and the lowest base each of the two upper schedules starts from is $50,000 less $8,750 less the standard deduction. $8,750 is therefore the figure in force, and the $8,500 the prose still carries is the stale half of the edition. The constant of a bracket in the upper schedules is $263 below its twin in the lower ones, which is the state's own step down at $50,000 of wages and not a transcription slip. An employee who has filed no Form OR-W-4 may instead be withheld at a straight 8 percent (HB 2119, 2019); the flat rate is not modelled here. The base is not in this publication at all: Oregon writes its own definition of wages in ORS 316.162(2), and the two deductions leave it by different doors. Paragraph (h) takes out remuneration paid \"to employees' trusts exempt from tax under provisions of the federal Internal Revenue Code\", which is the retirement deferral, and paragraph (L) takes out remuneration \"when the remuneration is exempt from taxation under this chapter\". A cafeteria premium is exempt in that sense, because ORS 316.048 makes a resident's entire taxable income the federal taxable income with modifications, and the premium never enters the federal figure.",
+        "sourceNote": "Oregon Withholding Tax Formulas, 150-206-436 (Rev. 12-31-25). Every figure here is read off the formula tables, not off the prose around them: the 2026 edition still carries uncleaned 2025 text, so page 5 and FAQ 3 call the cap on the federal subtraction $8,500 while the tables and FAQ 11 call it $8,750, and Example 3 gives $5,100 where the printed phase-out says $5,250. The tables are the ones that hold together: each rung of the phase-out is 80, 60, 40 and 20 percent of $8,750 and not of $8,500, and the lowest base each of the two upper schedules starts from is $50,000 less $8,750 less the standard deduction. $8,750 is therefore the figure in force, and the $8,500 the prose still carries is the stale half of the edition. The constant of a bracket in the upper schedules is $263 below its twin in the lower ones, which is the state's own step down at $50,000 of wages and not a transcription slip. An employee who has filed no Form OR-W-4 may instead be withheld at a straight 8 percent (HB 2119, 2019); the flat rate is not modelled here. The OR-W-4 box \"Married, but withhold at the higher single rate\" is withheld as single throughout, which is how an employee who ticks it is entered here: FAQ 4 gives that employee the single phase-out of the federal subtraction, and Example 4 works the very case, a married employee earning $175,000 who chose the higher single rate, whose employer \"would also not allow any allowances in the formula because his income is over $100,000 for a single individual\". The instructions for the OR-W-4 itself (150-101-402-1, 2026) put the limit for that box at $200,000, beside the married one; the formula is followed, being the document the employer withholds by and the one that works the case through. The base is not in this publication at all: Oregon writes its own definition of wages in ORS 316.162(2), and the two deductions leave it by different doors. Paragraph (h) takes out remuneration paid \"to employees' trusts exempt from tax under provisions of the federal Internal Revenue Code\", which is the retirement deferral, and paragraph (L) takes out remuneration \"when the remuneration is exempt from taxation under this chapter\". A cafeteria premium is exempt in that sense, because ORS 316.048 makes a resident's entire taxable income the federal taxable income with modifications, and the premium never enters the federal figure.",
         "deductsFederalWithholding": true,
         "federalWithholdingCap": {
           "single": [
@@ -3007,12 +3241,13 @@
       },
       {
         "effectiveFrom": "2026-06-01",
+        "effectiveBy": "periodStart",
         "taxType": "graduated",
         "verified": true,
         "sourceUrl": "https://tax.utah.gov/forms-pubs/pub-14/",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://le.utah.gov/xcode/Title59/Chapter10/C59-10-S401_1800010118000101.pdf",
-        "sourceNote": "Publication 14 Rev. 04/26, cited as the page the state publishes it on rather than as a file: the download the page offers answers 404, and the withholding schedules printed on the page itself are the ones used here. SB 60 cut the rate to 4.45% for pay periods beginning on or after 1 June 2026, a date the guide carries on its cover and the page does not repeat. Utah publishes only Single and Married schedules, so head of household is withheld on the single column.",
+        "sourceNote": "Publication 14 Rev. 4/26, cited as the page the state publishes it on, which the monthly source check can read; the PDF the page offers, files.tax.utah.gov/tax/forms/pubs/pub-14.pdf, refuses automated requests and was read from the Internet Archive's copy of 16 July 2026 (web.archive.org/web/20260716180416/https://files.tax.utah.gov/tax/forms/pubs/pub-14.pdf). Its cover says \"The income tax withholding tables in this revision are effective for pay periods beginning on or after June 1, 2026\", so a period that began before that date stays on the earlier entry even when it is paid after it. SB 60 cut the rate to 4.45%. Utah publishes only Single and Married schedules, so head of household is withheld on the single column.",
         "taperingCredit": {
           "single": {
             "amount": 485,
@@ -3128,10 +3363,17 @@
         "sourceUrl": "https://tax.wv.gov/Documents/Withholding/it100.2a.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://code.wvlegislature.gov/11-21-12/",
+        "roundsToWholeDollar": true,
+        "roundsToWholeDollarSourceUrl": "https://tax.wv.gov/Documents/Withholding/it100.1a.pdf",
+        "oneIncomeOnRequest": {
+          "label": "Asked for the lower rate on IT-104 line 5",
+          "hint": "West Virginia withholds by its two earner tables unless the employee checks line 5 of Form IT-104. Only someone single, head of household or married to a spouse who does not work, with wages from one job, may check it.",
+          "sourceUrl": "https://tax.wv.gov/Documents/Withholding/it104.pdf"
+        },
         "note": "State tax only. Some West Virginia cities charge a flat weekly service fee on people who work in the city, withheld from the pay.",
         "noteSourceUrl": "https://www.charlestonwv.gov/sites/default/files/documents/2018-02/CITY%20SERVICE%20FEE%20OVERVIEW%20revised%202-2018.pdf",
         "unmodelledLocalTax": true,
-        "sourceNote": "IT-100.2A prints two complete sets of tables and both are loaded. The unmarked set is headed \"TWO EARNER/TWO OR MORE JOBS. Married filing jointly, both working/individual earning wages from two jobs\" and its rungs sit lower; the set headed \"OPTIONAL ONE EARNER/ONE JOB. Single, head of household or married with nonemployed spouse\" is the one everyone else reads. The exemption is $2,000 a year in both. Both halves of that heading are modelled: a joint filer whose spouse works reads the two earner set, and so does an employee holding two jobs of their own, whatever their filing status. West Virginia reaches the federal base through three documents. TSD-381 (Rev. September 2025) states one direction, \"Compensation subject to Federal withholding is subject to West Virginia withholding\"; Code 11-21-71(a) makes the employer withhold the tax due \"resulting from the inclusion in the employee's West Virginia adjusted gross income of wages received during such calendar year\"; and 11-21-12(a) defines that income as \"his or her federal adjusted gross income as defined in the laws of the United States for the taxable year with the modifications specified in this section\". None of those modifications names a cafeteria plan, a 401(k) or deferred compensation.",
+        "sourceNote": "IT-100.2A prints two complete sets of tables and both are loaded. The unmarked set is headed \"TWO EARNER/TWO OR MORE JOBS. Married filing jointly, both working/individual earning wages from two jobs\" and its rungs sit lower; the set headed \"OPTIONAL ONE EARNER/ONE JOB. Single, head of household or married with nonemployed spouse\" is read only on request. IT-100.1A says \"The two-earner tables should be used for all employees unless the employee has requested on the IT-104 that tax should be withheld at a lower rate. In that case, the one-earner tables should be utilized\", and line 5 of the IT-104 takes the request only from someone \"Single, Head of Household, or Married and your spouse does not work, and you are receiving wages from only one job\". So an employee who has not asked is withheld by the two earner set. This entry withholds by it as well from one who asked while holding a second job or with a spouse who works, whatever the filing status: that is a reading of line 5, which names who may check the box and says nothing of a box checked by anyone else. The exemption is $2,000 a year in both. West Virginia reaches the federal base through three documents. TSD-381 (Rev. September 2025) states one direction, \"Compensation subject to Federal withholding is subject to West Virginia withholding\"; Code 11-21-71(a) makes the employer withhold the tax due \"resulting from the inclusion in the employee's West Virginia adjusted gross income of wages received during such calendar year\"; and 11-21-12(a) defines that income as \"his or her federal adjusted gross income as defined in the laws of the United States for the taxable year with the modifications specified in this section\". None of those modifications names a cafeteria plan, a 401(k) or deferred compensation. Senate Bill 392 cut the rates \"retroactive to January 1, 2026\", as the Tax Division's page on the 2026 rate cut puts it, and IT-100.2A is dated March 2026; when employers had to move to the new tables the department's own text does not say. This entry applies them from 1 January, as the law does, so a stub for a period paid before the switch shows the tax as cut and not what an employer withheld then. That is the owner's decision of 2026-10-28.",
         "twoIncomeBrackets": {
           "single": [
             [0, 0, 0.0211],

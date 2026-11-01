@@ -64,6 +64,17 @@
     "note": "The same example as the state states it: its employee is married with a working spouse, which Missouri deducts $16,100 for and not the $32,200 a sole earner gets. The row above reaches the same figure down the single column, so only this one can fail on the column being chosen wrongly."
   },
   {
+    "state": "MO",
+    "wages": 2916.67,
+    "frequency": "monthly",
+    "status": "married_jointly",
+    "spouseHasEarnedIncome": true,
+    "allowances": 0,
+    "expected": 59,
+    "source": "2026 Missouri withholding formula example, its last line: \"707.81 ÷ 12 = $59.00 Monthly Missouri Withholding (Rounded to the nearest whole dollar.)\"",
+    "note": "The same example taken to the amount withheld, which the rows above stop short of: $707.81 a year is $58.98 a month, and the guide withholds $59.00. $35,000 a year is $2,916.67 a month to the cent, four cents a year over the example's own wage, which moves the annual tax by a fifth of a cent and not the dollar."
+  },
+  {
     "state": "VT",
     "wages": 60000,
     "status": "single",
@@ -77,7 +88,8 @@
     "status": "single",
     "allowances": 2,
     "expected": 1359.7,
-    "source": "IT-100.2A Table 5, one earner"
+    "source": "IT-100.2A Table 5, one earner",
+    "oneIncomeElected": true
   },
   {
     "state": "WV",
@@ -109,9 +121,34 @@
     "state": "KS",
     "wages": 48000,
     "status": "married_jointly",
+    "spouseHasEarnedIncome": false,
     "allowances": 3,
     "expected": 994.24,
-    "source": "KW-100 Esmeralda Espinoza example"
+    "source": "KW-100 Esmeralda Espinoza example",
+    "note": "The guide's own example says \"Her spouse does not have income\", which is what puts her at the Joint rate on the K-4. Left unanswered, the question would now read as no K-4 at all (PAY-596)."
+  },
+  {
+    "state": "KS",
+    "wages": 1995,
+    "frequency": "semimonthly",
+    "status": "married_jointly",
+    "spouseHasEarnedIncome": true,
+    "allowances": 2,
+    "expected": 73,
+    "tolerance": 0.5,
+    "source": "KW-100 wage bracket table, SINGLE Persons, semi-monthly payroll period, row $1,985 to $2,005, column 2",
+    "note": "Read at the middle of the row. A joint filer whose spouse has income marks \"Single\" on K-4 block A, so the single table is the one the state prints for this employee (PAY-596). The cell is whole dollars, hence the half dollar of tolerance; the formula gives 72.61."
+  },
+  {
+    "state": "KS",
+    "wages": 1995,
+    "frequency": "semimonthly",
+    "status": "married_jointly",
+    "allowances": 3,
+    "expected": 99,
+    "tolerance": 0.5,
+    "source": "KW-100 wage bracket table, SINGLE Persons, semi-monthly payroll period, row $1,985 to $2,005, column 0",
+    "note": "Read at the middle of the row. No answer to the spouse question reads as no K-4 filed, and without one \"the employer must withhold wages at the single rate with no allowances\" (KW-100 page 5), so the three allowances claimed here count for nothing (PAY-596). The formula gives 99.30."
   },
   {
     "state": "MT",
@@ -319,6 +356,16 @@
     "source": "EPB00744: 5.3% of the amount over 16,100"
   },
   {
+    "state": "ID",
+    "wages": 52000,
+    "status": "married_jointly",
+    "spouseHasEarnedIncome": true,
+    "allowances": 0,
+    "expected": 1902.7,
+    "source": "EPB00744 07-23-2026, annual payroll period, Single Persons Including Head of Household: 5.3% of the amount over $16,100",
+    "note": "The ID W-4 sends \"Married filing jointly and both people work\" to box C, \"Married, but withhold at Single rate\", so this joint filer reads the single table: (52,000 - 16,100) x 5.3%. ID-2 of the batch 4 audit, biweekly $2,000 a period."
+  },
+  {
     "state": "IL",
     "wages": 399,
     "frequency": "weekly",
@@ -344,18 +391,53 @@
     "status": "single",
     "allowances": 0,
     "expected": 30,
-    "tolerance": 0.5,
-    "source": "Pub 89-700 Table A single, semi-monthly wages of $1,500 to $1,520 at the $6,000 exemption"
+    "source": "Pub 89-700 Table A single, semi-monthly wages of $1,500 to $1,520 at the $6,000 exemption",
+    "note": "Read without the half dollar of tolerance it used to carry. The cell is whole dollars because Mississippi rounds to the nearest one (89-700, page 8), and since the engine does the same the cell is read exactly."
   },
   {
     "state": "MS",
     "wages": 1510,
     "frequency": "semimonthly",
     "status": "married_jointly",
+    "spouseHasEarnedIncome": false,
     "allowances": 0,
     "expected": 16,
-    "tolerance": 0.5,
-    "source": "Pub 89-700 Table C married with a spouse not employed, the same wages at the $12,000 exemption"
+    "source": "Pub 89-700 Table C married with a spouse not employed, the same wages at the $12,000 exemption",
+    "note": "Read without the half dollar of tolerance it used to carry. The cell is whole dollars because Mississippi rounds to the nearest one (89-700, page 8), and since the engine does the same the cell is read exactly."
+  },
+  {
+    "state": "MS",
+    "wages": 365,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "exemptionClaimed": 0,
+    "expected": 5,
+    "source": "Pub 89-700 Table A single, weekly payroll period, row $360 to $370, column 0 (no Form 89-350 on file)",
+    "note": "Read at the middle of the row. The cell is whole dollars because Mississippi rounds to the nearest one (89-700, page 8), and since the engine does the same the cell is read exactly. The formula gives $5.14: the $2,300 deduction stays at zero exemption."
+  },
+  {
+    "state": "MS",
+    "wages": 425,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "exemptionClaimed": 9000,
+    "expected": 1,
+    "source": "Pub 89-700 Table A single, weekly payroll period, row $420 to $430, column 9,000 (the single exemption and two dependents)",
+    "note": "Read at the middle of the row. The cell is whole dollars because Mississippi rounds to the nearest one (89-700, page 8), and since the engine does the same the cell is read exactly. The formula gives $0.62."
+  },
+  {
+    "state": "MS",
+    "wages": 1510,
+    "frequency": "semimonthly",
+    "status": "married_jointly",
+    "spouseHasEarnedIncome": true,
+    "allowances": 0,
+    "exemptionClaimed": 6000,
+    "expected": 30,
+    "source": "Pub 89-700 sections 13(d) and 17: $2,300 standard deduction for married individuals with both spouses employed, 0% to $10,000 and 4% above, rounded to the nearest whole dollar; semi-monthly $1,510 with $6,000 claimed on Form 89-350 line 6",
+    "note": "Worked from the text, not read from Table D: (36,240 - 2,300 - 6,000 - 10,000) x 4% / 24 = 29.90, to the dollar 30. The printed Table D is worked with $4,600 and reads 26 in this cell (semi-monthly, PDF page 33, row $1,500 to $1,520, column 6,000); where the cells part from the text the text is followed, by the owner's decision of 2026-10-28 (PAY-596), so no row of Table D stands here any more."
   },
   {
     "state": "NC",
@@ -364,6 +446,16 @@
     "allowances": 2,
     "expected": 231.09,
     "source": "NC-30 annualised wages example: $450 weekly with two allowances"
+  },
+  {
+    "state": "NC",
+    "wages": 450,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 2,
+    "expected": 4,
+    "source": "NC-30 percentage method and annualised wages examples, the line withheld: $450 weekly with two allowances, $4.00",
+    "note": "The row above checks line 8 of the annualised example, $231.09 a year, which is $4.44 a week. Line 10 divides and rounds to the nearest whole dollar, and line 6 of the percentage method example gives the same $4.00, so this row is what fails if the rounding goes."
   },
   {
     "state": "KY",
@@ -381,6 +473,7 @@
     "frequency": "weekly",
     "status": "single",
     "allowances": 0,
+    "exemptionCode": "1",
     "expected": 13.98,
     "source": "R-1306 (1/26) Example 1: $700 weekly claiming 1 in block A of the L-4",
     "note": "Both Louisiana examples run through the pay period, which is the part its own formula turns on: the annual standard deduction is divided by the number of periods before the rate is applied, and an annual figure would never exercise that division."
@@ -391,8 +484,40 @@
     "frequency": "biweekly",
     "status": "married_jointly",
     "allowances": 0,
+    "exemptionCode": "2",
     "expected": 111.54,
     "source": "R-1306 (1/26) Example 2: $4,600 every two weeks claiming 2 in block A of the L-4"
+  },
+  {
+    "state": "LA",
+    "wages": 1520.005,
+    "frequency": "monthly",
+    "status": "married_jointly",
+    "allowances": 0,
+    "expected": 46.97,
+    "source": "R-1306 (1/26) monthly wage-bracket table, row $1,480.01 to $1,560.00, column 0, read at the middle of the row",
+    "note": "No code in block A is no L-4 at all, which the L-4 withholds from \"without any standard deduction\", and column 0 of the printed tables is that case: the tables say to use it when the employee claims no deduction. The rows are printed to the cent, so neither point needs a tolerance. A joint filer is the point of the first one: before the code was asked, the filing status alone gave this employee the $25,750 deduction."
+  },
+  {
+    "state": "LA",
+    "wages": 4000.005,
+    "frequency": "monthly",
+    "status": "single",
+    "allowances": 0,
+    "exemptionCode": "0",
+    "expected": 123.6,
+    "source": "R-1306 (1/26) monthly wage-bracket table, row $3,960.01 to $4,040.00, column 0, read at the middle of the row"
+  },
+  {
+    "state": "LA",
+    "wages": 4000.005,
+    "frequency": "monthly",
+    "status": "married_jointly",
+    "allowances": 0,
+    "exemptionCode": "1",
+    "expected": 90.45,
+    "source": "R-1306 (1/26) monthly wage-bracket table, row $3,960.01 to $4,040.00, column 1, read at the middle of the row",
+    "note": "A joint filer claiming 1, which R-1306 allows any employee: the code and not the filing status names the deduction."
   },
   {
     "state": "MI",
@@ -434,10 +559,57 @@
     "state": "GA",
     "wages": 35299.92,
     "status": "married_jointly",
+    "spouseHasEarnedIncome": false,
     "allowances": 1,
     "payDate": "2026-03-15",
     "expected": 378.87,
     "source": "Georgia guide Rev. December 2025, Table E example: $1,470.83 semi-monthly with one dependent withholds $15.79"
+  },
+  {
+    "state": "GA",
+    "wages": 1490,
+    "frequency": "semimonthly",
+    "status": "married_jointly",
+    "allowances": 2,
+    "payDate": "2026-03-15",
+    "expected": 51.38,
+    "source": "Georgia guide Rev. December 2025, Table A: Single, semi-monthly, row over $1,457.00 up to $1,490.00, column 0",
+    "note": "Read at the top of the row. A joint filer who leaves the spouse question unanswered is read as having filed no G-4, which the guide withholds \"as if the employee is single with zero allowances\" where the federal W-4 does not say enough, so the two allowances claimed count for nothing: (1,490 - 500.00) x 5.19%."
+  },
+  {
+    "state": "GA",
+    "wages": 1081,
+    "frequency": "semimonthly",
+    "status": "married_jointly",
+    "allowances": 1,
+    "payDate": "2026-03-15",
+    "expected": 30.15,
+    "source": "Georgia guide Rev. December 2025, Table A: Single, semi-monthly, row over $1,046.00 up to $1,081.00, column 0",
+    "note": "A second row of the same column, so the single deduction is pinned at two wages: (1,081 - 500.00) x 5.19%."
+  },
+  {
+    "state": "GA",
+    "wages": 1490,
+    "frequency": "semimonthly",
+    "status": "married_jointly",
+    "spouseHasEarnedIncome": true,
+    "allowances": 1,
+    "payDate": "2026-03-15",
+    "expected": 42.73,
+    "source": "Georgia guide Rev. December 2025, Table B: Married Filing Separate or Joint Both Working, semi-monthly, row over $1,457.00 up to $1,490.00, column 1",
+    "note": "Read at the top of the row, where the printed cent reproduces: (1,490 - 500.00 - 166.67) x 5.19%. The table heads married filing jointly with both spouses working together with married filing separately, which is the column (3) deduction Table E sends \"Married couples, both having income\" to (PAY-584)."
+  },
+  {
+    "state": "GA",
+    "wages": 1083,
+    "frequency": "semimonthly",
+    "status": "married_jointly",
+    "spouseHasEarnedIncome": true,
+    "allowances": 2,
+    "payDate": "2026-03-15",
+    "expected": 12.96,
+    "source": "Georgia guide Rev. December 2025, Table B: Married Filing Separate or Joint Both Working, semi-monthly, row over $1,048.00 up to $1,083.00, column 2",
+    "note": "A second row and a second column of the same table, so a wrong deduction cannot hide behind a dependent allowance that happens to make up for it: (1,083 - 500.00 - 333.33) x 5.19%."
   },
   {
     "state": "OH",
@@ -474,6 +646,7 @@
     "wages": 2000,
     "frequency": "semimonthly",
     "status": "married_jointly",
+    "spouseHasEarnedIncome": false,
     "allowances": 1,
     "expected": 27.03,
     "source": "Georgia guide updated June 2026, Table E example: $2,000 semi-monthly married with one child",
@@ -601,6 +774,27 @@
     "allowances": 2,
     "expected": 101,
     "source": "Iowa withholding formula 2026, Example 10: monthly, married on a 2023 or earlier IA W-4"
+  },
+  {
+    "state": "IA",
+    "wages": 2100,
+    "frequency": "biweekly",
+    "status": "married_jointly",
+    "allowances": 2,
+    "spouseHasEarnedIncome": true,
+    "expected": 38.72,
+    "source": "Iowa withholding formula 2026, Example 8: biweekly, married on a 2023 or earlier IA W-4, with the spouse marked as earning",
+    "note": "Step 1B gives the older form two columns, Single and Married, and asks nothing about the spouse, so Example 8 holds whatever the spouse earns. The spouse question of the current form is answered yes here to show it is not read: on the current form a joint filer whose spouse earns takes column (A), $500, and would be withheld $57.72."
+  },
+  {
+    "state": "IA",
+    "wages": 5000,
+    "frequency": "monthly",
+    "status": "married_jointly",
+    "allowances": 2,
+    "spouseHasEarnedIncome": true,
+    "expected": 101,
+    "source": "Iowa withholding formula 2026, Example 10: monthly, married on a 2023 or earlier IA W-4, with the spouse marked as earning"
   },
   {
     "state": "AL",
@@ -1009,5 +1203,191 @@
     "expected": 64.41,
     "notFromGuide": true,
     "source": "the comptroller's own withholding calculator for 2026: $1,000 a week, Non-Resident — the same 64.41 it answers for a resident of Worcester, and the county in the draft is not read"
+  },
+  {
+    "state": "MD",
+    "wages": 130,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 1,
+    "county": "01",
+    "expected": 0,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026 (https://interactive2.marylandtaxes.gov/WithholdingCalculator): $130 a week, one exemption, Allegany, a taxable income of $160",
+    "note": "Taken on 27 October 2026. One exemption brings the taxable income under $1,105.26, where the state's share is negative: the 4.75% row read from the first dollar less $52.50. The state's calculator adds that share to the county's before holding the line at zero, so the county share is lowered rather than charged in full. Read either share at zero on its own and this row moves."
+  },
+  {
+    "state": "MD",
+    "wages": 7260,
+    "status": "single",
+    "allowances": 1,
+    "county": "01",
+    "expected": 0,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026 (https://interactive2.marylandtaxes.gov/WithholdingCalculator): $7,260 a year, one exemption, Allegany, a taxable income of $660 where the state share is minus $21.15 and the county share $21.12",
+    "note": "Taken on 27 October 2026, in the same zone as the row above: below $1,105.26 of taxable income, where the state share is negative and is netted against the local one."
+  },
+  {
+    "state": "MD",
+    "wages": 7600,
+    "status": "single",
+    "allowances": 1,
+    "county": "01",
+    "expected": 27,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026 (https://interactive2.marylandtaxes.gov/WithholdingCalculator): $7,600 a year, one exemption, Allegany, a taxable income of $1,000: the county's $32.00 less the state's $5.00",
+    "note": "Taken on 27 October 2026, in the same zone as the row above: below $1,105.26 of taxable income, where the state share is negative and is netted against the local one."
+  },
+  {
+    "state": "MD",
+    "wages": 7260,
+    "status": "single",
+    "allowances": 1,
+    "nonresident": true,
+    "expected": 0,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026 (https://interactive2.marylandtaxes.gov/WithholdingCalculator): $7,260 a year, one exemption, Non-Resident, a taxable income of $660",
+    "note": "Taken on 27 October 2026, in the same zone as the row above: below $1,105.26 of taxable income, where the state share is negative and is netted against the local one."
+  },
+  {
+    "state": "MD",
+    "wages": 7600,
+    "status": "single",
+    "allowances": 1,
+    "nonresident": true,
+    "expected": 17.5,
+    "notFromGuide": true,
+    "source": "the comptroller's own withholding calculator for 2026 (https://interactive2.marylandtaxes.gov/WithholdingCalculator): $7,600 a year, one exemption, Non-Resident: 7% of a taxable income of $1,000 less $52.50, the nonresident rate netted the same way as a county's",
+    "note": "Taken on 27 October 2026, in the same zone as the row above: below $1,105.26 of taxable income, where the state share is negative and is netted against the local one."
+  },
+  {
+    "state": "OK",
+    "wages": 1825,
+    "frequency": "semimonthly",
+    "status": "married_jointly",
+    "allowances": 2,
+    "expected": 37,
+    "source": "Oklahoma Withholding Tables 2026, page 7 sample computation: $1,825 semi-monthly, married, two allowances, $36.67 which must be rounded to $37.00",
+    "note": "The same example the annual row above reads, taken per pay period, where the rule on page 6 applies: round to the nearest whole dollar, $2.49 to $2.00 and $2.50 to $3.00."
+  },
+  {
+    "state": "ME",
+    "wages": 1000,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 2,
+    "expected": 33,
+    "source": "Maine withholding tables 2026, page 7, Example 2: annualized withholding of $1,694 divided by 52 = $32.58 rounded to $33"
+  },
+  {
+    "state": "ME",
+    "wages": 4500,
+    "frequency": "weekly",
+    "status": "married_jointly",
+    "allowances": 2,
+    "expected": 257,
+    "source": "Maine withholding tables 2026, page 7, Example 3: $13,338 divided by 52 = $256.50 rounded to $257",
+    "note": "Maine works this as $256.50, and the engine gets $256.51: its standard deduction phases out to $22,301.75 where the guide prints $22,302. So the row does not pin what an exact half does; the unit test of Oklahoma's rule does."
+  },
+  {
+    "state": "MT",
+    "wages": 1375,
+    "frequency": "semimonthly",
+    "status": "single",
+    "allowances": 0,
+    "expected": 33,
+    "source": "Montana Employer and Information Agent Guide, page 17 of 19, Example 1: box 1a, $1,375 semi-monthly, 0.047 x ($1,375 - $671) = $33 rounded to the nearest dollar",
+    "note": "The guide says amounts must be \"rounded up to the nearest dollar\", and every example it works rounds to the nearest: this one is $33.09. Rounding up would give $34."
+  },
+  {
+    "state": "MT",
+    "wages": 475,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "expected": 8,
+    "source": "Montana Employer and Information Agent Guide, page 17 of 19, Example 3: box 1a, $475 weekly, 0.047 x ($475 - $310) = $8 rounded to the nearest dollar"
+  },
+  {
+    "state": "MT",
+    "wages": 2950,
+    "frequency": "biweekly",
+    "status": "married_jointly",
+    "allowances": 0,
+    "bothSpousesWorking": true,
+    "expected": 114,
+    "source": "Montana Employer and Information Agent Guide, page 17 of 19, Example 2: line 2 on Form MW-4, $2,950 bi-weekly, $86 + 0.0565 x ($2,950 - $2,446) = $114 rounded to the nearest dollar",
+    "note": "A joint filer who marked line 2 reads the single tables, which the page heads \"Married Filing Joint with Both Spouses Working\". Without the box the married tables give $80."
+  },
+  {
+    "state": "MT",
+    "wages": 1375,
+    "frequency": "semimonthly",
+    "status": "married_jointly",
+    "allowances": 0,
+    "expected": 2,
+    "source": "Montana Employer and Information Agent Guide, page 18 of 19, Example 1: line 1b, $1,375 semi-monthly, 0.047 x ($1,375 - $1,342) = $2"
+  },
+  {
+    "state": "ND",
+    "wages": 2112.5,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "expected": 20,
+    "source": "North Dakota Income Tax Withholding Rates and Instructions 2026, page 47, weekly wage bracket table (Forms W-4 for 2020 and after), row $2,100 to $2,125, Single column",
+    "note": "Read at the middle of the bracket. The cell is whole dollars because North Dakota rounds to the nearest one: the formula gives $19.58 a week. The worked example on page 46 is not used: its $734.00 of annual withholding on $93,600 does not come out of the 2026 single table ($701.51 over $57,625), nor out of the married or head of household tables."
+  },
+  {
+    "state": "ND",
+    "wages": 2212.5,
+    "frequency": "weekly",
+    "status": "head_of_household",
+    "allowances": 0,
+    "expected": 14,
+    "source": "North Dakota Income Tax Withholding Rates and Instructions 2026, page 47, weekly wage bracket table (Forms W-4 for 2020 and after), row $2,200 to $2,225, Head of household column",
+    "note": "A second cell in another row and another column, as a printed table needs two. The formula gives $13.72."
+  },
+  {
+    "state": "WV",
+    "wages": 505,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "expected": 13,
+    "source": "IT-100.2B (March 2026), page 16, weekly one earner/one job wage bracket table, row $500 to $510, column 0 allowances",
+    "note": "Read at the middle of the bracket. The table is whole dollars because West Virginia rounds to the nearest one (IT-100.1A); the formula on IT-100.2A gives $12.93. West Virginia publishes no worked example, so two cells of its printed table stand in for one.",
+    "oneIncomeElected": true
+  },
+  {
+    "state": "WV",
+    "wages": 555,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 2,
+    "expected": 12,
+    "source": "IT-100.2B (March 2026), page 16, weekly one earner/one job wage bracket table, row $550 to $560, column 2 allowances",
+    "note": "A second cell in another row and another column. The formula gives $12.09.",
+    "oneIncomeElected": true
+  },
+  {
+    "state": "WV",
+    "wages": 505,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 0,
+    "expected": 14,
+    "source": "IT-100.2B (March 2026), page 4, weekly two earner/two or more jobs wage bracket table, row $500 to $510, column 0 allowances",
+    "note": "No request on IT-104 line 5, so the two earner set: IT-100.1A says it \"should be used for all employees unless the employee has requested on the IT-104 that tax should be withheld at a lower rate\". The same wages and allowances read $13 off the one earner table on page 16. The formula gives $13.69."
+  },
+  {
+    "state": "WV",
+    "wages": 555,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 2,
+    "expected": 13,
+    "source": "IT-100.2B (March 2026), page 4, weekly two earner/two or more jobs wage bracket table, row $550 to $560, column 2 allowances",
+    "note": "A second cell in another row and another column, and again $1 above the one earner table at the same place. The formula gives $12.84."
   }
 ]

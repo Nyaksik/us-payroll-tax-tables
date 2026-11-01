@@ -1,6 +1,25 @@
 {
   "year": 2026,
   "states": {
+    "AK": [
+      {
+        "key": "ak_ui",
+        "label": "AK Unemployment Insurance",
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "rate": 0.005,
+            "base": "gross_less_pre_tax",
+            "annualWageBase": 54200,
+            "verified": true,
+            "sourceUrl": "https://labor.alaska.gov/estax/2026-experience-rates.html",
+            "baseSourceUrl": "https://labor.alaska.gov/estax/documents/taxbook.pdf",
+            "sourceNote": "Alaska Department of Labor and Workforce Development, 2026 Unemployment Insurance Tax Rates: \"The 2026 Taxable Wage Base is $54,200.00\" and \"The 2026 Employee Rate is 0.50%\", the same 0.50 in the employee column of every one of the twenty-one rate classes, so the worker's rate does not depend on the employer's. Read from the Internet Archive's copy of 20 October 2026 (web.archive.org/web/20261020063857/https://labor.alaska.gov/estax/2026-experience-rates.html): labor.alaska.gov resolves from this network and refuses the connection. The base is the department's Employment Security Tax Handbook, read from the archive's copy of 15 May 2026. Deductions to a retirement plan established by the employer, 401(k), 403(b) and 457 among them, are not reportable wages, and of a Section 125 cafeteria plan Alaska excludes group-term life, accident or health insurance, disability, a flexible spending arrangement and an HSA, by employer or employee. Tips are wages when the employee reports them to the employer. The handbook keeps dependent care assistance, adoption assistance and group legal services in wages even through a cafeteria plan; the generator records a cafeteria deduction without saying which benefit it buys, so such a deduction comes off this base like any other and the line is that much short. Two cases run the other way, charging more than Alaska does. The handbook lists Roth 401(k), 403(b) and 457(f) among the retirement plans whose deductions are not reportable, and the generator has no Roth treatment: a Roth deferral entered as an after-tax deduction stays in this base. And the handbook excludes a medical premium the employee pays through the employer \"whether they are part of a formal cafeteria plan or not\", so a premium entered as an after-tax deduction because no cafeteria plan exists is charged here, though Alaska would not charge it.",
+            "note": "Alaska's unemployment insurance, which the worker pays into beside the employer, at the employee rate the department sets for every employer alike."
+          }
+        ]
+      }
+    ],
     "CA": [
       {
         "key": "ca_sdi",
@@ -95,7 +114,7 @@
         "label": "HI Temporary Disability Insurance",
         "unmodelled": true,
         "employerElects": true,
-        "note": "Hawaii lets an employer pay the whole cost of temporary disability coverage or share it with the employee, so the deduction is on some stubs and not others. Where it is taken, it is half of the employer's own insurance premium, held down by two ceilings: 0.5 per cent of the employee's weekly wages, and the maximum weekly deduction the Division sets each year. The premium is a matter between an employer and its carrier and is published nowhere, so this document names the line and does not name its size.",
+        "note": "Hawaii lets an employer pay the whole cost of temporary disability coverage or share it with the employee, so the deduction is on some stubs and not others. Where it is taken, it is half of the employer's own insurance premium, held down by two ceilings: 0.5 per cent of the employee's weekly wages, and the maximum weekly deduction the Division sets each year. The premium is a matter between an employer and its carrier and is published nowhere, so the line is named here without an amount.",
         "sourceUrl": "https://labor.hawaii.gov/dcd/frequently-asked-questions/tdi/"
       }
     ],
@@ -143,10 +162,20 @@
       {
         "key": "mn_paid_leave",
         "label": "MN Paid Leave",
-        "unmodelled": true,
-        "employerElects": true,
-        "note": "Minnesota Paid Leave began in 2026. The employer pays at least half the premium and may deduct the remainder from the employee's wages, and how large that premium is depends on the employer: a small employer pays 75 per cent of the ordinary rate. This document names the line and not its size, and that is where it stays: an employer counts as small only if it is both under the state's headcount and paying an average wage no higher than 150 per cent of the state average in covered employment, and the second half is a yearly figure of the state's that an employee has no way to answer for (PAY-193).",
-        "sourceUrl": "https://www.revisor.mn.gov/statutes/cite/268B.14"
+        "employerElectsShare": true,
+        "periods": [
+          {
+            "effectiveFrom": "2026-01-01",
+            "maxRate": 0.0044,
+            "base": "gross",
+            "annualWageBase": 185000,
+            "verified": true,
+            "sourceUrl": "https://pl.mn.gov/resources/calculators/premium-rate-and-contributions",
+            "baseSourceUrl": "https://www.revisor.mn.gov/statutes/cite/268.035",
+            "sourceNote": "Minnesota Paid Leave, Premium rate and contributions: \"For 2026 and 2027, the Paid Leave premium rate is 0.88%\", the small employer rate is 0.66%, and \"employers can collect up to 0.44% from employees, or employers can choose to cover more.\" The ceiling on the employee is the same for both sizes of employer, and Minn. Stat. 268B.14 says why: subdivision 3 has every employer pay at least 50 percent of the premium, and subdivision 5a lets a small employer pay 75 percent of the rate but at least 25 percent of the full rate itself, deducting nothing from employees for its own portion. 0.88 less 0.44 and 0.66 less 0.22 both leave 0.44 for the employee, so the size of the employer is not an input here, and whether an employer counts as small, which turns on a yearly average wage of the state's that no employee can answer for, does not need to be asked. The state's small employers page says the same: \"Employers can collect up to 0.44% of the premium from employees.\" The cap is $185,000 and not the Social Security base itself. The statute says it two ways: 268B.14, subdivision 4, makes the maximum wages subject to premium \"equal to the maximum earnings in that year subject to the FICA Old-Age, Survivors, and Disability Insurance tax\", and 268B.01, subdivision 43, defines taxable wages up to that same maximum \"rounded to the nearest $1,000\". The rounded figure is the one the state applies: the premium page names $185,000 for this year against a Social Security base of $184,500, and PayrollOrg (payroll.org) reads it the same way, giving $814, which is 0.44 per cent of $185,000, as the most an employee pays in 2026. The base is gross pay: 268B.01 subdivision 47 takes its wages from 268.035 subdivision 29, whose paragraph (b) says nothing in it excludes payments under a salary reduction agreement, naming both 401(k) and section 125 cafeteria plans. Tips are inside it too, where the employee accounts for them to the employer; the condition is not modelled, and an earnings line marked as tips is charged in full. Read on 2026-11-01 from the web archive copies of 31 July 2026 and 6 January 2026: pl.mn.gov answers outside the United States with a refusal and to automated clients inside it with a bot check, so neither copy could be compared with the live page.",
+            "note": "Minnesota Paid Leave. The employer chooses how much of the premium to pass on, up to 0.44 per cent of wages, and may pay all of it instead."
+          }
+        ]
       }
     ],
     "NJ": [
@@ -207,7 +236,8 @@
         "key": "nm_workers_comp_fee",
         "label": "NM Workers' Compensation Fee",
         "unmodelled": true,
-        "note": "A fee for each calendar quarter, not for each pay period, charged for administering the Workers' Compensation Act: $4.80 for every covered employee, of which the worker pays $2.25 and the employer $2.55. Two conditions decide whether it is owed at all. It is owed by employers of three or more workers, and it is owed for a worker employed on the last working day of the quarter, which is why it belongs to one pay period out of the quarter rather than to all of them. This document names the line and leaves the amount to the quarter it falls in: spreading it over the periods would print a number the state never charges.",
+        "notEveryPaycheck": true,
+        "note": "A fee for each calendar quarter, not for each pay period, charged for administering the Workers' Compensation Act: $4.80 for every covered employee, of which the worker pays $2.25 and the employer $2.55. Two conditions decide whether it is owed at all. It is owed by employers of three or more workers, and it is owed for a worker employed on the last working day of the quarter, which is why it belongs to one pay period out of the quarter rather than to all of them. The line is named here without an amount, which belongs to the quarter it falls in: spreading it over the periods would print a number the state never charges.",
         "sourceUrl": "https://www.workerscomp.nm.gov/faqs/"
       }
     ],
