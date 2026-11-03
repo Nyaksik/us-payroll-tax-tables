@@ -391,7 +391,8 @@
     "state": "ME",
     "sourceUrl": "https://legislature.maine.gov/statutes/36/title36sec5250.html",
     "checkedAt": 1793542193310,
-    "textHash": "cfb4f4db27d2037216720f49c9762b4c4a54e6b145aeb8c922defe83ab878213"
+    "textHash": "cfb4f4db27d2037216720f49c9762b4c4a54e6b145aeb8c922defe83ab878213",
+    "volatile": true
   },
   {
     "state": "ME",
@@ -870,7 +871,8 @@
     "state": "VA",
     "sourceUrl": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-460/",
     "checkedAt": 1793542193310,
-    "textHash": "25fef37c5555770e6e0dbf30e573b72cfe44b4f3879fa1550600da4fac817eee"
+    "textHash": "25fef37c5555770e6e0dbf30e573b72cfe44b4f3879fa1550600da4fac817eee",
+    "volatile": true
   },
   {
     "state": "VA",
