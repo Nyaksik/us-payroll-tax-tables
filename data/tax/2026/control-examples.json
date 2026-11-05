@@ -556,6 +556,66 @@
     "source": "Circular M percentage method: 60,000 less 2,000 FICA less 5,400 exemptions at 5%, less the $120 head of household value"
   },
   {
+    "state": "MA",
+    "wages": 1000,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 1,
+    "payrollTaxWithheld": {
+      "period": 76.5,
+      "yearToDate": 1912.5
+    },
+    "expected": 41.93,
+    "tolerance": 0.03,
+    "source": "Circular M Rev. 12/25, percentage method, page 12, worked by hand from steps 1 to 6 (the circular prints no example at these wages): weekly $1,000, one exemption, week 26, the last before the year's FICA reaches $2,000",
+    "note": "PAY-590. A calculation from the text of the method, not a worked example of the circular's own, so it adds nothing to the entry's verified status, which rests on the two rows above. The percentage method takes the Social Security and Medicare withheld in the period off the wages until the year's total reaches $2,000 and then discontinues the step. $1,000 a week withholds $62.00 and $14.50, so the year reaches $1,912.50 after 25 weeks, $1,989.00 after 26 and is past the cap after 27. Before the cap: (1,000 - 76.50 - 85) x 5% = 41.93; after it: (1,000 - 85) x 5% = 45.75. The circular prints the weekly exemption factor rounded to $85, the engine annualises and takes the annual $4,400, which is $84.62 a week, so it lands one and two cents above (41.94, 45.77): the tolerance is that rounding and nothing else. An even share of the cap, which the printed tables take, gives 43.85 in every week and fails both rows by nearly two dollars."
+  },
+  {
+    "state": "MA",
+    "wages": 1000,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 1,
+    "payrollTaxWithheld": {
+      "period": 76.5,
+      "yearToDate": 2065.5
+    },
+    "expected": 45.75,
+    "tolerance": 0.03,
+    "source": "Circular M Rev. 12/25, percentage method, page 12, worked by hand from steps 1 to 6 (the circular prints no example at these wages): weekly $1,000, one exemption, week 28, the first after the year's FICA has reached $2,000",
+    "note": "PAY-590. A calculation from the text of the method, not a worked example of the circular's own, so it adds nothing to the entry's verified status, which rests on the two rows above. The percentage method takes the Social Security and Medicare withheld in the period off the wages until the year's total reaches $2,000 and then discontinues the step. $1,000 a week withholds $62.00 and $14.50, so the year reaches $1,912.50 after 25 weeks, $1,989.00 after 26 and is past the cap after 27. Before the cap: (1,000 - 76.50 - 85) x 5% = 41.93; after it: (1,000 - 85) x 5% = 45.75. The circular prints the weekly exemption factor rounded to $85, the engine annualises and takes the annual $4,400, which is $84.62 a week, so it lands one and two cents above (41.94, 45.77): the tolerance is that rounding and nothing else. An even share of the cap, which the printed tables take, gives 43.85 in every week and fails both rows by nearly two dollars."
+  },
+  {
+    "state": "MA",
+    "wages": 5000,
+    "frequency": "monthly",
+    "status": "head_of_household",
+    "allowances": 3,
+    "payrollTaxWithheld": {
+      "period": 382.5,
+      "yearToDate": 1530
+    },
+    "expected": 194.23,
+    "tolerance": 0.03,
+    "source": "Circular M Rev. 12/25, percentage method, page 12, worked by hand from steps 1 to 6 (the circular prints no example at these wages): monthly $5,000, head of household, three exemptions, May, before the year's FICA reaches $2,000",
+    "note": "PAY-590. A calculation from the text of the method, as the weekly pair above. $5,000 a month withholds $310.00 and $72.50, so the year reaches $1,530.00 after four months, $1,912.50 after five and is past the cap after six. Before the cap: (5,000 - 382.50 - 533) x 5% - $10 head of household = 194.23; after it: (5,000 - 533) x 5% - $10 = 213.35. The monthly exemption factor for three is $83 x 3 + $284 = $533, the annual one is $6,400, which is $533.33 a month, so the engine lands two cents below (194.21, 213.33), within the tolerance for that rounding. An even share of the cap gives 205.00 in every month."
+  },
+  {
+    "state": "MA",
+    "wages": 5000,
+    "frequency": "monthly",
+    "status": "head_of_household",
+    "allowances": 3,
+    "payrollTaxWithheld": {
+      "period": 382.5,
+      "yearToDate": 2295
+    },
+    "expected": 213.35,
+    "tolerance": 0.03,
+    "source": "Circular M Rev. 12/25, percentage method, page 12, worked by hand from steps 1 to 6 (the circular prints no example at these wages): monthly $5,000, head of household, three exemptions, July, after the year's FICA has reached $2,000",
+    "note": "PAY-590. A calculation from the text of the method, as the weekly pair above. $5,000 a month withholds $310.00 and $72.50, so the year reaches $1,530.00 after four months, $1,912.50 after five and is past the cap after six. Before the cap: (5,000 - 382.50 - 533) x 5% - $10 head of household = 194.23; after it: (5,000 - 533) x 5% - $10 = 213.35. The monthly exemption factor for three is $83 x 3 + $284 = $533, the annual one is $6,400, which is $533.33 a month, so the engine lands two cents below (194.21, 213.33), within the tolerance for that rounding. An even share of the cap gives 205.00 in every month."
+  },
+  {
     "state": "GA",
     "wages": 35299.92,
     "status": "married_jointly",

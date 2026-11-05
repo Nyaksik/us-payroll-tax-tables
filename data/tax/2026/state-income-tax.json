@@ -2040,7 +2040,7 @@
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIX/Chapter62B/Section1",
         "note": "Massachusetts' blindness credit is not applied here, so a blind employee has less Massachusetts tax withheld than this line shows.",
-        "sourceNote": "Circular M Rev. 12/25. An exemption is worth $4,400 for the first and $1,000 for each further one, FICA and Medicare come off the base up to $2,000, and head of household gets $120 a year. The blindness credit is not modelled: the form has nowhere to claim it.",
+        "sourceNote": "Circular M Rev. 12/25. An exemption is worth $4,400 for the first and $1,000 for each further one. The Social Security and Medicare withheld on each stub come off the base until the year's total reaches $2,000, and then the step stops (percentage method, step 1). The printed wage-bracket tables of the same circular take the smaller of the period's FICA and an even share of the $2,000 in every period instead, whatever the year has withheld; the text is followed here. Head of household gets $120 a year. The blindness credit is not modelled: the form has nowhere to claim it.",
         "exemptionPerAllowance": 1000,
         "firstAllowanceAmount": 4400,
         "firstAllowanceCount": {
