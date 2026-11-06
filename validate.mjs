@@ -35,6 +35,39 @@ function read(path) {
   return JSON.parse(readFileSync(join(root, path), 'utf8'))
 }
 
+/**
+ * Every citation is an https URL, and `noteSourceUrl` alone may be a list of
+ * them, which is what SCHEMA.md promises. A consumer collecting the sources reads
+ * these keys wherever they sit, without knowing which entry carries which, so a
+ * number, a bare host or a list where it expects a string breaks that consumer
+ * silently. It has to break here instead. A key is a citation by its name, so
+ * one added inside a new block is checked without this list being told of it.
+ */
+const CITATION = /^(sourceUrl|[a-z]\w*SourceUrl)$/
+const MAY_BE_A_LIST = new Set(['noteSourceUrl'])
+const isUrl = (value) => typeof value === 'string' && /^https:\/\/\S+$/.test(value)
+
+function checkCitations(value, path) {
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => checkCitations(item, `${path}[${index}]`))
+    return
+  }
+  if (!value || typeof value !== 'object') return
+  for (const [key, item] of Object.entries(value)) {
+    const here = `${path}.${key}`
+    if (!CITATION.test(key)) {
+      checkCitations(item, here)
+      continue
+    }
+    const list = MAY_BE_A_LIST.has(key)
+    const holds = isUrl(item) || (list && Array.isArray(item) && item.length > 0 && item.every(isUrl))
+    if (!holds)
+      problems.push(
+        `${here} is ${JSON.stringify(item)}, not ${list ? 'an https URL or a list of them' : 'an https URL'}`,
+      )
+  }
+}
+
 const years = existsSync(join(root, 'data/tax'))
   ? readdirSync(join(root, 'data/tax')).filter((name) => /^\d{4}$/.test(name))
   : []
@@ -44,6 +77,7 @@ if (!years.length) problems.push('data/tax holds no year directory')
 const journal = read('data/source-checks.json')
 if (!Array.isArray(journal)) problems.push('data/source-checks.json is not an array')
 const watched = new Set(journal.map((row) => row.sourceUrl))
+checkCitations(journal, 'source-checks')
 
 for (const [index, row] of journal.entries()) {
   if (!row.sourceUrl) problems.push(`source-checks[${index}] has no sourceUrl`)
@@ -53,6 +87,9 @@ for (const [index, row] of journal.entries()) {
 
 for (const year of years) {
   const dir = `data/tax/${year}`
+
+  for (const file of readdirSync(join(root, dir)).filter((name) => name.endsWith('.json')))
+    checkCitations(read(`${dir}/${file}`), `${dir}/${file}`)
 
   for (const file of ['federal.json', 'fica.json']) {
     const table = read(`${dir}/${file}`)
