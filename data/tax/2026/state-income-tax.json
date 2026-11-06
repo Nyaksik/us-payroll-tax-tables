@@ -1685,6 +1685,17 @@
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://legislature.maine.gov/statutes/36/title36sec5250.html",
         "roundsToWholeDollar": true,
+        "periodAdjustments": {
+          "extra": {
+            "label": "Additional amount you want withheld from your paycheck",
+            "hint": "Line 5 of Form W-4ME. Maine does not say whether this amount goes in before or after the rounding to the whole dollar; it is added after, and its cents are kept.",
+            "sourceUrl": "https://www.ca1.uscourts.gov/sites/ca1/files/oce/W4_ME_2026.pdf"
+          },
+          "addedAfterRounding": {
+            "approvedByOwnerOn": "2026-11-06"
+          }
+        },
+        "sourceNote": "Line 5 of Form W-4ME asks for any additional amount the employee wants withheld from each paycheck, and the withholding tables round each period's amount to the nearest dollar without saying whether that amount is rounded with it. It goes on after the rounding, an order approved by the owner on 2026-11-06 because the document does not set it. The 2026 W-4ME (Revised December 2025) is cited from the copy the US Court of Appeals for the First Circuit publishes, because maine.gov could not be reached when it was read; line 5 reads the same on the official 2024 form.",
         "annualStandardDeduction": {
           "single": 12450,
           "married_jointly": 27750,
@@ -2146,8 +2157,18 @@
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://www.dor.ms.gov/sites/default/files/tax-forms/business/89700251revised1.13.2026.pdf",
         "roundsToWholeDollar": true,
+        "periodAdjustments": {
+          "extra": {
+            "label": "Additional dollar amount of withholding per pay period",
+            "hint": "Line 7 of Form 89-350, an amount the employer has agreed to withhold on top. Mississippi does not say whether it goes in before or after the rounding to the whole dollar; it is added after, and its cents are kept.",
+            "sourceUrl": "https://www.dor.ms.gov/sites/default/files/tax-forms/business/89350258.pdf"
+          },
+          "addedAfterRounding": {
+            "approvedByOwnerOn": "2026-11-06"
+          }
+        },
         "baseUnstatedByState": true,
-        "sourceNote": "Both halves of this base are the federal default: Mississippi states neither. Form 89-700 defines wages as \"all remuneration, whether in cash or other form, with certain exceptions listed in section 8\", and section 8 is domestic service, farming, casual labour outside the employer's trade and ministers. Miss. Code Ann. 27-7-303(j) carries the same four exceptions and never mentions the Internal Revenue Code, and 27-7-15, the gross income section, is a list of Mississippi's own rather than a federal starting point. Neither cafeteria nor 401(k) nor 3401 occurs in any of them. What is left unread is Title 35 Part III of the state's administrative code, which sos.ms.gov refuses to this network and to Cloud Build alike. A married employee whose spouse also works deducts $2,300, the figure sections 13(d) and 17 of the 89-700 give for \"married individuals (both spouses employed)\", and Table D itself is headed with the words that \"the standard deduction is divided equally for both taxpayer and spouse\". The printed Table D does not do that: its cells are worked with $4,600 (semi-monthly, PDF page 33, row $1,500 to $1,520 reads 36 at column 0 and 26 at column 6,000, where $2,300 gives 40 and 30). Where the text and the cells part, the text is followed, the same choice as the reading by law for Idaho, Arkansas and West Virginia, approved by the owner on 2026-10-28. An unanswered spouse question reads as no Form 89-350, which the 89-700 withholds on \"based on zero exemption\"; it does not say which married deduction goes with that, and the $2,300 is this generator's choice, approved by the owner on the same day.",
+        "sourceNote": "Both halves of this base are the federal default: Mississippi states neither. Form 89-700 defines wages as \"all remuneration, whether in cash or other form, with certain exceptions listed in section 8\", and section 8 is domestic service, farming, casual labour outside the employer's trade and ministers. Miss. Code Ann. 27-7-303(j) carries the same four exceptions and never mentions the Internal Revenue Code, and 27-7-15, the gross income section, is a list of Mississippi's own rather than a federal starting point. Neither cafeteria nor 401(k) nor 3401 occurs in any of them. What is left unread is Title 35 Part III of the state's administrative code, which sos.ms.gov refuses to this network and to Cloud Build alike. A married employee whose spouse also works deducts $2,300, the figure sections 13(d) and 17 of the 89-700 give for \"married individuals (both spouses employed)\", and Table D itself is headed with the words that \"the standard deduction is divided equally for both taxpayer and spouse\". The printed Table D does not do that: its cells are worked with $4,600 (semi-monthly, PDF page 33, row $1,500 to $1,520 reads 36 at column 0 and 26 at column 6,000, where $2,300 gives 40 and 30). Where the text and the cells part, the text is followed, the same choice as the reading by law for Idaho, Arkansas and West Virginia, approved by the owner on 2026-10-28. An unanswered spouse question reads as no Form 89-350, which the 89-700 withholds on \"based on zero exemption\"; it does not say which married deduction goes with that, and the $2,300 is this generator's choice, approved by the owner on the same day. Line 7 of the 89-350 (Rev. 10/25) asks for an additional dollar amount of withholding per pay period, and the 89-700 rounds the amount withheld to the nearest dollar without saying whether that amount is rounded with it. It goes on after the rounding, an order approved by the owner on 2026-11-06 because the document does not set it.",
         "withoutCertificate": {
           "form": "Form 89-350",
           "filingStatus": "married_jointly",
@@ -2269,9 +2290,20 @@
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://mca.legmt.gov/bills/mca/title_0150/chapter_0300/part_0250/section_0010/0150-0300-0250-0010.html",
         "roundsToWholeDollar": true,
+        "periodAdjustments": {
+          "extra": {
+            "label": "Extra withholding each pay period",
+            "hint": "Line 3 of Form MW-4: any additional tax per pay period, together with the result of the Multiple Jobs Worksheet (its line 4) on the form for the highest paying job. Montana does not say whether this amount goes in before or after the rounding to the whole dollar; it is added after, and its cents are kept.",
+            "sourceUrl": "https://revenuefiles.mt.gov/files/Forms/Montana_Employee_Withholding_Allowance_and_Exemption_Certificate_Form_MW-4.pdf"
+          },
+          "addedAfterRounding": {
+            "approvedByOwnerOn": "2026-11-06"
+          }
+        },
+        "sourceNote": "Line 3 of Form MW-4 takes any extra tax per pay period, and the Multiple Jobs Worksheet on the same form sends its result there for the highest paying job. The guide rounds what its formula gives to the dollar and does not say whether the line 3 amount is rounded with it. It goes on after the rounding, an order approved by the owner on 2026-11-06 because the document does not set it.",
         "bothSpousesWorking": {
           "label": "Marked line 2 on Form MW-4: married filing jointly, both spouses working",
-          "hint": "Montana withholds by its single tables when line 2 is marked, for a couple who both work and earn similar amounts. Its instructions (page 3) say not to mark it \"if you or your spouse have multiple jobs, or if one spouse earns significantly more than the other\": mark box 1b instead.",
+          "hint": "Montana withholds by its single tables when line 2 is marked, for a couple who both work and earn similar amounts. Its instructions (page 3) say not to mark it \"if you or your spouse have multiple jobs, or if one spouse earns significantly more than the other\": mark box 1b instead, and enter the result of the Multiple Jobs Worksheet as extra withholding (line 3).",
           "sourceUrl": "https://revenuefiles.mt.gov/files/Forms/Montana_Employee_Withholding_Allowance_and_Exemption_Certificate_Form_MW-4.pdf",
           "column": "single"
         },
@@ -2900,8 +2932,18 @@
         "sourceUrl": "https://www.oklahoma.gov/content/dam/ok/en/tax/documents/resources/publications/businesses/withholding-tables/WHTables-2026.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://oklahoma.gov/content/dam/ok/en/tax/documents/resources/rules-and-policies/agency-rules/Chapter90-2023.pdf",
-        "sourceNote": "Packet OW-2, 2026 Oklahoma Income Tax Withholding Tables. The percentage method is worked inside the pay period: \"You must use the correct table for your payroll frequency\" (page 5), the allowance comes off at the amount the Table of Withholding Allowance Amounts prints for that frequency (page 6), and the rate tables are printed once per frequency on pages 8 and 9. Each periodic table is Table 7, the annual one, divided by the number of periods with its edges rounded to the dollar and its constants to the cent, which is why the periodic and the annual answers differ by up to two cents before the rounding to whole dollars the same page 6 requires. The daily, quarterly and semi-annual tables are not carried: the form has none of those frequencies. A head of household reads the single tables: the OK-W-4 offers Single, Married and Married but withhold at the higher Single rate, and nothing else. The wage bracket tables from page 10 are the state's other accepted method and \"produce almost identical results\"; at the middle of their brackets they part from the periodic percentage method by a dollar in 26 of their 3,520 cells with 0 to 9 allowances, so they are not used as control figures for the method here.",
+        "sourceNote": "Packet OW-2, 2026 Oklahoma Income Tax Withholding Tables. The percentage method is worked inside the pay period: \"You must use the correct table for your payroll frequency\" (page 5), the allowance comes off at the amount the Table of Withholding Allowance Amounts prints for that frequency (page 6), and the rate tables are printed once per frequency on pages 8 and 9. Each periodic table is Table 7, the annual one, divided by the number of periods with its edges rounded to the dollar and its constants to the cent, which is why the periodic and the annual answers differ by up to two cents before the rounding to whole dollars the same page 6 requires. The daily, quarterly and semi-annual tables are not carried: the form has none of those frequencies. A head of household reads the single tables: the OK-W-4 offers Single, Married and Married but withhold at the higher Single rate, and nothing else. The wage bracket tables from page 10 are the state's other accepted method and \"produce almost identical results\"; at the middle of their brackets they part from the periodic percentage method by a dollar in 26 of their 3,520 cells with 0 to 9 allowances, so they are not used as control figures for the method here. Line 6 of the OK-W-4 (Revised 3-2021) asks for an additional amount to be withheld each pay period, and neither the form nor the tables say whether it is added before or after the rounding to whole dollars. It goes on after the rounding, an order approved by the owner on 2026-11-06 because the document does not set it.",
         "roundsToWholeDollar": true,
+        "periodAdjustments": {
+          "extra": {
+            "label": "Additional amount to be withheld each pay period",
+            "hint": "Line 6 of Form OK-W-4. Oklahoma does not say whether this amount goes in before or after the rounding to the whole dollar; it is added after, and its cents are kept.",
+            "sourceUrl": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/businesses/general/OK-W-4.pdf"
+          },
+          "addedAfterRounding": {
+            "approvedByOwnerOn": "2026-11-06"
+          }
+        },
         "exemptionPerAllowance": 1000,
         "exemptionPerAllowancePerPeriod": {
           "weekly": 19.23,
