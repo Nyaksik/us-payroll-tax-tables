@@ -13,9 +13,9 @@ Nothing was inferred, averaged or copied from another aggregator.
 | ------------------------------------------ | -------------------------------------------------------------------------- |
 | `data/tax/2026/federal.json`               | IRS Publication 15-T percentage method, standard and Step 2 schedules       |
 | `data/tax/2026/fica.json`                  | Social Security and Medicare rates, wage base and Additional Medicare       |
-| `data/tax/2026/state-income-tax.json`      | 54 state withholding entries across 51 jurisdictions                        |
+| `data/tax/2026/state-income-tax.json`      | 55 state withholding entries across 51 jurisdictions                        |
 | `data/tax/2026/state-other-withholding.json` | State disability, family leave and other mandatory employee withholdings  |
-| `data/tax/2026/control-examples.json`      | 100 published calculations the tables are tested against                    |
+| `data/tax/2026/control-examples.json`      | 140 published calculations the tables are tested against                    |
 | `data/source-checks.json`                  | When each source URL was last fetched, and the hash of the text then        |
 | `data/tax/2026/control-examples.csv`       | The control examples again, as a table                                      |
 | `data/source-checks.csv`                   | The source journal again, as a table                                        |
