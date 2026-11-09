@@ -404,6 +404,14 @@
             "note": "A contribution to Washington's long-term care fund, charged at one rate whatever the employee earns and not charged on tips. An employee who qualifies for one may apply to the state for an exemption."
           }
         ]
+      },
+      {
+        "key": "wa_lni_workers_comp",
+        "label": "WA L&I Workers' Compensation",
+        "unmodelled": true,
+        "employerElects": true,
+        "note": "Washington's workers' compensation insurance is bought from Labor and Industries, and the employer may collect part of the premium from its workers through payroll deduction: up to half of the medical aid fund rate, the stay at work rate and the supplemental pension fund assessment. Some employers choose not to and pay the whole premium themselves. Where it is taken, the deduction is a rate per hour worked, set for each risk classification and printed on the employer's own rate notice, so the line is named here without an amount: it follows the hours and the employer's classification, not the wages.",
+        "sourceUrl": "https://lni.wa.gov/forms-publications/f101-002-000.pdf"
       }
     ]
   }
