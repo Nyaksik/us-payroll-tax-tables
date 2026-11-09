@@ -22,7 +22,17 @@
     "allowances": 2,
     "expected": 1694,
     "tolerance": 0.5,
-    "source": "Maine withholding tables, Example 2"
+    "payDate": "2026-03-15",
+    "source": "Maine withholding tables, Revised December 2025, Example 2"
+  },
+  {
+    "state": "ME",
+    "wages": 52000,
+    "status": "single",
+    "allowances": 2,
+    "expected": 1667,
+    "tolerance": 0.5,
+    "source": "Maine withholding tables, Revised August 2026, Example 2"
   },
   {
     "state": "MN",
@@ -1337,7 +1347,8 @@
     "status": "single",
     "allowances": 2,
     "expected": 33,
-    "source": "Maine withholding tables 2026, page 7, Example 2: annualized withholding of $1,694 divided by 52 = $32.58 rounded to $33"
+    "payDate": "2026-07-31",
+    "source": "Maine withholding tables 2026, Revised December 2025, page 7, Example 2: annualized withholding of $1,694 divided by 52 = $32.58 rounded to $33"
   },
   {
     "state": "ME",
@@ -1346,8 +1357,38 @@
     "status": "married_jointly",
     "allowances": 2,
     "expected": 257,
-    "source": "Maine withholding tables 2026, page 7, Example 3: $13,338 divided by 52 = $256.50 rounded to $257",
+    "payDate": "2026-03-15",
+    "source": "Maine withholding tables 2026, Revised December 2025, page 7, Example 3: $13,338 divided by 52 = $256.50 rounded to $257",
     "note": "Maine works this as $256.50, and the engine gets $256.51: its standard deduction phases out to $22,301.75 where the guide prints $22,302. So the row does not pin what an exact half does; the unit test of Oklahoma's rule does."
+  },
+  {
+    "state": "ME",
+    "wages": 300,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 2,
+    "expected": 0,
+    "source": "Maine withholding tables 2026, Revised August 2026, page 7, Example 1: annualized income of ($7,850) is less than $0, so the amount to be withheld is zero"
+  },
+  {
+    "state": "ME",
+    "wages": 1000,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 2,
+    "expected": 32,
+    "payDate": "2026-08-01",
+    "source": "Maine withholding tables 2026, Revised August 2026, page 7, Example 2: annualized withholding of $1,667 divided by 52 = $32.06 rounded to $32"
+  },
+  {
+    "state": "ME",
+    "wages": 4500,
+    "frequency": "weekly",
+    "status": "married_jointly",
+    "allowances": 2,
+    "expected": 256,
+    "source": "Maine withholding tables 2026, Revised August 2026, page 7, Example 3: $13,292 divided by 52 = $255.62 rounded to $256",
+    "note": "The guide phases the standard deduction out to $22,945 and the engine to $22,944.70, so the annual figures differ by about 2 cents and the weekly share by less than one; both round to $256."
   },
   {
     "state": "MT",

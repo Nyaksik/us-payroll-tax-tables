@@ -1733,6 +1733,66 @@
             [64850, 4117, 0.0715]
           ]
         }
+      },
+      {
+        "effectiveFrom": "2026-08-01",
+        "taxType": "graduated",
+        "verified": true,
+        "sourceUrl": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/26_wh_tab_instr_August2026.pdf",
+        "taxableWageBase": "gross_less_pre_tax",
+        "baseSourceUrl": "https://legislature.maine.gov/statutes/36/title36sec5250.html",
+        "roundsToWholeDollar": true,
+        "periodAdjustments": {
+          "extra": {
+            "label": "Additional amount you want withheld from your paycheck",
+            "hint": "Line 5 of Form W-4ME. Maine does not say whether this amount goes in before or after the rounding to the whole dollar; it is added after, and its cents are kept.",
+            "sourceUrl": "https://www.ca1.uscourts.gov/sites/ca1/files/oce/W4_ME_2026.pdf"
+          },
+          "addedAfterRounding": {
+            "approvedByOwnerOn": "2026-11-06"
+          }
+        },
+        "sourceNote": "The 2026 withholding tables Revised August 2026, which raise the standard deduction used for withholding to $12,850 for a single and $28,550 for a married employee and add the income tax surcharge. Maine prints no date from which the revised tables apply, only the month of the revision, so 1 August 2026 is our reading and not a date of Maine's; pay dated earlier stays on the tables Revised December 2025. The surcharge is 2% of the annualized income above $1,000,000 for a single and $1,500,000 for a married employee, charged on top of the schedule. Maine applies it to tax years from 1 January 2026, but withholds it only once the revised tables are in use, so pay before August carries none of it. Here it is the schedule's fourth row, whose base is what the third row charges at that income, so the two come to the same figure. A head of household is withheld as single, as the tables have no column of their own for one. Line 5 of Form W-4ME asks for any additional amount the employee wants withheld from each paycheck, and the withholding tables round each period's amount to the nearest dollar without saying whether that amount is rounded with it. It goes on after the rounding, an order approved by the owner on 2026-11-06 because the document does not set it. The 2026 W-4ME (Revised December 2025) is cited from the copy the US Court of Appeals for the First Circuit publishes, because maine.gov could not be reached when it was read; line 5 reads the same on the official 2024 form.",
+        "annualStandardDeduction": {
+          "single": 12850,
+          "married_jointly": 28550,
+          "head_of_household": 12850
+        },
+        "deductionPhaseOut": {
+          "single": {
+            "start": 102250,
+            "end": 177250
+          },
+          "married_jointly": {
+            "start": 204550,
+            "end": 354550
+          },
+          "head_of_household": {
+            "start": 102250,
+            "end": 177250
+          }
+        },
+        "exemptionPerAllowance": 5300,
+        "brackets": {
+          "single": [
+            [0, 0, 0.058],
+            [27400, 1589, 0.0675],
+            [64850, 4117, 0.0715],
+            [1000000, 70980.225, 0.0915]
+          ],
+          "married_jointly": [
+            [0, 0, 0.058],
+            [54850, 3181, 0.0675],
+            [129750, 8237, 0.0715],
+            [1500000, 106209.875, 0.0915]
+          ],
+          "head_of_household": [
+            [0, 0, 0.058],
+            [27400, 1589, 0.0675],
+            [64850, 4117, 0.0715],
+            [1000000, 70980.225, 0.0915]
+          ]
+        }
       }
     ],
     "MD": [
