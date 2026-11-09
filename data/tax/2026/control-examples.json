@@ -559,6 +559,16 @@
   },
   {
     "state": "MA",
+    "wages": 153.9,
+    "frequency": "weekly",
+    "status": "single",
+    "allowances": 1,
+    "expected": 0,
+    "source": "Circular M Rev. 12/25, percentage method, page 12, Important Note: do not withhold from employees who claim one or more exemptions if their wages are less than $154 weekly",
+    "note": "PAY-592. The floor is stated per pay period and on the wages, so $153.90 a week withholds nothing, where the yearly $8,000 the engine used before read $8,002.80 a year and withheld $2.88. The weekly wage-bracket table of the same circular prints $2.93 on its $150 to $160 row for one exemption, which covers this wage too: the table and the note part below $154, and the note is followed. The neighbouring rows at every frequency are pinned in state-control-examples.test.ts."
+  },
+  {
+    "state": "MA",
     "wages": 60000,
     "status": "head_of_household",
     "allowances": 2,

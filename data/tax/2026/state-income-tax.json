@@ -2385,7 +2385,7 @@
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIX/Chapter62B/Section1",
         "note": "Massachusetts' blindness credit is not applied here, so a blind employee has less Massachusetts tax withheld than this line shows.",
-        "sourceNote": "Circular M Rev. 12/25. An exemption is worth $4,400 for the first and $1,000 for each further one. The Social Security and Medicare withheld on each stub come off the base until the year's total reaches $2,000, and then the step stops (percentage method, step 1). The printed wage-bracket tables of the same circular take the smaller of the period's FICA and an even share of the $2,000 in every period instead, whatever the year has withheld; the text is followed here. Head of household gets $120 a year. The blindness credit is not modelled: the form has nowhere to claim it.",
+        "sourceNote": "Circular M Rev. 12/25. An exemption is worth $4,400 for the first and $1,000 for each further one. The Social Security and Medicare withheld on each stub come off the base until the year's total reaches $2,000, and then the step stops (percentage method, step 1). The printed wage-bracket tables of the same circular take the smaller of the period's FICA and an even share of the $2,000 in every period instead, whatever the year has withheld; the text is followed here. Head of household gets $120 a year. Nothing is withheld from an employee who claims one or more exemptions and whose wages for the period are less than $154 weekly, $308 biweekly, $333 semimonthly, $667 monthly or $8,000 annually (percentage method, page 12, Important Note); the floor is kept per period as printed, because the figures do not annualise to one number ($154 a week is $8,008 a year, $667 a month $8,004). The weekly wage-bracket table prints $2.93 for one exemption on its $150 to $160 row, which takes in $150 to $153.99, so the table and the note part there; the note is followed. The blindness credit is not modelled: the form has nowhere to claim it.",
         "exemptionPerAllowance": 1000,
         "firstAllowanceAmount": 4400,
         "firstAllowanceCount": {
@@ -2395,11 +2395,14 @@
         },
         "deductPayrollTaxRate": 0.0765,
         "deductPayrollTaxCap": 2000,
-        "lowIncomeExemption": {
-          "single": 8000,
-          "married_jointly": 8000,
-          "head_of_household": 8000
+        "lowIncomeExemptionPerPeriod": {
+          "weekly": 154,
+          "biweekly": 308,
+          "semimonthly": 333,
+          "monthly": 667,
+          "annually": 8000
         },
+        "lowIncomeExemptionSourceUrl": "https://web.archive.org/web/20260312193631/https://www.mass.gov/doc/massachusetts-circular-m-income-tax-withholding-tables-at-50-effective-january-1-2026/download",
         "lowIncomeExemptionRequiresAllowance": true,
         "taperingCredit": {
           "single": {
