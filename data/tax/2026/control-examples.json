@@ -350,12 +350,37 @@
   },
   {
     "state": "CO",
-    "wages": 60000,
+    "wages": 2000,
+    "frequency": "biweekly",
     "status": "single",
     "allowances": 0,
-    "expected": 2398,
-    "source": "DR 1098 formula, the only figure to be had: (60,000 − 5,500) × 4.4%",
-    "note": "Colorado is the one entry in the file with nothing to check it against, and PAY-197 says why after looking: DR 1098 is the formula itself with no worked example, no wage bracket table, and an \"electronic version\" that turns out to be the same worksheet in a spreadsheet. So this expectation is computed from the formula, it guards the wiring of the data rather than the source, and the entry carries verified: false to say so on the document."
+    "expected": 78.69230769230768,
+    "tolerance": 0.005,
+    "notFromGuide": true,
+    "source": "the state's own DR 1098 Withholding Calculator, November 2025 revision for 2026: $2,000 biweekly, line 2a $5,500 for a single filer",
+    "note": "Colorado, from the department's own spreadsheet, DR_1098_Withholding_Calculator_Nov_2025_Revision_for_2026.xlsx, downloaded from its link on https://tax.colorado.gov/DR1098 on 13 November 2026 (served with Last-Modified 30 June 2026, SHA-256 7addcab146b9eeb9d3056016fbb5f4753488905fdfd19e91a07084ac6ba32cd0). The DR 1098 guide has no worked example, so the calculator is the only computation of Colorado's own there is. The book computes lines 1c, 2b, 2c, 2d and 2f by formula; lines 1a, 1b, 2a and 2e are typed in. Line 2a is typed as the book's own instruction on that line says, $5,500 for anyone but a joint filer and $11,000 for one, so these rows check the engine's choice of that amount against the instruction and its arithmetic against the formulas. The figures are what the book's formulas return for those inputs, computed by an Excel formula interpreter (the Python formulas package, which reads the formulas out of the file) because no spreadsheet program was at hand; the file carries no cached results.\n\nThe tolerance is half a cent because the book never rounds: line 2d is =J11/J5, the quotient as it falls, and line 2f adds line 2e to it. Every money cell is formatted \"$\"#,##0, so the sheet shows this row as $79, but that is a display format and not a rounding rule, and neither DR 1098 nor the Wage Withholding Tax Guide states one. The engine rounds the period's amount to the cent, so half a cent either side of the book's quotient is what agreement means. Rounding down instead lands a cent off the next two rows and fails both.\n\nThree rows, one per filing status and pay period the engine treats differently: the single and head of household rows take the $5,500, the joint row the $11,000, and the three cover biweekly, monthly and weekly pay. Line 2a from a DR 0004 and the additional amount on line 2e are not modelled (PAY-684), so no row reads them."
+  },
+  {
+    "state": "CO",
+    "wages": 6000,
+    "frequency": "monthly",
+    "status": "married_jointly",
+    "allowances": 0,
+    "expected": 223.66666666666666,
+    "tolerance": 0.005,
+    "notFromGuide": true,
+    "source": "the state's own DR 1098 Withholding Calculator, November 2025 revision for 2026: $6,000 monthly, line 2a $11,000 for a joint filer"
+  },
+  {
+    "state": "CO",
+    "wages": 300,
+    "frequency": "weekly",
+    "status": "head_of_household",
+    "allowances": 0,
+    "expected": 8.546153846153846,
+    "tolerance": 0.005,
+    "notFromGuide": true,
+    "source": "the state's own DR 1098 Withholding Calculator, November 2025 revision for 2026: $300 weekly, line 2a $5,500 for a head of household"
   },
   {
     "state": "ID",

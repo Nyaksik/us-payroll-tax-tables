@@ -622,8 +622,8 @@
       {
         "effectiveFrom": "2026-01-01",
         "taxType": "graduated",
-        "verified": false,
-        "sourceNote": "DR 1098 (10/21/25) states the four steps and nothing else: the department publishes no worked example, no wage bracket table, and the electronic version it calls the DR 1098 Withholding Calculator is that same worksheet in a spreadsheet, with the allowance typed in by hand rather than computed. With nothing of Colorado's own to check a computation against, the entry stays unverified.",
+        "verified": true,
+        "sourceNote": "DR 1098 (10/21/25) states the four steps and nothing else: the department publishes no worked example and no wage bracket table. What it does publish is the DR 1098 Withholding Calculator, the same worksheet as a spreadsheet (November 2025 revision for 2026), which computes lines 1c to 2f by formula from the wages, the pay periods and the line 2a amount typed in. The figures are checked against that calculator, which is the state's own computation and not a worked example. The calculator never rounds, and neither DR 1098 nor the Wage Withholding Tax Guide states a rounding rule, so the amount here is the worksheet's quotient rounded to the cent. Line 2a is the amount for the W-4 filing status; a DR 0004 line 2 and the additional amount on its line 3 are not modelled.",
         "sourceUrl": "https://tax.colorado.gov/sites/tax/files/documents/DR_1098_Colorado_Withholding_Worksheet_for_Employees.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://tax.colorado.gov/sites/tax/files/documents/Wage_Withholding_Tax_Guide_Jan_2026.pdf",
