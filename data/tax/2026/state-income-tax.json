@@ -3533,7 +3533,7 @@
         "verified": true,
         "sourceUrl": "https://dor.sc.gov/sites/dor/files/forms/WH1603F_2026.pdf",
         "taxableWageBase": "gross_less_pre_tax",
-        "baseSourceUrl": "https://www.scstatehouse.gov/code/t12c008.php",
+        "baseSourceUrl": "https://www.scstatehouse.gov/code/t12c008",
         "sourceNote": "South Carolina defines its own wages and then hands the two deductions back to federal law. SC Code 12-8-520(A) makes the employer withhold on wages; 12-8-520(D) defines wages as all remuneration except eleven items, of which (9) is remuneration paid \"in the form of payments to or from employee benefit plans which are excluded from South Carolina taxable income\"; 12-6-560 computes a resident's South Carolina taxable income \"as determined under the Internal Revenue Code\" with the modifications in Article 9; and 12-6-50, the list of Code sections the state does not adopt, names neither section 125 nor section 401. So a cafeteria premium and a 401(k) deferral are excluded from South Carolina taxable income and therefore out of South Carolina wages.",
         "deductionPercentOfGross": 0.1,
         "deductionCap": 7500,
