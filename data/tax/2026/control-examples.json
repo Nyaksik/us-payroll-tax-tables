@@ -358,7 +358,7 @@
     "tolerance": 0.005,
     "notFromGuide": true,
     "source": "the state's own DR 1098 Withholding Calculator, November 2025 revision for 2026: $2,000 biweekly, line 2a $5,500 for a single filer",
-    "note": "Colorado, from the department's own spreadsheet, DR_1098_Withholding_Calculator_Nov_2025_Revision_for_2026.xlsx, downloaded from its link on https://tax.colorado.gov/DR1098 on 13 November 2026 (served with Last-Modified 30 June 2026, SHA-256 7addcab146b9eeb9d3056016fbb5f4753488905fdfd19e91a07084ac6ba32cd0). The DR 1098 guide has no worked example, so the calculator is the only computation of Colorado's own there is. The book computes lines 1c, 2b, 2c, 2d and 2f by formula; lines 1a, 1b, 2a and 2e are typed in. Line 2a is typed as the book's own instruction on that line says, $5,500 for anyone but a joint filer and $11,000 for one, so these rows check the engine's choice of that amount against the instruction and its arithmetic against the formulas. The figures are what the book's formulas return for those inputs, computed by an Excel formula interpreter (the Python formulas package, which reads the formulas out of the file) because no spreadsheet program was at hand; the file carries no cached results.\n\nThe tolerance is half a cent because the book never rounds: line 2d is =J11/J5, the quotient as it falls, and line 2f adds line 2e to it. Every money cell is formatted \"$\"#,##0, so the sheet shows this row as $79, but that is a display format and not a rounding rule, and neither DR 1098 nor the Wage Withholding Tax Guide states one. The engine rounds the period's amount to the cent, so half a cent either side of the book's quotient is what agreement means. Rounding down instead lands a cent off the next two rows and fails both.\n\nThree rows, one per filing status and pay period the engine treats differently: the single and head of household rows take the $5,500, the joint row the $11,000, and the three cover biweekly, monthly and weekly pay. A fourth row types line 2a from a DR 0004 instead (PAY-684). The additional amount on line 2e is not modelled, so no row reads it."
+    "note": "Colorado, from the department's own spreadsheet, DR_1098_Withholding_Calculator_Nov_2025_Revision_for_2026.xlsx, downloaded from its link on https://tax.colorado.gov/DR1098 on 13 November 2026 (served with Last-Modified 30 June 2026, SHA-256 7addcab146b9eeb9d3056016fbb5f4753488905fdfd19e91a07084ac6ba32cd0). The DR 1098 guide has no worked example, so the calculator is the only computation of Colorado's own there is. The book computes lines 1c, 2b, 2c, 2d and 2f by formula; lines 1a, 1b, 2a and 2e are typed in. Line 2a is typed as the book's own instruction on that line says, $5,500 for anyone but a joint filer and $11,000 for one, so these rows check the engine's choice of that amount against the instruction and its arithmetic against the formulas. The figures are what the book's formulas return for those inputs, computed by an Excel formula interpreter (the Python formulas package, which reads the formulas out of the file) because no spreadsheet program was at hand; the file carries no cached results.\n\nThe tolerance is half a cent because the book never rounds: line 2d is =J11/J5, the quotient as it falls, and line 2f adds line 2e to it. Every money cell is formatted \"$\"#,##0, so the sheet shows this row as $79, but that is a display format and not a rounding rule, and neither DR 1098 nor the Wage Withholding Tax Guide states one. The engine rounds the period's amount to the cent, so half a cent either side of the book's quotient is what agreement means. Rounding down instead lands a cent off the next two rows and fails both.\n\nThree rows, one per filing status and pay period the engine treats differently: the single and head of household rows take the $5,500, the joint row the $11,000, and the three cover biweekly, monthly and weekly pay. A fourth row types line 2a from a DR 0004 instead (PAY-684), and two more type an additional amount on line 2e (PAY-686)."
   },
   {
     "state": "CO",
@@ -394,6 +394,32 @@
     "notFromGuide": true,
     "source": "the state's own DR 1098 Withholding Calculator, November 2025 revision for 2026: $2,000 biweekly, line 2a $0 from line 2 of a DR 0004",
     "note": "The single row above with a DR 0004 on file whose line 2 is zero (PAY-684). Rule 1 of DR 1098 has the employer use the amounts on that form \"including an amount of zero\", and line 2a takes DR 0004 line 2 whenever the employee completed it, so the book is given 0 in J9 and nothing comes off the year's pay: 2,000 x 26 x 0.044 / 26 is 88.00 exactly, where the same pay without the form withholds 78.69. Same book, same interpreter and the same half cent of tolerance as the rows above; the quotient here happens to be whole cents. A zero read as an unanswered line would land on 78.69 and fail this row, and so would a line the engine never reads."
+  },
+  {
+    "state": "CO",
+    "wages": 2000,
+    "frequency": "biweekly",
+    "status": "single",
+    "allowances": 0,
+    "extraWithholding": 25,
+    "expected": 103.69230769230768,
+    "tolerance": 0.005,
+    "notFromGuide": true,
+    "source": "the state's own DR 1098 Withholding Calculator, November 2025 revision for 2026: $2,000 biweekly, line 2a $5,500 for a single filer, line 2e $25 from line 3 of a DR 0004",
+    "note": "The first single row with an additional amount on file (PAY-686). Line 2e of DR 1098 takes line 3 of a DR 0004, and the book's line 2f is =J12+J13, line 2d plus line 2e with no rounding in between, so the book is given 25 in J13 and returns 78.6923 plus 25. Same book, same interpreter and the same half cent of tolerance as the rows above. An engine that never reads the amount lands on 78.69 and fails this row by $25."
+  },
+  {
+    "state": "CO",
+    "wages": 6000,
+    "frequency": "monthly",
+    "status": "married_jointly",
+    "allowances": 0,
+    "extraWithholding": 15.5,
+    "expected": 239.16666666666666,
+    "tolerance": 0.005,
+    "notFromGuide": true,
+    "source": "the state's own DR 1098 Withholding Calculator, November 2025 revision for 2026: $6,000 monthly, line 2a $11,000 for a joint filer, line 2e $15.50 from line 3 of a DR 0004",
+    "note": "The joint row with an additional amount that carries cents (PAY-686). The book adds the $15.50 to the unrounded quotient of line 2d, 223.6667, and the sum rounds to 239.17. A rounding of the share to the whole dollar before the amount goes on would give 239.50 and fail this row, and so would one after it, 239.00."
   },
   {
     "state": "ID",

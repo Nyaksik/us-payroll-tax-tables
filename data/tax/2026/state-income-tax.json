@@ -623,7 +623,7 @@
         "effectiveFrom": "2026-01-01",
         "taxType": "graduated",
         "verified": true,
-        "sourceNote": "DR 1098 (10/21/25) states the four steps and nothing else: the department publishes no worked example and no wage bracket table. What it does publish is the DR 1098 Withholding Calculator, the same worksheet as a spreadsheet (November 2025 revision for 2026), which computes lines 1c to 2f by formula from the wages, the pay periods and the line 2a amount typed in. The figures are checked against that calculator, which is the state's own computation and not a worked example. The calculator never rounds, and neither DR 1098 nor the Wage Withholding Tax Guide states a rounding rule, so the amount here is the worksheet's quotient rounded to the cent. Line 2a is the amount on line 2 of a DR 0004 where the employee filled one in, zero included, as rule 1 of DR 1098 requires (\"use the amounts on that form, including an amount of zero\"), and otherwise the amount for the W-4 filing status. The additional amount on line 3 of the DR 0004, line 2e, is not modelled.",
+        "sourceNote": "DR 1098 (10/21/25) states the four steps and nothing else: the department publishes no worked example and no wage bracket table. What it does publish is the DR 1098 Withholding Calculator, the same worksheet as a spreadsheet (November 2025 revision for 2026), which computes lines 1c to 2f by formula from the wages, the pay periods and the line 2a and 2e amounts typed in. The figures are checked against that calculator, which is the state's own computation and not a worked example. The calculator never rounds, and neither DR 1098 nor the Wage Withholding Tax Guide states a rounding rule, so the amount here is the worksheet's quotient rounded to the cent. Line 2a is the amount on line 2 of a DR 0004 where the employee filled one in, zero included, as rule 1 of DR 1098 requires (\"use the amounts on that form, including an amount of zero\"), and otherwise the amount for the W-4 filing status. Line 2e is the additional amount on line 3 of a DR 0004, or an additional amount the employee asked for before 2022 and has not replaced with a new certificate, and line 2f adds it to the quotient of line 2d. Nothing is rounded in between, so there is no order to choose: the amount goes on with its cents, and the sum is rounded to the cent like the quotient alone.",
         "sourceUrl": "https://tax.colorado.gov/sites/tax/files/documents/DR_1098_Colorado_Withholding_Worksheet_for_Employees.pdf",
         "taxableWageBase": "gross_less_pre_tax",
         "baseSourceUrl": "https://tax.colorado.gov/sites/tax/files/documents/Wage_Withholding_Tax_Guide_Jan_2026.pdf",
@@ -640,6 +640,13 @@
             "single": 5500,
             "married_jointly": 11000,
             "head_of_household": 5500
+          }
+        },
+        "periodAdjustments": {
+          "extra": {
+            "label": "Form DR 0004 line 3: additional withholding per pay period",
+            "hint": "Leave blank if the employee filed no DR 0004 or left its line 3 blank. Enter the line 3 amount as written: line 2e of the DR 1098 worksheet adds it to every paycheck on top of the amount the worksheet works out. An extra amount of Colorado withholding asked for before 2022 goes here too, until the employee hands in a new certificate.",
+            "sourceUrl": "https://tax.colorado.gov/sites/tax/files/documents/DR_1098_Colorado_Withholding_Worksheet_for_Employees.pdf"
           }
         },
         "brackets": {
