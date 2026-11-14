@@ -1,0 +1,11 @@
+{
+  "year": 2026,
+  "source": "Instructions for Forms 1099-MISC and 1099-NEC (Rev. December 2026), Specific Instructions for Form 1099-NEC, box 1a",
+  "sourceUrl": "https://www.irs.gov/pub/irs-pdf/i1099mec.pdf",
+  "verified": true,
+  "verifiedOn": "2026-10-14",
+  "note": "Box 1a reads 'Enter nonemployee compensation (NEC) of $2,000 or more', and the four conditions under 'What is NEC?' end with 'You made payments to the payee of at least $2,000 during the year.' Below it the form is not required; it is still made, and says so.",
+  "form1099Nec": {
+    "filingThreshold": 2000
+  }
+}
