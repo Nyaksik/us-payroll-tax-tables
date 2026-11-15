@@ -3099,13 +3099,47 @@
         "noteSourceUrl": "https://www.tax.ny.gov/pdf/publications/withholding/nys50_t_nyc.pdf",
         "unmodelledLocalTax": true,
         "note": "State only, excluding New York City and Yonkers.",
-        "sourceNote": "The marginal rates are deliberately non-monotonic: that is New York's benefit recapture, not an error. Method III, which the tables hand the highest earners to, is charged here at its first rate alone: New York steps it to 0.1110 above $5,000,000 of annualised wages and to 0.1170 above $25,000,000, and neither step is modelled, so a figure past $5,000,000 a year is below the state's own. The base is named by the Department rather than reasoned to: its page Income subject to withholding says to withhold \"on compensation that is considered wages for federal income tax withholding purposes\", which is the 26 USC 3401(a) wage, so a cafeteria premium and a retirement deferral are outside it. Tax Law § 671(a)(1) agrees from the other end, computing the amount from the tax due \"resulting from the inclusion in the employee's New York adjusted gross income or New York source income of the employee's wages\", and § 612(a) starts that income at the federal adjusted gross income, whose modifications name neither deduction.",
-        "annualStandardDeduction": {
-          "single": 7400,
-          "married_jointly": 7950,
-          "head_of_household": 7400
+        "sourceNote": "The marginal rates are deliberately non-monotonic: that is New York's benefit recapture, not an error. With a pay frequency the amount is Method II as its Step 2 says, read inside the payroll period: the deduction allowance of table B and the exemptions of table C come off the pay of the period, and the rate table for that period is read, never the year worked out and divided; the annual Rate Schedule is read only without a frequency. The daily tables are not carried, since the generator offers no daily payroll. Method III, which the tables hand the highest earners to, is charged here at its first rate alone: New York steps it to 0.1110 above $5,000,000 of annualised wages and to 0.1170 above $25,000,000, and neither step is modelled, so a figure past $5,000,000 a year is below the state's own. The base is named by the Department rather than reasoned to: its page Income subject to withholding says to withhold \"on compensation that is considered wages for federal income tax withholding purposes\", which is the 26 USC 3401(a) wage, so a cafeteria premium and a retirement deferral are outside it. Tax Law § 671(a)(1) agrees from the other end, computing the amount from the tax due \"resulting from the inclusion in the employee's New York adjusted gross income or New York source income of the employee's wages\", and § 612(a) starts that income at the federal adjusted gross income, whose modifications name neither deduction.",
+        "deductionPerPeriod": {
+          "weekly": {
+            "single": 142.3,
+            "married_jointly": 152.9,
+            "head_of_household": 142.3,
+            "married_jointly_sole_earner": 152.9
+          },
+          "biweekly": {
+            "single": 284.6,
+            "married_jointly": 305.8,
+            "head_of_household": 284.6,
+            "married_jointly_sole_earner": 305.8
+          },
+          "semimonthly": {
+            "single": 308.35,
+            "married_jointly": 331.25,
+            "head_of_household": 308.35,
+            "married_jointly_sole_earner": 331.25
+          },
+          "monthly": {
+            "single": 616.7,
+            "married_jointly": 662.5,
+            "head_of_household": 616.7,
+            "married_jointly_sole_earner": 662.5
+          },
+          "annually": {
+            "single": 7400,
+            "married_jointly": 7950,
+            "head_of_household": 7400,
+            "married_jointly_sole_earner": 7950
+          }
         },
         "exemptionPerAllowance": 1000,
+        "exemptionPerAllowancePerPeriod": {
+          "weekly": 19.25,
+          "biweekly": 38.5,
+          "semimonthly": 41.65,
+          "monthly": 83.3,
+          "annually": 1000
+        },
         "flatRateAbove": {
           "single": {
             "threshold": 1077550,
@@ -3159,6 +3193,168 @@
             [215400, 13369.0, 0.1144],
             [265400, 19091.0, 0.0735]
           ]
+        },
+        "bracketsPerPeriod": {
+          "weekly": {
+            "single": [
+              [0, 0, 0.039],
+              [163, 6.38, 0.044],
+              [225, 9.08, 0.0515],
+              [267, 11.27, 0.054],
+              [1551, 80.58, 0.059],
+              [1862, 98.9, 0.0703],
+              [2070, 113.58, 0.0753],
+              [3032, 186.02, 0.064],
+              [4142, 257.1, 0.1144],
+              [5104, 367.13, 0.0735]
+            ],
+            "married_jointly": [
+              [0, 0, 0.039],
+              [163, 6.38, 0.044],
+              [225, 9.08, 0.0515],
+              [267, 11.27, 0.054],
+              [1551, 80.58, 0.059],
+              [1862, 98.9, 0.0657],
+              [2070, 112.6, 0.0707],
+              [3032, 180.54, 0.0801],
+              [4068, 263.62, 0.064],
+              [6215, 401.04, 0.1349],
+              [7177, 530.77, 0.0735],
+              [20722, 1526.33, 0.0765]
+            ],
+            "head_of_household": [
+              [0, 0, 0.039],
+              [163, 6.38, 0.044],
+              [225, 9.08, 0.0515],
+              [267, 11.27, 0.054],
+              [1551, 80.58, 0.059],
+              [1862, 98.9, 0.0703],
+              [2070, 113.58, 0.0753],
+              [3032, 186.02, 0.064],
+              [4142, 257.1, 0.1144],
+              [5104, 367.13, 0.0735]
+            ]
+          },
+          "biweekly": {
+            "single": [
+              [0, 0, 0.039],
+              [327, 12.77, 0.044],
+              [450, 18.15, 0.0515],
+              [535, 22.54, 0.054],
+              [3102, 161.15, 0.059],
+              [3723, 197.81, 0.0703],
+              [4140, 227.15, 0.0753],
+              [6063, 372.04, 0.064],
+              [8285, 514.19, 0.1144],
+              [10208, 734.27, 0.0735]
+            ],
+            "married_jointly": [
+              [0, 0, 0.039],
+              [327, 12.77, 0.044],
+              [450, 18.15, 0.0515],
+              [535, 22.54, 0.054],
+              [3102, 161.15, 0.059],
+              [3723, 197.81, 0.0657],
+              [4140, 225.19, 0.0707],
+              [6063, 361.08, 0.0801],
+              [8137, 527.23, 0.064],
+              [12431, 802.08, 0.1349],
+              [14354, 1061.54, 0.0735],
+              [41444, 3052.65, 0.0765]
+            ],
+            "head_of_household": [
+              [0, 0, 0.039],
+              [327, 12.77, 0.044],
+              [450, 18.15, 0.0515],
+              [535, 22.54, 0.054],
+              [3102, 161.15, 0.059],
+              [3723, 197.81, 0.0703],
+              [4140, 227.15, 0.0753],
+              [6063, 372.04, 0.064],
+              [8285, 514.19, 0.1144],
+              [10208, 734.27, 0.0735]
+            ]
+          },
+          "semimonthly": {
+            "single": [
+              [0, 0, 0.039],
+              [354, 13.83, 0.044],
+              [488, 19.67, 0.0515],
+              [579, 24.42, 0.054],
+              [3360, 174.58, 0.059],
+              [4033, 214.29, 0.0703],
+              [4485, 246.08, 0.0753],
+              [6569, 403.04, 0.064],
+              [8975, 557.04, 0.1144],
+              [11058, 795.46, 0.0735]
+            ],
+            "married_jointly": [
+              [0, 0, 0.039],
+              [354, 13.83, 0.044],
+              [488, 19.67, 0.0515],
+              [579, 24.42, 0.054],
+              [3360, 174.58, 0.059],
+              [4033, 214.29, 0.0657],
+              [4485, 243.96, 0.0707],
+              [6569, 391.17, 0.0801],
+              [8815, 571.17, 0.064],
+              [13467, 868.92, 0.1349],
+              [15550, 1150, 0.0735],
+              [44898, 3307.04, 0.0765]
+            ],
+            "head_of_household": [
+              [0, 0, 0.039],
+              [354, 13.83, 0.044],
+              [488, 19.67, 0.0515],
+              [579, 24.42, 0.054],
+              [3360, 174.58, 0.059],
+              [4033, 214.29, 0.0703],
+              [4485, 246.08, 0.0753],
+              [6569, 403.04, 0.064],
+              [8975, 557.04, 0.1144],
+              [11058, 795.46, 0.0735]
+            ]
+          },
+          "monthly": {
+            "single": [
+              [0, 0, 0.039],
+              [708, 27.67, 0.044],
+              [975, 39.33, 0.0515],
+              [1158, 48.83, 0.054],
+              [6721, 349.17, 0.059],
+              [8067, 428.58, 0.0703],
+              [8971, 492.17, 0.0753],
+              [13138, 806.08, 0.064],
+              [17950, 1114.08, 0.1144],
+              [22117, 1590.92, 0.0735]
+            ],
+            "married_jointly": [
+              [0, 0, 0.039],
+              [708, 27.67, 0.044],
+              [975, 39.33, 0.0515],
+              [1158, 48.83, 0.054],
+              [6721, 349.17, 0.059],
+              [8067, 428.58, 0.0657],
+              [8971, 487.92, 0.0707],
+              [13138, 782.33, 0.0801],
+              [17629, 1142.33, 0.064],
+              [26933, 1737.83, 0.1349],
+              [31100, 2300, 0.0735],
+              [89796, 6614.08, 0.0765]
+            ],
+            "head_of_household": [
+              [0, 0, 0.039],
+              [708, 27.67, 0.044],
+              [975, 39.33, 0.0515],
+              [1158, 48.83, 0.054],
+              [6721, 349.17, 0.059],
+              [8067, 428.58, 0.0703],
+              [8971, 492.17, 0.0753],
+              [13138, 806.08, 0.064],
+              [17950, 1114.08, 0.1144],
+              [22117, 1590.92, 0.0735]
+            ]
+          }
         }
       }
     ],
